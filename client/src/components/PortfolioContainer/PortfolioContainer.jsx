@@ -5,6 +5,8 @@ import {
   Card, CardHeader, CardBody, Row, Col
 } from 'reactstrap';
 
+import './PortfolioContainer.css'
+
 import { PanelHeader, FormInputs, PortfolioItemResults } from 'components';
 
 
@@ -20,19 +22,19 @@ class PortfolioContainer extends React.Component{
                                 <h5 className="title">Your Portfolio</h5>
                                 <Row>
                                     <Col md={2}>
-                                        Name
+                                        <h1>Name</h1>
                                     </Col>
                                     <Col md={3}>
-                                        Price
+                                        <h1>Price</h1>
                                     </Col>
                                     <Col md={3}>
-                                        Change (24HR)
+                                        <h1>Change (24HR)</h1>
                                     </Col>
                                     <Col md={2}>
-                                        Quantity Held
+                                        <h1>Quantity Held</h1>
                                     </Col>
                                     <Col md={2}>
-                                        Value        
+                                        <h1>Value</h1>        
                                     </Col>
                                 </Row>
                             </CardHeader>
