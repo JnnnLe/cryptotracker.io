@@ -7,17 +7,18 @@ import { Line, Bar } from 'react-chartjs-2';
 // function that returns a color based on an interval of numbers
 
 import {
-    PanelHeader, PortfolioItem
+    PanelHeader, PortfolioItem, Top5
 } from 'components';
 
 class Dashboard extends React.Component{
     render(){
         return (
             <div>
-                <PanelHeader
-                    size="sm"
+                <PanelHeader 
+                size="sm"
                 />
-                <div className="content">
+                <div className="content"> 
+                <Top5 />
                 </div>
             </div>
         );

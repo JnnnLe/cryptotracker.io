@@ -25,7 +25,7 @@ class CoinSearch extends React.Component{
             <div>
                 <PanelHeader size="sm"/>
                 <div className="content">
-                <App />
+                // <App />
                 <br />
                 <br />
                 <br />
@@ -33,7 +33,7 @@ class CoinSearch extends React.Component{
                 </div>
             </div>
 
-        );
+        )
     }
 }
 
