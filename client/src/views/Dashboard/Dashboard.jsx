@@ -18,7 +18,6 @@ class Dashboard extends React.Component{
                 size="sm"
                 />
                 <div className="content"> 
-                <Top5 />
                 </div>
             </div>
         );
