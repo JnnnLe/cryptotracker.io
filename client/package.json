@@ -2,7 +2,12 @@
   "name": "nud-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://timcreative.github.io/now-ui-dashboard-react",
+  "proxy": {
+    "/": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "homepage": "N/A",
   "dependencies": {
     "bootstrap": "4.0.0-beta",
     "chart.js": "2.7.1",
