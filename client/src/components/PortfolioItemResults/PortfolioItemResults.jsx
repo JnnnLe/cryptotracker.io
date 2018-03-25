@@ -5,6 +5,8 @@ import {
   Row, Col, Card, CardHeader, CardBody
 } from 'reactstrap';
 
+import './PortfolioItemResults.css'
+
 class PortfolioItemResults extends Component {
   constructor(props) {
     super(props);
@@ -47,26 +49,26 @@ class PortfolioItemResults extends Component {
 render() {
   return (
       <div>
-            <Card style={{display:"inline-block"}}>
+            <Card>
               <CardHeader>
                 <CardBody>
                 <Row>
-                <Col md={2}>
+                <Col md={2} className="portfolioItem">
                 {this.state.name}
                 </Col>
-        <Col md={3}>
+        <Col md={3} className="portfolioItem">
           {this.state.price}
         </Col>
 
-        <Col md={3}>
+        <Col md={3} className="portfolioItem" id="signal">
           {this.state.dayPercentChange}%
         </Col>
 
-        <Col md={2}>
+        <Col md={2} className="portfolioItem">
           {this.state.quanity}
         </Col>
 
-        <Col md={2}>
+        <Col md={2} className="portfolioItem">
           ${this.state.netWorth}
         </Col>
         </Row>
