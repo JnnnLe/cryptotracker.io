@@ -1,5 +1,5 @@
 {
-  "name": "nud-react",
+  "name": "CRYTOTRACKER.IO",
   "version": "1.0.0",
   "private": true,
   "proxy": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "4.0.0-beta",
     "chart.js": "2.7.1",
+    "cryptocompare": "^0.5.0",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "node-sass-chokidar": "0.0.3",
