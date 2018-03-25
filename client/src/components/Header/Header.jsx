@@ -143,10 +143,10 @@ class Header extends React.Component{
                                 </DropdownMenu>
                             </Dropdown>
                             <NavItem>
-                                <Link to="#pablo" className="nav-link">
+                                <Link to="/login" className="nav-link" target = "_self">
                                     <i className="now-ui-icons users_single-02"></i>
                                     <p>
-                                        <span className="d-lg-none d-md-block">Account</span>
+                                        <span className="d-lg-none d-md-block" href="/login">Account</span>
                                     </p>
                                 </Link>
                             </NavItem>
