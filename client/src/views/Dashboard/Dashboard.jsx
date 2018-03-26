@@ -10,14 +10,24 @@ import {
     PanelHeader, PortfolioItem
 } from 'components';
 
+import Twitter from '../../components/Twitter';
+import Top5 from '../../components/Top5';
+import CoinUpdate from '../../components/CoinUpdate'
+
 class Dashboard extends React.Component{
-    render(){
+    render() {
         return (
             <div>
-                <PanelHeader
-                    size="sm"
-                />
+                <PanelHeader size="sm"/>
                 <div className="content">
+                  <Row>
+                    <Col md={8}>
+                  <Top5 />      
+                    </Col>
+                    <Col md={4}>
+                        <Twitter />
+                    </Col>
+                  </Row>
                 </div>
             </div>
         );
