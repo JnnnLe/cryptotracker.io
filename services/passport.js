@@ -10,9 +10,9 @@ passport.use(
     {
       clientID: key.googleClientID,
       clientSecret: key.googleClientSecretKey,
-      callbackURL: '/auth/google/callback',
+      callbackURL: '/auth/google/callback'
       //passReqToCallback : true,
-      prompt: 'select_account' 
+      
       
     },
      (accessToken, refreshToken, profile, done) => {
