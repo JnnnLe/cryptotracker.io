@@ -4,7 +4,8 @@ module.exports = app => {
   app.get(
     '/login',
     passport.authenticate('google', {
-      scope: ['profile', 'email']
+      scope: ['profile', 'email'],
+      prompt: 'select_account' 
     })
   );
 
@@ -27,4 +28,3 @@ module.exports = app => {
   });
 };
 
-//module.exports = app

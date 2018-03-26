@@ -11,7 +11,11 @@ import {
 } from 'components';
 
 import Twitter from '../../components/Twitter';
+<<<<<<< HEAD
 import CoinUpdate from '../../components/CoinUpdate';
+=======
+import Top5 from '../../components/Top5/Top5';
+>>>>>>> b6a3418d5dc6dca22f97abb1a2707c6ccfa487d9
 import Form from '../../components/Form/Form';
 
 class Dashboard extends React.Component{
@@ -27,11 +31,12 @@ class Dashboard extends React.Component{
                     <Col md={4}>
                       <Twitter />
                     </Col>
-                    <Col md={2}>
+                  </Row>
+                  <Row>
+                    <Col md={12}>
                       <Top5 />
                     </Col>
                   </Row>
-                  <CoinUpdate />
                 </div>
             </div>
         );
