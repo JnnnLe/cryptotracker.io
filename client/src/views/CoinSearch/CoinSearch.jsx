@@ -11,10 +11,10 @@ import TradingViewWidget from 'react-tradingview-widget';
 
 const App = () => (
   <TradingViewWidget
-    width = "900"
-    height = "450"
+    width = "600"
+    height = "250"
     symbol = "BTCUSD"
-    theme = "Dark"
+    theme = "Light"
     style = "3"    
   />
 );
