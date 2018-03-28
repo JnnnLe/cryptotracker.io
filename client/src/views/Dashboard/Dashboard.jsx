@@ -10,33 +10,43 @@ import {
     PanelHeader, PortfolioItem
 } from 'components';
 
-import Twitter from '../../components/Twitter';
-import Top5 from '../../components/Top5';
-import CoinUpdate from '../../components/CoinUpdate';
-import Form from '../../components/Form/Form';
+import Twitter from '../../components/Twitter/Twitter';
+import Top5 from '../../components/Top5/Top5';
+// Form from '../../components/Form/Form';
+import News from '../../components/News/News';
+import Gainers from '../../components/Best+Worst/Gainers';
 
-class Dashboard extends React.Component{
+
+class Dashboard extends React.Component {
     render() {
         return (
-            <div className='Container-fluid'>
-                <PanelHeader size='sm'/>
+            <div className='container'>
+              <PanelHeader size='sm'/>
                 <div className='content'>
                   <Row>
-                    <Col md={6}>
-                      <Form/> 
-                    </Col>
-                    <Col md={4}>
-                      <Twitter />
-                    </Col>
-                    <Col md={2}>
+                    <Col md={8}>
                       <Top5 />
                     </Col>
+                    <Col md={6}>
+                      <Twitter />
+                    </Col>
                   </Row>
-                  <CoinUpdate />
+                  <Row>
+                    <Col md={8}>
+                      <h1>Biggest Losers + Gainers goes here</h1>
+                    </Col>
+                    <Col md={4}>
+                      <News />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={12}>
+                    </Col>
+                  </Row>
                 </div>
             </div>
         );
     }
 }
 
-export default Dashboard;
+export default Dashboard
