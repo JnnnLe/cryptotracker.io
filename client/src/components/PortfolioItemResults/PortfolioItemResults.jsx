@@ -42,6 +42,7 @@ class PortfolioItemResults extends Component {
                         price: JSON.parse(info).DISPLAY.BTC.USD.PRICE,
                         market_cap: JSON.parse(info).DISPLAY.BTC.USD.MKTCAP,
                         dayPercentChange: JSON.parse(info).DISPLAY.BTC.USD.CHANGEPCT24HOUR })
+
       }))
       .catch(err => console.log(err))         
     // }, 20000);
