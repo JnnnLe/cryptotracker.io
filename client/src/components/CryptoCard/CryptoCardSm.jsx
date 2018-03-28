@@ -13,6 +13,7 @@ class CryptoCard extends React.Component {
       logo: props.logo,
       price: null,
       lastPrice: null,
+      nameLower: (props.name).toLowerCase()
     }
 
     this.pollPrice = this.pollPrice.bind(this)
@@ -48,13 +49,15 @@ class CryptoCard extends React.Component {
   }
 
   render() {
-    const { name, symbol, price, logo, lastPrice } = this.state
+    console.log('Lower:', this.state.nameLower)
+    console.log('is it accessing the right coin', `https://coincheckup.com/images/coins/${this.state.nameLower}.png`)
+    const { name, symbol, price, logo, lastPrice, nameLower } = this.state
     const gainloss = lastPrice > price
       ? 'loss'
       : 'gain'
 
     return (
-      <div className={`card ${gainloss}`}>
+      <div className={`cryptoCard ${gainloss}`}>
         <div className='top'>
           <div className='name'>
             {name}
@@ -68,7 +71,8 @@ class CryptoCard extends React.Component {
 
         <div className='bottom'>
           <div className='logo'>
-            <img src="https://coincheckup.com/images/coins/bitcoin.png" width={32} height={32} />
+          <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="32" width="32" />
+
           </div>
 
           <div className={`price ${gainloss}`}>

@@ -1,14 +1,16 @@
-.card {
+.cryptoCard {
   width: 275px;
   height: 100px;
+  background-color: white;
   border-radius: 4px;
+  display: inline-block
 }
 
-.card.gain {
+.cryptoCard.gain {
   border: 1px solid #00b518;
 }
 
-.card.loss {
+.cryptoCard.loss {
   border: 1px solid #e60000;
 }
 
@@ -18,65 +20,65 @@
   width: 100%;
 }
 
-.card .name {
+.cryptoCard .name {
   padding: 8px 12px;
   font-weight: bold;
   font-size: 1.25em;
   width: 75%;
 }
 
-.card .name span {
+.cryptoCard .name span {
   margin: 0px 0px 0px 4px;
   font-weight: normal;
   font-size: 1em;
 }
 
-.card .percentage {
+.cryptoCard .percentage {
   font-size: 1em;
   width: 25%;
   margin: 8px;
   text-align: right;
 }
 
-.card .logo {
+.cryptoCard .logo {
   width: 30%;
   text-align: center;
   margin: 5px;
 }
 
-.card .price {
+.cryptoCard .price {
   width: 70%;
   margin: 8px 0;
   font-size: 1.5em;
 }
 
-.card .percentage.gain,
-.card .price.gain {
+.cryptoCard .percentage.gain,
+.cryptoCard .price.gain {
   color: #00b518;
 }
 
-.card .triangle {
+.cryptoCard .triangle {
   width: 0;
   height: 0;
   border-style: solid;
   position: relative;
 }
 
-.card .price.gain .triangle {
+.cryptoCard .price.gain .triangle {
   top: -17px;
   left: 8px;
   border-width: 0 5px 8.7px 5px;
   border-color: transparent transparent #00b518 transparent;
 }
 
-.card .price.loss .triangle {
+.cryptoCard .price.loss .triangle {
   top: 17px;
   left: 8px;
   border-width: 8.7px 5px 0 5px;
   border-color: #e60000 transparent transparent transparent;
 }
 
-.card .percentage.loss,
-.card .price.loss {
+.cryptoCard .percentage.loss,
+.cryptoCard .price.loss {
   color: #e60000;
 }
