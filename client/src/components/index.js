@@ -2,7 +2,9 @@
 import CoinInfo from './CoinInfo/CoinInfo';
 import PortfolioContainer from './PortfolioContainer/PortfolioContainer';
 import PortfolioItemResults from './PortfolioItemResults/PortfolioItemResults';
+import PortfolioHeader from './PortfolioHeader/PortfolioHeader';
 import Top5 from './Top5/Top5';
+import CryptoCard from './CryptoCard/CryptoCardSm';
 
 import Button from './CustomButton/CustomButton';
 
@@ -24,7 +26,9 @@ export {
     CoinInfo,
     PortfolioContainer,
     PortfolioItemResults,
+    PortfolioHeader,
     Top5,
+    CryptoCard,
 
     // CustomButton
     Button,

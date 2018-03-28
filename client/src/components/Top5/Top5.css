@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-.ccc-widget {
-  width: 25%;
-=======
-body {
-  background: #f1f1f1;
-  padding: 50px;
-}
-
 div#crypto-container {
   background: white;
   width: 70%;
@@ -20,6 +11,5 @@ span.left {
 }
 
 span.right {
->>>>>>> b6a3418d5dc6dca22f97abb1a2707c6ccfa487d9
   float: right;
 }
