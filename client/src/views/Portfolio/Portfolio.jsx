@@ -77,6 +77,46 @@ class Portfolio extends React.Component{
                       name="SONM"
                       symbol="SNM"
                       />
+                      <CryptoCard
+                      name="DASH"
+                      symbol="DASH"
+                      />
+                      <CryptoCard
+                      name="QTUM"
+                      symbol="QTUM"
+                      />
+                      <CryptoCard
+                      name="ZCASH"
+                      symbol="ZEC"
+                      />
+                      <CryptoCard
+                      name="Bytom"
+                      symbol="BTM"
+                      />
+                      <CryptoCard
+                      name="Bancor"
+                      symbol="BNT"
+                      />
+                      <CryptoCard
+                      name="Metal"
+                      symbol="MTL"
+                      />
+                      <CryptoCard
+                      name="Siacoin"
+                      symbol="SC"
+                      />
+                      <CryptoCard
+                      name="Cube"
+                      symbol="AUTO"
+                      />
+                      <CryptoCard
+                      name="Vertcoin"
+                      symbol="VTC"
+                      />
+                      <CryptoCard
+                      name="VIBE"
+                      symbol="VIBE"
+                      />
                     </Col>
                   </Row>
                 </div>

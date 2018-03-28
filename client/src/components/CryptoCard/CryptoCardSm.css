@@ -1,17 +1,18 @@
 .cryptoCard {
-  width: 275px;
-  height: 100px;
+  width: 250px;
+  height: 90px;
   background-color: white;
   border-radius: 4px;
+  margin: 5px;
   display: inline-block
 }
 
 .cryptoCard.gain {
-  border: 1px solid #00b518;
+  border: 1.5px solid #00b518;
 }
 
 .cryptoCard.loss {
-  border: 1px solid #e60000;
+  border: 1.5px solid #e60000;
 }
 
 .top, .bottom {
@@ -23,18 +24,19 @@
 .cryptoCard .name {
   padding: 8px 12px;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.125em;
   width: 75%;
 }
 
 .cryptoCard .name span {
   margin: 0px 0px 0px 4px;
   font-weight: normal;
-  font-size: 1em;
+  font-size: .875em;
 }
 
 .cryptoCard .percentage {
-  font-size: 1em;
+  font-size: .875em;
+  font-weight: bold;
   width: 25%;
   margin: 8px;
   text-align: right;
@@ -49,7 +51,8 @@
 .cryptoCard .price {
   width: 70%;
   margin: 8px 0;
-  font-size: 1.5em;
+  font-size: 1.25em;
+  font-weight: bold
 }
 
 .cryptoCard .percentage.gain,
