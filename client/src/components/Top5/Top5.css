@@ -1,20 +1,9 @@
-body {
-  background: #f1f1f1;
-  padding: 50px;
-}
-
-div#crypto-container {
+div.Top5 {
   background: white;
-  width: 70%;
+  width: 100%;
   margin: 0 auto 4px auto;
   padding: 1em;
   box-shadow: 1px 1px 0 lightgrey;
-}
-
-span.left {
-  font-weight: bold;
-}
-
-span.right {
-  float: right;
+  /* background: lightcoral; */
+  /* display: flex; */
 }

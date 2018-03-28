@@ -37,10 +37,10 @@ class PortfolioItemResults extends Component {
     })
       .then(response => response.text()
       .then(info => { 
-        console.log(JSON.parse(info).DISPLAY);
-        this.setState({ name: JSON.parse(info).DISPLAY.BTC.USD.FROMSYMBOL,
-                        price: JSON.parse(info).DISPLAY.BTC.USD.PRICE,
-                        dayPercentChange: JSON.parse(info).DISPLAY.BTC.USD.CHANGEPCT24HOUR })
+        console.log(JSON.parse(info));
+        this.setState({ name: JSON.parse(info).RAW.BTC.USD.FROMSYMBOL,
+                        price: JSON.parse(info).RAW.BTC.USD.PRICE,
+                        dayPercentChange: JSON.parse(info).RAW.BTC.USD.CHANGEPCT24HOUR })
       }))
       .catch(err => console.log(err))         
     // }, 20000);
