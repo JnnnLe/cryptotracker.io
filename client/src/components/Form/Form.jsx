@@ -65,7 +65,7 @@ class Form extends Component {
     return (
 
     <div style= {{marginTop:50}}>
-      <form className="form">
+      <form className="form" action = "/coinpost" method="post>
         <h2>Add coin to Portfolio</h2>
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
