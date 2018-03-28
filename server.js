@@ -35,7 +35,7 @@ app.use(passport.session());
 app.set("view engine", "handlebars");
 require('./services/passport');
 require('./routes/authControllers.js')(app);
-require('./routes/dataControllers.js')(app)
+require('./routes/dataControllers.js')(app);
 
 
 
