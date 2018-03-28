@@ -12,9 +12,10 @@ import {
 
 import Twitter from '../../components/Twitter/Twitter';
 import Top5 from '../../components/Top5/Top5';
-// import Form from '../../components/Form/Form';
+// Form from '../../components/Form/Form';
 import News from '../../components/News/News';
 import Gainers from '../../components/Best+Worst/Gainers';
+
 
 class Dashboard extends React.Component {
     render() {
@@ -26,7 +27,7 @@ class Dashboard extends React.Component {
                     <Col md={8}>
                       <Top5 />
                     </Col>
-                    <Col md={4}>
+                    <Col md={6}>
                       <Twitter />
                     </Col>
                   </Row>

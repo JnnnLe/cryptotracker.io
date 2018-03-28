@@ -1,9 +1,5 @@
 .portfolioItem {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
-  text-align: center
-}
-
-#signal {
-  color: green
+  text-align: left
 }
