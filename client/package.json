@@ -2,7 +2,12 @@
   "name": "CRYTOTRACKER.IO",
   "version": "1.0.0",
   "private": true,
-  "homepage": "N/A",
+  "proxy": {
+    "/": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "homepage": "CRYPTOTRACKER.IO",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "4.0.0-beta",

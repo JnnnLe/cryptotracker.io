@@ -18,8 +18,8 @@ module.exports = app => {
   });
 
   app.get('/api/currentUser', function(req, res) {
-    res.send(req.user);
-    console.log('res',res);
+    console.log('res======',req.user);
+    res.send(req.user.first_name);
   });
 
   app.get('/auth/logout', function(req, res) {
