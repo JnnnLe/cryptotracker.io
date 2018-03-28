@@ -11,8 +11,7 @@ import {
 } from 'components';
 
 import Twitter from '../../components/Twitter';
-import Top5 from '../../components/Top5';
-import CoinUpdate from '../../components/CoinUpdate';
+import Top5 from '../../components/Top5/Top5';
 import Form from '../../components/Form/Form';
 
 class Dashboard extends React.Component{
@@ -28,11 +27,12 @@ class Dashboard extends React.Component{
                     <Col md={4}>
                       <Twitter />
                     </Col>
-                    <Col md={2}>
+                  </Row>
+                  <Row>
+                    <Col md={12}>
                       <Top5 />
                     </Col>
                   </Row>
-                  <CoinUpdate />
                 </div>
             </div>
         );
