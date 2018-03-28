@@ -16,24 +16,25 @@ passport.use(
       
     },
      (accessToken, refreshToken, profile, done) => {
-        db.User.create({"social_id":profile.id,"first_name":profile.name.givenName,"last_name":profile.name.familyName,"email":profile.emails[0].value});
-        console.log('firstName',profile.name.givenName)
-
-      console.log("social_id",profile.id);
-      console.log('lastName',profile.name.familyName)
-      console.log('email',profile.emails[0].value)
-       done(null, profile);
+        
+      const existingUser = db.User.findOne({ social_id: profile.id });
+      if (existingUser) {
+          done(null, existingUser);
+      } else {
+          db.User.create({ "social_id": profile.id, "first_name": profile.name.givenName, "last_name": profile.name.familyName, "email": profile.emails[0].value });
+          done(null, user);
+      }
     }
   )
 );
 passport.serializeUser((user, done) => {
-  done(null, user.id);
-  console.log('userId', user.id);
+  done(null, user);
+  // console.log('userId', user);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((user, done) => {
   
-  done(null, id);
+  done(null, user);
   
 });
 
