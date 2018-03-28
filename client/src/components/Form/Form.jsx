@@ -65,8 +65,8 @@ class Form extends Component {
     return (
 
     <div style= {{marginTop:50}}>
-      <form className="form" action = "/coinpost" method="post">
-        <h2>Convert</h2>
+      <form className="form" action = "/coinpost" method="post>
+        <h2>Add coin to Portfolio</h2>
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
@@ -91,7 +91,7 @@ class Form extends Component {
             value={this.state.priceBought}
             onChange={this.handleUserInput} />
         </div>
-        <button type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Convert</button>
+        <button type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Add</button>
       </form>
     </div>
     )

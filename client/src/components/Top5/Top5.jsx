@@ -1,80 +1,71 @@
-// import React, { Component } from 'react';
-// import ReactDom from 'react-dom';
-
-// class Top5 extends Component {
-    
-//     top5Display = () => {
-//     let baseUrl = "https://widgets.cryptocompare.com/";
-//     let scripts = document.getElementsByTagName("script");
-//     let embedder = scripts[scripts.length - 1];
-//     let appName = encodeURIComponent(window.location.hostname);
-
-//     if (appName == "") {
-//       appName = "local";
-//     }
-
-//     let s = document.createElement("script");
-//     s.type = "text/javascript";
-//     s.async = true;
-//     let theUrl = baseUrl + 'serve/v1/coin/multi?fsyms=BTC,ETH,XMR,LTC,DASH&tsyms=USD,EUR,CNY,GBP';
-//     s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + 'CRYPTOTRACKER.io';
-//     embedder.parentNode.appendChild(s);
-//   }
-
-//   render() {
-//     return (
-//       <div style={{
-//           'width':500,
-//           'height':250
-//         }}>
-//           {this.top5Display()}
-//       </div>
-//     )
-//   }
-// }
-
-// export default Top5;
-
-
 import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
 import './Top5.css';
 import axios from 'axios';
-var NumberFormat = require('react-number-format');
 
 class Top5 extends Component {
 
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this.state = {
       cryptos: []
-    };
+    }, 
+    this.generateCoin = this.generateCoin.bind(this);
+    this.generateAllCoins = this.generateAllCoins.bind(this);
   }
 
+  generateCoin(i, coinName, price, PC24Hr) {
+    return (
+      <div className='Top5' key={i}>
+          <div>
+            <Row>
+              <Col md={4}>
+                {coinName}
+              </Col>
+              <Col md={4}>
+                $ {price}
+              </Col> 
+              <Col md={4}>
+                {PC24Hr} %
+              </Col>
+            </Row>
+          </div>
+        </div>
+    )
+  }
+
+  generateAllCoins() {
+    let coinjsx = [];
+    Object.keys(this.state.cryptos).map((coin, i) => {
+      const coinName = this.state.cryptos[coin].USD.FROMSYMBOL;
+      const price = this.state.cryptos[coin].USD.PRICE;
+      const PC24Hr = (this.state.cryptos[coin].USD.CHANGEPCT24HOUR).toFixed(2);
+      const jsx = this.generateCoin(i, coinName, price, PC24Hr);
+      coinjsx.push(jsx);
+  })
+
+  return coinjsx;
+}
+
   componentDidMount() {
-    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,IOT&tsyms=USD')
+    axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,IOT,DMT,LTC,VIU&tsyms=USD')
       .then(res => {
-        const cryptos = res.data;
-        console.log(cryptos);
-        this.setState({ cryptos: cryptos });
+        const coins = res.data.RAW;
+          this.setState({ cryptos : coins })
       })
   }
 
-  render() {
-    return (
-      <div className='container-fluid'>
-        <div className="Top5">
-          {Object.keys(this.state.cryptos).map((key) => (
-
-            <div id="crypto-container">
-              <span className="left">{key}</span>
-              <span className="right"><NumberFormat value={this.state.cryptos[key].USD} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} /></span>
-            </div>
-          ))}
+    render() {
+      //gather data
+      const coins = this.generateAllCoins();
+      return (
+        <div>
+          <div>
+            {coins}
           </div>
         </div>
-    );
-  }
-}
+      )
+    }
+ }
 
 export default Top5;
