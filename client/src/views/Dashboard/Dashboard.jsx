@@ -16,10 +16,10 @@ import Top5 from '../../components/Top5/Top5';
 import News from '../../components/News/News';
 import Gainers from '../../components/Best+Worst/Gainers';
 
-class Dashboard extends React.Component{
+class Dashboard extends React.Component {
     render() {
         return (
-            <div className='container-fluid'>
+            <div className='container'>
               <PanelHeader size='sm'/>
                 <div className='content'>
                   <Row>
@@ -40,7 +40,6 @@ class Dashboard extends React.Component{
                   </Row>
                   <Row>
                     <Col md={12}>
-                      <Gainers />
                     </Col>
                   </Row>
                 </div>
@@ -49,4 +48,4 @@ class Dashboard extends React.Component{
     }
 }
 
-export default Dashboard;
+export default Dashboard
