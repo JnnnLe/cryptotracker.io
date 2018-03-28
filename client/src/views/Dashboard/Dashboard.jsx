@@ -20,14 +20,14 @@ import Gainers from '../../components/Best+Worst/Gainers';
 class Dashboard extends React.Component {
     render() {
         return (
-            <div className='container'>
+            <div>
               <PanelHeader size='sm'/>
                 <div className='content'>
                   <Row>
                     <Col md={8}>
                       <Top5 />
                     </Col>
-                    <Col md={6}>
+                    <Col md={4}>
                       <Twitter />
                     </Col>
                   </Row>
