@@ -1,0 +1,71 @@
+.imgContainer {
+    background-image: url("../images/bg5.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topLinks {
+    background-color: transparent;
+    text-align: center;
+    padding-top: 1%;
+}
+
+a {
+    color: white;
+    text-align: center;
+}
+
+h4 {
+    color: white;
+}
+
+
+/* .row {
+    margin-right: 0 !important;
+} */
+
+#gsBox {
+    margin-top: 4.7%;
+    margin-bottom: 4.7%;
+}
+
+#getStarted {
+    background-color: transparent;
+    padding: 2%;
+    color: white;
+}
+
+.panel-heading {
+    text-align: center;
+    background-color: #051f4d;
+    width: 110% auto;
+    color: white;
+    padding: 1%;
+}
+
+p,
+.card-text {
+    color: #051f4d;
+}
+
+.card-img-top {
+    height: 240px;
+    width: 240px;
+}
+
+.card {
+    border: transparent;
+    padding: 4%;
+    margin-top: 10%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: red;
+    text-align: center;
+    font-size: 12px;
+}

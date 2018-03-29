@@ -5,6 +5,8 @@ import {
   Row, Col, Card, CardHeader, CardBody
 } from 'reactstrap';
 
+import './PortfolioItemResults.css'
+
 class PortfolioItemResults extends Component {
   constructor(props) {
     super(props);
@@ -35,10 +37,12 @@ class PortfolioItemResults extends Component {
     })
       .then(response => response.text()
       .then(info => { 
-        console.log(JSON.parse(info).DISPLAY);
-        this.setState({ name: JSON.parse(info).DISPLAY.BTC.USD.FROMSYMBOL,
+        console.log(JSON.parse(info).RAW);
+        this.setState({ name: JSON.parse(info).RAW.BTC.USD.FROMSYMBOL,
                         price: JSON.parse(info).DISPLAY.BTC.USD.PRICE,
+                        market_cap: JSON.parse(info).DISPLAY.BTC.USD.MKTCAP,
                         dayPercentChange: JSON.parse(info).DISPLAY.BTC.USD.CHANGEPCT24HOUR })
+
       }))
       .catch(err => console.log(err))         
     // }, 20000);
@@ -47,31 +51,29 @@ class PortfolioItemResults extends Component {
 render() {
   return (
       <div>
-            <Card style={{display:"inline-block"}}>
-              <CardHeader>
-                <CardBody>
-                <Row>
-                <Col md={2}>
+        <Card>
+          <CardBody className="coin-div">
+            <Row>
+              <Col md={2} className="portfolioItem">
                 {this.state.name}
-                </Col>
-        <Col md={3}>
-          {this.state.price}
-        </Col>
-
-        <Col md={3}>
-          {this.state.dayPercentChange}%
-        </Col>
-
-        <Col md={2}>
-          {this.state.quanity}
-        </Col>
-
-        <Col md={2}>
-          ${this.state.netWorth}
-        </Col>
-        </Row>
-        </CardBody>
-        </CardHeader>
+              </Col>
+              <Col md={2} className="portfolioItem">
+                {this.state.price}
+              </Col>
+              <Col md={2} className="portfolioItem">
+                {this.state.dayPercentChange}%
+              </Col>
+              <Col md={2} className="portfolioItem">
+                {this.state.market_cap}
+              </Col>
+              <Col md={2} className="portfolioItem">
+                {this.state.quanity}
+              </Col>
+              <Col md={2} className="portfolioItem">
+                ${this.state.netWorth}
+              </Col>
+            </Row>
+          </CardBody>
         </Card>
       </div>
     )
