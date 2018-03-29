@@ -21,14 +21,17 @@ h4 {
     color: white;
 }
 
-
-/* .row {
+.row {
     margin-right: 0 !important;
-} */
+}
+
+.col-12 {
+    width: +15px;
+}
 
 #gsBox {
-    margin-top: 4.7%;
-    margin-bottom: 4.7%;
+    margin-top: 6.2%;
+    margin-bottom: 6.2%;
 }
 
 #getStarted {
@@ -37,17 +40,19 @@ h4 {
     color: white;
 }
 
-.panel-heading {
+.bottom-title {
     text-align: center;
-    background-color: #051f4d;
-    width: 110% auto;
-    color: white;
+    background-color: #51a7f8;
+    color: #262626;
     padding: 1%;
+    width: 100% auto;
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 p,
 .card-text {
-    color: #051f4d;
+    color: #51a7f8;
 }
 
 .card-img-top {
@@ -59,13 +64,14 @@ p,
     border: transparent;
     padding: 4%;
     margin-top: 10%;
+    color: #51a7f8
 }
 
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    color: red;
+    color: #262626;
     text-align: center;
     font-size: 12px;
 }
