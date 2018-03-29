@@ -13,7 +13,7 @@ html {
 
 #topLinks {
     background-color: transparent;
-    text-align: center;
+    text-align: right;
     padding-top: 1%;
 }
 
@@ -30,10 +30,11 @@ h2 {
     margin-right: 0 !important;
 }
 
-#gsBox {
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
+
+/* #gsBox {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+} */
 
 #getStarted {
     background-color: transparent;
