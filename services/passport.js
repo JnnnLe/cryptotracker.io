@@ -5,6 +5,7 @@ const db = require("../models");
 
 
 passport.use(
+
     new GoogleStrategy({
             clientID: key.googleClientID,
             clientSecret: key.googleClientSecretKey,

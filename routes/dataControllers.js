@@ -3,6 +3,7 @@ const db = require("../models");
 
 module.exports = app => {
 
+
     app.post('/coinpost', function(req, res) {
         console.log("hgjfhjhgjhjhjhgjhjhjhj", req.user.social_id);
         console.log("usercoin detaild", req.body)
@@ -40,8 +41,5 @@ module.exports = app => {
                 res.json(err);
             });
     })
-
-
-
 
 }
