@@ -12,7 +12,7 @@ import {
 
 import Twitter from '../../components/Twitter/Twitter';
 import Top5 from '../../components/Top5/Top5';
-// Form from '../../components/Form/Form';
+// import Form from '../../components/Form/Form';
 import News from '../../components/News/News';
 import Gainers from '../../components/Best+Worst/Gainers';
 
@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
                   </Row>
                   <Row>
                     <Col md={8}>
-                      <h1>Biggest Losers + Gainers goes here</h1>
+                      <Gainers />
                     </Col>
                     <Col md={4}>
                       <News />
