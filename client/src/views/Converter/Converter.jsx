@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 
 import {
-    PanelHeader, PortfolioItem, ConverterApp
+    PanelHeader, PortfolioItem, ConverterApp, ConverterForm
 } from 'components';
 
 class Converter extends React.Component {
