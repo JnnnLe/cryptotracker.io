@@ -5,6 +5,7 @@ import PortfolioItemResults from './PortfolioItemResults/PortfolioItemResults';
 import PortfolioHeader from './PortfolioHeader/PortfolioHeader';
 import Top5 from './Top5/Top5';
 import CryptoCard from './CryptoCard/CryptoCardSm';
+import ConverterApp from './Converter/Converter';
 
 import Button from './CustomButton/CustomButton';
 
@@ -29,6 +30,7 @@ export {
     PortfolioHeader,
     Top5,
     CryptoCard,
+    ConverterApp,
 
     // CustomButton
     Button,

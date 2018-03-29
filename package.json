@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
    
+=======
+>>>>>>> 8a7e43b1fe7ab61c1b7f5348fac5badebf346daa
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "build": "node scripts/build.js",
