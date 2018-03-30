@@ -97,14 +97,18 @@ h2 {
     font-size: 24px;
 }
 
+.col-3 {
+    text-align: center;
+}
+
 p,
 .card-text {
     color: #51a7f8;
 }
 
 .card-img-top {
-    height: 265px;
-    width: 265px;
+    height: 245px;
+    width: 245px;
 }
 
 .card {
