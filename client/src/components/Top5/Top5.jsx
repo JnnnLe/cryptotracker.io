@@ -3,6 +3,8 @@ import { Col, Row } from 'reactstrap';
 import './Top5.css';
 import axios from 'axios';
 
+const NumberFormat = require('react-number-format');
+
 class Top5 extends Component {
 
   constructor() {
@@ -22,16 +24,17 @@ class Top5 extends Component {
           <div>
             <Row>
               <Col md={3}>
-                {coinName}
+                {coinName} 
               </Col>
               <Col md={3}>
-                $ {price}
+                <NumberFormat value={price} 
+                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
               </Col> 
               <Col md={3}>
-                {PC24Hr} %
+              <NumberFormat value={PC24Hr} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
               </Col>
               <Col md={3}>
-                $ {marketCap}
+              <NumberFormat value={marketCap} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
               </Col>
             </Row>
           </div>
