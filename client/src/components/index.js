@@ -5,7 +5,9 @@ import PortfolioItemResults from './PortfolioItemResults/PortfolioItemResults';
 import PortfolioHeader from './PortfolioHeader/PortfolioHeader';
 import Top5 from './Top5/Top5';
 import CryptoCard from './CryptoCard/CryptoCardSm';
+import CryptoCardPortfolio from './CryptoCardPortfolio/CryptoCardPortfolio';
 import ConverterApp from './Converter/Converter';
+import UserSharesInput from './UserSharesInput/UserSharesInput';
 
 import Button from './CustomButton/CustomButton';
 
@@ -30,7 +32,9 @@ export {
     PortfolioHeader,
     Top5,
     CryptoCard,
+    CryptoCardPortfolio,
     ConverterApp,
+    UserSharesInput,
 
     // CustomButton
     Button,

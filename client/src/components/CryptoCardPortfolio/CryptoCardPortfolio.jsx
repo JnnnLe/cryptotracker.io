@@ -1,26 +1,51 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 
-import './CryptoCardSm.css'
+import reactstrap, { Row, Col } from 'reactstrap';
 
-class CryptoCard extends React.Component {
+import './CryptoCardPortfolio.css'
+import UserSharesInput from '../UserSharesInput/UserSharesInput';
+
+class CryptoCardPortfolio extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       name: props.name,
       symbol: props.symbol,
       logo: props.logo,
-      price: null,
-      lastPrice: null,
-      nameLower: (props.name).toLowerCase()
+      price: 0,
+      lastPrice: 0,
+      nameLower: (props.name).toLowerCase(),
+      shares: 0,
+      netValue: 0,
+      showInput: false
     }
 
     this.pollPrice = this.pollPrice.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.calcNetValue = this.calcNetValue.bind(this)
   }
 
   componentDidMount() {
     this.pollPrice()
     setInterval(this.pollPrice, 10000)
+  }
+
+  handleChange(event) {
+    console.log(event.target)
+    const newState = {...this.state}
+    newState.shares = event.target.value
+    this.setState(newState)
+  }
+
+  handleClick() {
+    const newState = {...this.state}
+    newState.showInput = !newState.showInput
+    let shares = newState.shares ? parseInt(newState.shares) : 0
+    let price = parseFloat(newState.price)
+    newState.netValue = this.calcNetValue()
+    this.setState(newState)
   }
 
   pollPrice() {
@@ -33,9 +58,17 @@ class CryptoCard extends React.Component {
           price: json.USD,
           lastPrice: prevState.price !== json.USD
             ? prevState.price
-            : prevState.lastPrice
+            : prevState.lastPrice,
+            netValue: this.calcNetValue()
         }))
       })
+  }
+
+  calcNetValue() {
+    console.log(this.state.shares)
+    return (
+      parseFloat(this.state.shares) * parseFloat(this.state.price)
+    )
   }
 
   priceChange(lastPrice, price) {
@@ -56,6 +89,7 @@ class CryptoCard extends React.Component {
       : 'gain'
 
     return (
+      <Row>
       <div className={`cryptoCard ${gainloss}`}>
         <div className='top'>
           <div className='name'>
@@ -70,7 +104,7 @@ class CryptoCard extends React.Component {
 
         <div className='bottom'>
           <div className='logo'>
-          <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="32" width="32" />
+          <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
 
           </div>
 
@@ -78,10 +112,20 @@ class CryptoCard extends React.Component {
             ${price}
             <span className={`triangle`} />
           </div>
+
+          <div className="userHoldings">
+            <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={this.state.shares} />
+          </div>
+
+          <div className="netValue">
+          ${this.state.netValue}
+          </div>
+
         </div>
       </div>
+      </Row>
     )
   }
 }
 
-export default CryptoCard
+export default CryptoCardPortfolio

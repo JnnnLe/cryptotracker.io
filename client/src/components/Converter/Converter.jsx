@@ -8,7 +8,7 @@ class ConverterApp extends Component {
     name: props.name,
     symbol: props.symbol,
     logo: props.logo,
-    userAmount: null,
+    userAmount: 0,
     convertFrom: props.convertFrom,
     convertFromPrice: 0,
     convertTo: props.convertTo,
@@ -17,7 +17,7 @@ class ConverterApp extends Component {
 
   }
     this.runConverter = this.runConverter.bind(this)
-    this.calculateThisBitch = this.calculateThisBitch.bind(this)
+    this.calculateFinalVal = this.calculateFinalVal.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFrom = this.handleFrom.bind(this);
@@ -25,8 +25,8 @@ class ConverterApp extends Component {
   }
 
   componentDidMount() {
-    this.runConverter();    
-    this.calculateThisBitch();
+    // this.runConverter();    
+    this.calculateFinalVal();
   }
 
   componentWillMount() {
@@ -66,29 +66,48 @@ class ConverterApp extends Component {
   }
 
 runConverter() {
+
+  // TODO: plan for .toLowerCase(), .trim() for User Input
   const { convertFrom } = this.state;
   const { convertTo } = this.state;
+
+  console.log("FETCH RESOURCE");
+  
   axios.all([
-  axios.get(`https://api.coinmarketcap.com/v1/ticker/${convertFrom}`),
-  axios.get(`https://api.coinmarketcap.com/v1/ticker/${convertTo}`)
-  ])
-    .then(axios.spread((firstCall, secCall) => {
-      const fromVal = firstCall.data[0].price_usd;
-      const toVal = secCall.data[0].price_usd;
+    axios.get(`https://api.coinmarketcap.com/v1/ticker/${convertFrom}/`),
+    axios.get(`https://api.coinmarketcap.com/v1/ticker/${convertTo}/`)
+    ])
+      .then(axios.spread((firstCall, secCall) => {
+        const newState = Object.assign({}, this.state)
 
-      console.log('Hoping for the right one to come along', fromVal, toVal)
+        const fromVal = parseInt(firstCall.data[0].price_usd);
+        const toVal = parseInt(secCall.data[0].price_usd);
 
-      this.setState({
-        convertFromPrice: fromVal,
-        convertToPrice: toVal,
-      })
-      const total = this.calculateThisBitch(this.state.userAmount, this.state.convertFromPrice, this.state.convertToPrice)
-      this.setState({ conversionValue: total })
-      console.log('YASSS', total)
-    }))
+        console.log('Hoping for the right one to come along', 'BTC:', fromVal, 'EOS:', toVal)
+
+        // this.setState({
+        //   convertFromPrice: fromVal,
+        //   convertToPrice: toVal,
+        // })
+
+        newState.convertFromPrice = fromVal;
+        newState.convertToPrice = toVal;
+        console.log('TYPEOF FROM: ', typeof fromVal,
+        'TYPEOF TO: ', typeof fromVal, 'USERINPUT: ', typeof this.userAmount, this.userAmount );
+        
+        newState.conversionValue = this.calculateFinalVal(
+          newState.userAmount, 
+          newState.convertFromPrice, 
+          newState.convertToPrice
+        )
+        console.log('VALUE:', this.conversionValue);
+        this.setState(newState)
+        console.log('YASSS', newState.conversionValue);
+        console.log('STATETTTTTTEEEEE:', this.state)
+      }))
 }
 
-calculateThisBitch(u1, u2, u3) {
+calculateFinalVal(u1, u2, u3) {
     const formula = ((u1 * u2) / u3)
     return formula
 }
@@ -112,7 +131,7 @@ render() {
       To this Coin: 
       <input type="text" value={this.state.convertTo} onChange={this.handleTo} />
     </label>
-        <input type="submit" value="+Add Coin" />
+        <input type="submit" value="+Add Coin" onClick={this.runConverter} />
       </form>
     </div>
   )
