@@ -45,11 +45,13 @@ class Gainers extends Component {
             </Col> 
 
             <Col md={4}>
-              {PC7Dy}
+            <NumberFormat value={PC7Dy}
+            displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
             </Col>
 
             <Col md={4}>
-              {marketCap}
+            <NumberFormat value={marketCap} 
+            displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
             </Col>
           </Row>
        </div>
@@ -74,7 +76,7 @@ class Gainers extends Component {
     const tempgainers = coins.splice(0);
     const reverse = tempgainers.splice(95,100);
     const gainers = reverse.reverse();
-    console.log('GAIENRS', gainers);
+    console.log('GAINERS', gainers);
     this.setState({
       gainers
     })

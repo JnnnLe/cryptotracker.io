@@ -42,11 +42,13 @@ class Losers extends Component {
             </Col> 
 
             <Col md={4}>
-            {PC7Dy}
+            <NumberFormat value={PC7Dy}
+            displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
             </Col>
 
             <Col md={4}>
-            {marketCap}
+            <NumberFormat value={marketCap} 
+            displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
             </Col>
           </Row>
        </div>
