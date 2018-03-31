@@ -45,11 +45,11 @@ class Gainers extends Component {
             </Col> 
 
             <Col md={4}>
-            {PC7Dy}
+              {PC7Dy}
             </Col>
 
             <Col md={4}>
-            {marketCap}
+              {marketCap}
             </Col>
           </Row>
        </div>
@@ -72,8 +72,9 @@ class Gainers extends Component {
     }
 
     const tempgainers = coins.splice(0);
-    const gainers = tempgainers.splice(95,100)
-
+    const reverse = tempgainers.splice(95,100);
+    const gainers = reverse.reverse();
+    console.log('GAIENRS', gainers);
     this.setState({
       gainers
     })
