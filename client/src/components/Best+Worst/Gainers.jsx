@@ -12,31 +12,29 @@ class Gainers extends Component {
       gainers: [],
       // losers: []
     } 
-    this.grabTop100Coins = this.grabTop100Coins.bind(this);
-    this.generateCoin = this.generateCoin.bind(this);
-    this.quick_Sort = this.quick_Sort.bind(this);
+    // this.grabTopGainersCoins = this.grabTopGainersCoins.bind(this);
+    // this.generateCoin = this.generateCoin.bind(this);
+    // this.quick_SortBottom = this.quick_SortBottom.bind(this);
+    this.quick_SortTop = this.quick_SortTop.bind(this);
   }
 
-// Todo: grab top 5 performers, in the top 100 list => DONE
-  grabTop100Coins() {
+// // Todo: grab top 5 performers, in the top 100 list => DONE
+  grabTopGainersCoins() {
     let top5jsxFormat = [];
     // let tempjsx = []
-    Object.keys(this.state.allCoins).map((coin, i) => {
-      const coinName = this.state.allCoins[coin].name;
-      const symbol = this.state.allCoins[coin].symbol;
-      const marketCap = this.state.allCoins[coin].market_cap_usd;
-      const PC7Dy = this.state.allCoins[coin].percent_change_7d;
+    Object.keys(this.state.gainers).map((coin, i) => {
+      const coinName = this.state.gainers[coin].name;
+      const symbol = this.state.gainers[coin].symbol;
+      const marketCap = this.state.gainers[coin].market_cap_usd;
+      const PC7Dy = this.state.gainers[coin].percent_change_7d;
 
-      // const jsx = this.generateCoin(i, coinName, symbol, marketCap, PC7Dy);
       top5jsxFormat.push(this.generateCoin(i, coinName, symbol, marketCap, PC7Dy));
-      this.quick_Sort();
       })
     return top5jsxFormat; 
   }
 
 
   generateCoin(i, coinName, symbol, PC7Dy, marketCap) {
-    // console.log('ALL:', i, coinName, symbol, PC7Dy, marketCap);
     return (
       <div className='biggestGainers' key={i}>
         <div>
@@ -58,9 +56,9 @@ class Gainers extends Component {
     )
   }
 
-  quick_Sort() {
+
+  quick_SortTop() {
     const coins = this.state.allCoins;
-    // console.log('Please be Sorted...', coins)
       var temp = 0;
       for (var i = 0; i < coins.length; i++) {
         for (var j = 0; j < coins.length; j++) {
@@ -71,7 +69,13 @@ class Gainers extends Component {
         }
       }
     }
-    return {coins};
+
+    const tempgainers = coins.splice(0);
+    const gainers = tempgainers.splice(95,100)
+
+    this.setState({
+      gainers
+    })
   }
   
   
@@ -83,18 +87,20 @@ class Gainers extends Component {
           this.setState({ 
             allCoins
           });
+
+          this.quick_SortTop();
       })
   }
 
     render() {
-      //gather data
-      const coins = this.grabTop100Coins();
-      // const sorted = this.quick_Sort();
+      // //gather data
+      const coins = this.grabTopGainersCoins();
 
       return (
         <div>
           <div>
-            {coins}
+            <h1> [TOP GAINERS]: </h1>
+              {coins}
           </div>
         </div>
       )
