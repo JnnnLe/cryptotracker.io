@@ -34,9 +34,20 @@ class Dashboard extends React.Component {
                   </Row>
                   <Row>
                     <Col md={8}>
-                      <Gainers />
-                      <Losers />
+                      <Row>
+                        <Col md={12}>
+                          <Gainers />
+                        </Col>
+                        
+                        <div>
+                        </div>
+                    
+                        <Col md={12}>
+                          <Losers />
+                        </Col>
+                      </Row>
                     </Col>
+
                     <Col md={4}>
                       <News />
                     </Col>
