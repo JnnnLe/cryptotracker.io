@@ -9,7 +9,7 @@ class Losers extends Component {
     super();
     this.state = {
       allCoins: [],
-      gainers: [],
+      // gainers: [],
       losers: []
     } 
     // this.grabLowestCoins = this.grabTop100Coins.bind(this);
