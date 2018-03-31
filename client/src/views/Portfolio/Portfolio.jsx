@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 
 import {
-    PanelHeader, PortfolioItem, CryptoCard, CryptoCardPortfolio, AddCoinModal
+    PanelHeader, PortfolioItem, CryptoCard, CryptoCardPortfolio, AddCoinModal, AddedCoin
 } from 'components';
 
 
@@ -43,6 +43,11 @@ class Portfolio extends React.Component{
                     <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} />
                     <button onClick={this.toggleModal}>Add a Coin</button>
                     </Col>
+                  </Row>
+                  <Row>
+                  <Col md={12}>
+                  <AddedCoin />
+                  </Col>
                   </Row>
                 </div>
             </div>

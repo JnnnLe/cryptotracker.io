@@ -1,0 +1,32 @@
+div {
+  margin: auto;
+}
+
+.main-container {
+  margin: auto;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 1000px;
+  height: 80px;
+}
+
+.main-container .logo {
+  padding-top: 5px
+}
+
+#coinName {
+  font-size: 18px;
+  font-weight: bold
+}
+
+#coinSymbol {
+
+}
+
+#currentPrice {
+  font-size: 22px;
+  font-weight: bold;
+  color: green
+}
+

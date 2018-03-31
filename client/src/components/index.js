@@ -9,6 +9,7 @@ import CryptoCardPortfolio from './CryptoCardPortfolio/CryptoCardPortfolio';
 import ConverterApp from './Converter/Converter';
 import UserSharesInput from './UserSharesInput/UserSharesInput';
 import AddCoinModal from './AddCoinModal/AddCoinModal';
+import AddedCoin from './AddedCoin/AddedCoin';
 
 import Button from './CustomButton/CustomButton';
 
@@ -37,6 +38,7 @@ export {
     ConverterApp,
     UserSharesInput,
     AddCoinModal,
+    AddedCoin,
 
     // CustomButton
     Button,
