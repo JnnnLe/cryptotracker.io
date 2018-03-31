@@ -6,4 +6,12 @@ div.News  {
   box-shadow: 1px 1px 0 lightgrey;
   /* background: lightcoral; */
   /* display: flex; */
+  /* overflow: scroll; */
+}
+
+.newsAPI {
+  /* overflow: auto; */
+  height: 400px;
+  width: 327px;
+  overflow: auto;
 }

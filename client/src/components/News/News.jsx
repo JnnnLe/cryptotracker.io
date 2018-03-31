@@ -49,7 +49,7 @@ class News extends Component {
   render() {
     const news = this.generateNewsFeed()
     return (
-      <div>
+      <div className='newsAPI'>
         <h1>Trending News</h1>
         {news}
       </div>
