@@ -18,22 +18,25 @@ class Top5 extends Component {
     this.generateAllCoins = this.generateAllCoins.bind(this);
   }
 
-  generateCoin(i, coinName, price, PC24Hr, marketCap) {
+  generateCoin(i, coinName, price, PC24Hr, PC7Dy, marketCap) {
     return (
       <div className='Top5' key={i}>
           <div>
             <Row>
-              <Col md={3}>
+              <Col md={2.4}>
                 {coinName} 
               </Col>
-              <Col md={3}>
+              <Col md={2.4}>
                 <NumberFormat value={price} 
                 displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
               </Col> 
-              <Col md={3}>
+              <Col md={2.4}>
               <NumberFormat value={PC24Hr} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
               </Col>
-              <Col md={3}>
+              <Col md={2.4}>
+              <NumberFormat value={PC7Dy} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
+              </Col>
+              <Col md={2.4}>
               <NumberFormat value={marketCap} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
               </Col>
             </Row>
@@ -48,8 +51,9 @@ class Top5 extends Component {
       const coinName = this.state.topCryptos[coin].name;
       const price = this.state.topCryptos[coin].price_usd;
       const PC24Hr = this.state.topCryptos[coin].percent_change_24h;
+      const PC7Dy = this.state.topCryptos[coin].percent_change_7d;
       const marketCap = this.state.topCryptos[coin].market_cap_usd;
-      const jsx = this.generateCoin(i, coinName, price, PC24Hr, marketCap);
+      const jsx = this.generateCoin(i, coinName, price, PC24Hr, PC7Dy, marketCap);
 
       coinjsx.push(jsx);
     })
