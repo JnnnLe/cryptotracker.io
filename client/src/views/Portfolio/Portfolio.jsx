@@ -4,11 +4,25 @@ import {
 } from 'reactstrap';
 
 import {
-    PanelHeader, PortfolioItem, CryptoCard, CryptoCardPortfolio
+    PanelHeader, PortfolioItem, CryptoCard, CryptoCardPortfolio, AddCoinModal
 } from 'components';
 
 
 class Portfolio extends React.Component{
+    // REMOVE THIS! BAD PRACTICE!
+    constructor(props) {
+        super(props)
+        this.state = {
+            modal: false
+        }
+
+        this.toggleModal = this.toggleModal.bind(this)
+    }
+
+
+    toggleModal() {
+        this.setState({modal:!this.state.modal})
+    }
     render() {
         return (
             <div>
@@ -21,6 +35,13 @@ class Portfolio extends React.Component{
                       name="Bitcoin"
                       symbol="BTC"
                       />
+                    </Col>
+                    </Row>
+                    <Row>
+                    <Col md={12}>
+                    <br />
+                    <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} />
+                    <button onClick={this.toggleModal}>Add a Coin</button>
                     </Col>
                   </Row>
                 </div>

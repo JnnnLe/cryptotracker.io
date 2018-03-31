@@ -16,12 +16,16 @@ class CryptoCardPortfolio extends React.Component {
       price: 0,
       lastPrice: 0,
       nameLower: (props.name).toLowerCase(),
+      marketCap: 0,
+      dayChange: 0,
+      weekChange: 0,
       shares: 0,
       netValue: 0,
       showInput: false
     }
 
     this.pollPrice = this.pollPrice.bind(this)
+    this.pollValues = this.pollValues.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.calcNetValue = this.calcNetValue.bind(this)
@@ -29,7 +33,8 @@ class CryptoCardPortfolio extends React.Component {
 
   componentDidMount() {
     this.pollPrice()
-    setInterval(this.pollPrice, 10000)
+    this.pollValues()
+    setInterval(this.pollPrice, 15000)
   }
 
   handleChange(event) {
@@ -49,7 +54,7 @@ class CryptoCardPortfolio extends React.Component {
   }
 
   pollPrice() {
-    console.log('polling for new price')
+    console.log('Polling for new price!')
     const { symbol } = this.state
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=${symbol},USD`)
       .then(resp => resp.json())
@@ -64,8 +69,29 @@ class CryptoCardPortfolio extends React.Component {
       })
   }
 
+  pollValues() {
+    console.log('Polling for new values!')
+    const { name } = this.state
+    fetch(`https://api.coinmarketcap.com/v1/ticker/${name}/`)
+      .then (resp => resp.json())
+      .then(json => {
+        var test = json
+          this.setState({
+            marketCap: test[0].market_cap_usd,
+            dayChange: test[0].percent_change_24h,
+            weekChange: test[0].percent_change_7d
+          })
+          // console.log(test[0])
+          console.log(this.state.marketCap)
+          console.log(this.state.dayChange)
+          console.log(this.state.weekChange)
+        })
+      }
+      
+
+  
+
   calcNetValue() {
-    console.log(this.state.shares)
     return (
       parseFloat(this.state.shares) * parseFloat(this.state.price)
     )
@@ -81,15 +107,12 @@ class CryptoCardPortfolio extends React.Component {
   }
 
   render() {
-    console.log('Lower:', this.state.nameLower)
-    console.log('is it accessing the right coin', `https://coincheckup.com/images/coins/${this.state.nameLower}.png`)
     const { name, symbol, price, logo, lastPrice, nameLower } = this.state
     const gainloss = lastPrice > price
       ? 'loss'
       : 'gain'
 
     return (
-      <Row>
       <div className={`cryptoCard ${gainloss}`}>
         <div className='top'>
           <div className='name'>
@@ -123,7 +146,6 @@ class CryptoCardPortfolio extends React.Component {
 
         </div>
       </div>
-      </Row>
     )
   }
 }
