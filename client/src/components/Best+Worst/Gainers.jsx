@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row } from 'reactstrap';
 import axios from 'axios';
 import NumberFormat from 'react-number-format';
+import './Gainers.css';
 
 class Gainers extends Component {
 

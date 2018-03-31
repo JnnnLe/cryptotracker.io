@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row } from 'reactstrap';
 import axios from 'axios';
 import NumberFormat from 'react-number-format';
+import './Losers.css';
 
 class Losers extends Component {
 
@@ -33,7 +34,7 @@ class Losers extends Component {
 
   generateCoin(i, coinName, symbol, PC7Dy, marketCap) {
     return (
-      <div className='biggestGainers' key={i}>
+      <div className='biggestLosers' key={i}>
         <div>
           <Row>
             <Col md={4}>
@@ -66,14 +67,12 @@ class Losers extends Component {
       }
     }
     const tempLosers = coins.splice(0);
-    console.log('TEMP Bottom:', tempLosers)
     const losers = tempLosers.splice(0,5);
 
     this.setState({
       losers
     })
 
-    console.log('STATE THIS:', this.state)
   }
 
   componentWillMount() {
@@ -96,7 +95,7 @@ class Losers extends Component {
       return (
         <div>
           <div>
-            <h1> [Top LOSERS:] </h1>
+            <h1> [Top LOSERS]: </h1>
             {coins}
           </div>
         </div>
