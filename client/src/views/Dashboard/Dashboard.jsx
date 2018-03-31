@@ -15,6 +15,7 @@ import Top5 from '../../components/Top5/Top5';
 // import Form from '../../components/Form/Form';
 import News from '../../components/News/News';
 import Gainers from '../../components/Best+Worst/Gainers';
+import Losers from '../../components/Best+Worst/Losers';
 
 
 class Dashboard extends React.Component {
@@ -34,6 +35,7 @@ class Dashboard extends React.Component {
                   <Row>
                     <Col md={8}>
                       <Gainers />
+                      <Losers />
                     </Col>
                     <Col md={4}>
                       <News />
