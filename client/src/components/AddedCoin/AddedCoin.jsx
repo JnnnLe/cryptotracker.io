@@ -37,13 +37,13 @@ class AddedCoin extends React.Component {
 
   handleChange(event) {
     console.log(event.target)
-    const newState = {...this.state}
+    const newState = { ...this.state }
     newState.shares = event.target.value
     this.setState(newState)
   }
 
   handleClick() {
-    const newState = {...this.state}
+    const newState = { ...this.state }
     newState.showInput = !newState.showInput
     // let shares = newState.shares != undefined ? parseInt(newState.shares) : 0
     if (newState.shares) {
@@ -59,20 +59,20 @@ class AddedCoin extends React.Component {
   }
 
   formatNum(num) {
-    return this.numberWithCommas(parseFloat(num).toFixed(2)) 
+    return this.numberWithCommas(parseFloat(num).toFixed(2))
   }
 
   getValues() {
     console.log('Polling for new values!')
     const { name } = this.state
     fetch(`https://api.coinmarketcap.com/v1/ticker/${name}/`)
-      .then (resp => resp.json())
+      .then(resp => resp.json())
       .then(json => {
         var fetchedResults = json;
-        let state = {...this.state}
-        
-          // name: fetchedResults[0].name,
-          state.symbol = fetchedResults[0].symbol,
+        let state = { ...this.state }
+
+        // name: fetchedResults[0].name,
+        state.symbol = fetchedResults[0].symbol,
           state.price = this.formatNum(fetchedResults[0].price_usd),
           state.marketCap = fetchedResults[0].market_cap_usd,
           state.hourChange = fetchedResults[0].percent_change_1h,
@@ -81,15 +81,15 @@ class AddedCoin extends React.Component {
           state.rank = fetchedResults[0].rank,
           state.priceBTC = fetchedResults[0].price_btc,
           state.netValue = this.calcNetValue(this.state.share, this.formatNum(fetchedResults[0].price_usd))
-        
-          this.setState(state)
-          // console.log(test[0])
-          console.log(this.state.name)
-          console.log(this.state.dayChange)
-          console.log(this.state.weekChange)
-        })
-      }
-      
+
+        this.setState(state)
+        // console.log(test[0])
+        console.log(this.state.name)
+        console.log(this.state.dayChange)
+        console.log(this.state.weekChange)
+      })
+  }
+
   calcNetValue(shares, price) {
     return (
       parseFloat(shares) * parseFloat(price)
@@ -110,60 +110,52 @@ class AddedCoin extends React.Component {
 
     return (
       <div className='main-container'>
-      <Row>
+        <Row>
 
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
-          
-        <Col md={2}>
-          <Row>
-            <Col md={12} id='coinName'>
-              {name}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} id='coinSymbol'>
-              ({this.state.symbol})
-            </Col>
-          </Row>
-        </Col>
 
-        <Col md={4}>
-        <Row>
-        <div id='currentPrice'>
-          ${price}
-        </div>
-        </Row>
-        <Row>
-        <div className='percentages'>
-        HOUR: {hourChange}%
+          <Col md={2}>
+            <Row>
+              <Col md={12} id='coinName'>
+                {name}
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12} id='coinSymbol'>
+                ({this.state.symbol})
+            </Col>
+            </Row>
+          </Col>
+
+          <Col md={4}>
+            <Row>
+              <div id='currentPrice'>
+                ${price}
+              </div>
+            </Row>
+            <Row>
+              <div className='percentages'>
+                HOUR: {hourChange}%
         DAY: {dayChange}%
         WEEK: {weekChange}%
         </div>
+            </Row>
+          </Col>
+          <Col md={3}>
+            <div className="userHoldings">
+              <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
+            </div>
+
+          </Col>
+          <Col md={2}>
+            <div className="netValue">
+              ${calcValue}
+            </div>
+          </Col>
         </Row>
-        </Col>
-        <Col md={3}>
-        <div className="userHoldings">
-        <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
       </div>
-
-        </Col>
-        <Col md={2}>
-        <div className="netValue">
-        ${calcValue}
-        </div>
-        </Col>
-
-
-
-
-
-
-
-
-        </Row>
-        </div>
 
 
     )
