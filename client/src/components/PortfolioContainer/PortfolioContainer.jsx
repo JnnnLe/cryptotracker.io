@@ -32,15 +32,7 @@ class PortfolioContainer extends React.Component{
             <div className="content">
             <Row>
                     <Col md={8}>
-                        <Card>
-                            <CardHeader>
-                                <h5 className="title">Your Portfolio</h5>
-                            </CardHeader>
-                            <CardBody>
-                                <PortfolioHeader />
-                                <PortfolioItemResults />
-                            </CardBody>
-                        </Card>
+                        
                     </Col>
                     <Col md={4}>
                     <App />
