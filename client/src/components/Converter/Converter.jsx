@@ -58,7 +58,6 @@ class ConverterApp extends Component {
 runConverter() {
 
   // TODO: plan for .toLowerCase(), .trim() for User Input
-
   const { userAmount } = this.state;
   const { convertFrom } = this.state;
   const { convertTo } = this.state;
@@ -69,12 +68,8 @@ runConverter() {
     ])
       .then(axios.spread((firstCall, secCall) => {
         const newState = Object.assign({}, this.state)
-        // const newState = {...this.state}
-
         const fromVal = parseInt(firstCall.data[0].price_usd);
         const toVal = parseInt(secCall.data[0].price_usd);
-
-        // console.log('Hoping for the right one to come along', 'FIRST VAL:', fromVal, 'SECOND VAL:', toVal)
 
         newState.userAmount = userAmount;
         newState.convertFromPrice = fromVal;
@@ -87,18 +82,18 @@ runConverter() {
           newState.convertFromPrice, 
           newState.convertToPrice
         )
+
         // console.log('VALUE:', this.conversionValue);
         this.setState(newState)
         // console.log('YASSS', newState.conversionValue);
         console.log('FINAL : STATTTTTTTEEEEE:', this.state)
       }))
 }
-
   calculateFinalVal(u1, u2, u3) {
       const formula = ((u1 * u2) / u3)
       return formula
   }
-
+  
   render() {
     return (
       <div>
@@ -123,7 +118,7 @@ runConverter() {
           To this Coin: 
           <input type="text" value={this.state.convertTo} onChange={this.handleTo} />
         </label>
-          <input type="submit" value="Covert Coin" onClick={this.runConverter} />
+          <input type="submit" value="Convert Coin" onClick={this.runConverter} />
 
         <br/>
         <br/>
