@@ -10,11 +10,9 @@ class Losers extends Component {
     super();
     this.state = {
       allCoins: [],
-      // gainers: [],
       losers: []
     } 
-    // this.grabLowestCoins = this.grabTop100Coins.bind(this);
-    // this.generateCoin = this.generateCoin.bind(this);
+
     this.quick_SortBottom = this.quick_SortBottom.bind(this);
   }
 
@@ -42,11 +40,15 @@ class Losers extends Component {
             </Col> 
 
             <Col md={4}>
-            {PC7Dy}
+              <NumberFormat value={PC7Dy}
+              displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
             </Col>
 
             <Col md={4}>
-            {marketCap}
+              <div id='red'>
+                <NumberFormat value={marketCap} 
+                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
+              </div>
             </Col>
           </Row>
        </div>
@@ -94,9 +96,14 @@ class Losers extends Component {
 
       return (
         <div>
-          <div>
-            <h1> [Top LOSERS]: </h1>
-            {coins}
+          <div id='titleBar'>
+            <h1>Biggest Losers:</h1>
+            <Row>
+              <Col md={4}>Coin Name:</Col>
+              <Col md={4}>Net Marketcap:</Col>
+              <Col md={4}>Change over 7 days:</Col>
+              {coins}
+            </Row>
           </div>
         </div>
       )

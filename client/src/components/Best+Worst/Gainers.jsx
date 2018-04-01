@@ -11,18 +11,12 @@ class Gainers extends Component {
     this.state = {
       allCoins: [],
       gainers: [],
-      // losers: []
     } 
-    // this.grabTopGainersCoins = this.grabTopGainersCoins.bind(this);
-    // this.generateCoin = this.generateCoin.bind(this);
-    // this.quick_SortBottom = this.quick_SortBottom.bind(this);
     this.quick_SortTop = this.quick_SortTop.bind(this);
   }
 
-// // Todo: grab top 5 performers, in the top 100 list => DONE
   grabTopGainersCoins() {
     let top5jsxFormat = [];
-    // let tempjsx = []
     Object.keys(this.state.gainers).map((coin, i) => {
       const coinName = this.state.gainers[coin].name;
       const symbol = this.state.gainers[coin].symbol;
@@ -45,11 +39,15 @@ class Gainers extends Component {
             </Col> 
 
             <Col md={4}>
-            {PC7Dy}
+              <NumberFormat value={PC7Dy}
+              displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
             </Col>
 
             <Col md={4}>
-            {marketCap}
+              <div id='green'>
+                <NumberFormat value={marketCap} 
+                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
+              </div>
             </Col>
           </Row>
        </div>
@@ -72,7 +70,8 @@ class Gainers extends Component {
     }
 
     const tempgainers = coins.splice(0);
-    const gainers = tempgainers.splice(95,100)
+    const reverse = tempgainers.splice(95,100);
+    const gainers = reverse.reverse();
 
     this.setState({
       gainers
@@ -99,9 +98,14 @@ class Gainers extends Component {
 
       return (
         <div>
-          <div>
-            <h1> [TOP GAINERS]: </h1>
+          <div id='titleBar'>
+            <h1>Biggest Gainers: </h1>
+            <Row>
+              <Col md={4}>Coin Name:</Col>
+              <Col md={4}>Net Marketcap:</Col>
+              <Col className='left' md={4}>Change over 7 days:</Col>
               {coins}
+            </Row>
           </div>
         </div>
       )

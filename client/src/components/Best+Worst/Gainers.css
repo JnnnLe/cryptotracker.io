@@ -4,4 +4,26 @@ div.biggestGainers {
   margin: 0 auto 4px auto;
   padding: 1em;
   box-shadow: 1px 1px 0 lightgrey;
+  /* color: green; */
+}
+
+div#titleBar {
+  background: lightgrey;
+  width: 100%;
+  margin: 0 auto 4px auto;
+  padding: 1em;
+  box-shadow: 1px 1px 0 lightgrey;
+  /* color: green; */
+}
+
+div#green {
+  color: green;
+}
+
+/* .left {
+  text-align: right;
+} */
+
+h1 {
+  font-weight: bolder;
 }
