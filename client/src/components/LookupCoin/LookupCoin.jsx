@@ -121,7 +121,7 @@ class LookupCoin extends React.Component {
       <Row>
 
           <div className='logo'>
-            // <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
+            <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
           
         <Col md={2}>
@@ -161,22 +161,23 @@ class LookupCoin extends React.Component {
         <Col md={2}>
         <div className="netValue">
         {priceBTC}
-
-
-          
         </div>
         </Col>
       </Row>
 
+    <div className='globalInfo'>
      <Row>
-      <Col md={12}>
-     Bitcoin % of market cap: { bitcoin_percentage_of_market_cap}
-     Total 24hr Volume:  { total_24h_volume_usd}
-      Total Markey cap: {total_market_cap_usd}
+      <Col md={4}>
+        Bitcoin % of market cap: {bitcoin_percentage_of_market_cap}
+        </Col>
+        <Col md={4}>
+        Total 24hr Volume:  {total_24h_volume_usd}
+        </Col>
+        <Col md={4}>
+        Total Markey cap: {total_market_cap_usd}
       </Col>
-
      </Row>
-
+    </div>
 
      </div>
 
