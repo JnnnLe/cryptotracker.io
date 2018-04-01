@@ -107,25 +107,29 @@ runConverter() {
         <br/>
         <form onSubmit={this.handleSubmit}>
         <label>
-        Amount 
-        <input type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
-      </label>        
-      <label>
-        Convert this Coin: 
-        <input type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
-      </label>
-      <label>
-        To this Coin: 
-        <input type="text" value={this.state.convertTo} onChange={this.handleTo} />
-      </label>
-          <input type="submit" value="+Add Coin" onClick={this.runConverter} />
+          Amount 
+          <input type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
+        </label> 
 
-      <br/>
-      <br/>
+        <br/>
+        <br/>
+        <label>
+          Convert this Coin: 
+          <input type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
+        </label>
 
-      <label> Converted Value =   
-        <input type="number" value={this.state.conversionValue} />
-      </label>
+ 
+        <label>
+          To this Coin: 
+          <input type="text" value={this.state.convertTo} onChange={this.handleTo} />
+        </label>
+          <input type="submit" value="Covert Coin" onClick={this.runConverter} />
+
+        <br/>
+        <br/>
+          <label> Converted Value =   
+            <input type="number" value={this.state.conversionValue} />
+        </label>
 
         </form>
       </div>

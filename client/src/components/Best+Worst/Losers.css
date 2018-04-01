@@ -1,4 +1,4 @@
-div.biggestLosers {
+div.biggestLosers, #titleBar {
   background: white;
   width: 100%;
   margin: 0 auto 4px auto;
@@ -9,4 +9,8 @@ div.biggestLosers {
 
 div#red {
   color: red;
+}
+
+h1 {
+  font-weight: bolder;
 }

@@ -96,9 +96,14 @@ class Losers extends Component {
 
       return (
         <div>
-          <div>
-            <h1> [Top LOSERS]: </h1>
-            {coins}
+          <div id='titleBar'>
+            <h1>Biggest Losers:</h1>
+            <Row>
+              <Col md={4}>Coin Name:</Col>
+              <Col md={4}>Net Marketcap:</Col>
+              <Col md={4}>Change over 7 days:</Col>
+              {coins}
+            </Row>
           </div>
         </div>
       )

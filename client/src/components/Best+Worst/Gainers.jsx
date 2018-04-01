@@ -98,9 +98,14 @@ class Gainers extends Component {
 
       return (
         <div>
-          <div>
-            <h1> [TOP GAINERS]: </h1>
+          <div id='titleBar'>
+            <h1>Biggest Gainers: </h1>
+            <Row>
+              <Col md={4}>Coin Name:</Col>
+              <Col md={4}>Net Marketcap:</Col>
+              <Col className='left' md={4}>Change over 7 days:</Col>
               {coins}
+            </Row>
           </div>
         </div>
       )
