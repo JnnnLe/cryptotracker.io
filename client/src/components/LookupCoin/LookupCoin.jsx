@@ -112,8 +112,9 @@ class LookupCoin extends React.Component {
   }
 
   render() {
-    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC } = this.state;
+    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  bitcoin_percentage_of_market_cap, total_24h_volume_usd, total_market_cap_usd  } = this.state;
     // console.log('WORKING NAME:', {name})
+    
 
     return (
       <div className='main-container'>
@@ -160,20 +161,24 @@ class LookupCoin extends React.Component {
         <Col md={2}>
         <div className="netValue">
         {priceBTC}
+
+
           
         </div>
         </Col>
+      </Row>
+
+     <Row>
+      <Col md={12}>
+     Bitcoin % of market cap: { bitcoin_percentage_of_market_cap}
+     Total 24hr Volume:  { total_24h_volume_usd}
+      Total Markey cap: {total_market_cap_usd}
+      </Col>
+
+     </Row>
 
 
-
-
-
-
-
-
-        </Row>
-        </div>
-
+     </div>
 
     )
   }
