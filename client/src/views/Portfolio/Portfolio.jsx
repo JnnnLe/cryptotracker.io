@@ -4,120 +4,75 @@ import {
 } from 'reactstrap';
 
 import {
-    PanelHeader, PortfolioItem, CryptoCard
+    PanelHeader, PortfolioItem, CryptoCard, CryptoCardPortfolio, AddCoinModal, AddedCoin
 } from 'components';
 
 
 class Portfolio extends React.Component{
+    // REMOVE THIS! BAD PRACTICE!
+    constructor(props) {
+        super(props)
+        this.state = {
+            modal: false,
+            user: {
+                coins: [
+                    {
+                    name: 'Ethereum',
+                    sharesHeld: 23
+                    },
+                    {
+                    name: 'Substratum',
+                    sharesHeld: 250
+                    },
+                    {
+                    name: 'Dragonchain',
+                    sharesHeld: 200
+                    },
+                    {
+                    name: 'VIBE',
+                    sharesHeld: 150
+                    },
+                    {
+                    name: 'ICON',
+                    sharesHeld: 20
+                    },
+                    {
+                    name: 'TenX',
+                    sharesHeld: 534
+                    }
+                ],
+            }
+        }
+
+        this.toggleModal = this.toggleModal.bind(this)
+    }
+
+    addCoin() {
+
+    }
+
+
+    toggleModal() {
+        this.setState({modal:!this.state.modal})
+    }
     render() {
+        const user = this.state.user
         return (
             <div>
                 <PanelHeader size='sm'
                 />
                 <div className='content'>
-                  <Row>
+                    <Row>
                     <Col md={12}>
-                      <CryptoCard
-                      name="Bitcoin"
-                      symbol="BTC"
-                      /> 
-                      <CryptoCard
-                      name="Ethereum"
-                      symbol="ETH"
-                      />
-                      <CryptoCard
-                      name="Ripple"
-                      symbol="XRP"
-                      />
-                      <CryptoCard
-                      name="Litecoin"
-                      symbol="LTC"
-                      />
-                      <CryptoCard
-                      name="Cardano"
-                      symbol="ADA"
-                      />
-                      <CryptoCard
-                      name="IOTA"
-                      symbol="IOTA"
-                      />
-                      <CryptoCard
-                      name="Stellar"
-                      symbol="XLM"
-                      />
-                      <CryptoCard
-                      name="Substratum"
-                      symbol="SUB"
-                      />
-                      <CryptoCard
-                      name="EOS"
-                      symbol="EOS"
-                      />
-                      <CryptoCard
-                      name="NEO"
-                      symbol="NEO"
-                      />
-                      <CryptoCard
-                      name="NEM"
-                      symbol="XEM"
-                      />
-                      <CryptoCard
-                      name="Dragonchain"
-                      symbol="DRGN"
-                      />
-                      <CryptoCard
-                      name="ReddCoin"
-                      symbol="RDD"
-                      />
-                      <CryptoCard
-                      name="Cindicator"
-                      symbol="CND"
-                      />
-                      <CryptoCard
-                      name="SONM"
-                      symbol="SNM"
-                      />
-                      <CryptoCard
-                      name="DASH"
-                      symbol="DASH"
-                      />
-                      <CryptoCard
-                      name="QTUM"
-                      symbol="QTUM"
-                      />
-                      <CryptoCard
-                      name="ZCASH"
-                      symbol="ZEC"
-                      />
-                      <CryptoCard
-                      name="Bytom"
-                      symbol="BTM"
-                      />
-                      <CryptoCard
-                      name="Bancor"
-                      symbol="BNT"
-                      />
-                      <CryptoCard
-                      name="Metal"
-                      symbol="MTL"
-                      />
-                      <CryptoCard
-                      name="Siacoin"
-                      symbol="SC"
-                      />
-                      <CryptoCard
-                      name="Cube"
-                      symbol="AUTO"
-                      />
-                      <CryptoCard
-                      name="Vertcoin"
-                      symbol="VTC"
-                      />
-                      <CryptoCard
-                      name="VIBE"
-                      symbol="VIBE"
-                      />
+                    <br />
+                    <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} />
+                    <button onClick={this.toggleModal}>Add a Coin</button>
                     </Col>
+                  </Row>
+                  <Row>
+                  <Col md={12}>
+                  {user.coins.map(coin => <AddedCoin name={coin.name} shares={coin.shares} />)}
+                  </Col>
                   </Row>
                 </div>
             </div>

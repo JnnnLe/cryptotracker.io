@@ -39,7 +39,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://newsapi.org/v2/everything?q=crytocurrency&language=en&apiKey=90dcb619e6ce411f953e53b282297dee')
+    axios.get(`https://newsapi.org/v2/everything?q=crytocurrencies&language=en&apiKey=90dcb619e6ce411f953e53b282297dee`)
       .then(res => {
         const listOFArticles = res.data.articles;
         this.setState({ articles: listOFArticles })
@@ -49,7 +49,7 @@ class News extends Component {
   render() {
     const news = this.generateNewsFeed()
     return (
-      <div>
+      <div className='newsAPI'>
         <h1>Trending News</h1>
         {news}
       </div>

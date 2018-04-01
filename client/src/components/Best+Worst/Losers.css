@@ -1,0 +1,16 @@
+div.biggestLosers, #titleBar {
+  background: white;
+  width: 100%;
+  margin: 0 auto 4px auto;
+  padding: 1em;
+  box-shadow: 1px 1px 0 lightgrey;
+  /* color: red; */
+}
+
+div#red {
+  color: red;
+}
+
+h1 {
+  font-weight: bolder;
+}

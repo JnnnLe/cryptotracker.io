@@ -1,7 +1,6 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 
-import './bitcoin.png';
 import './CryptoCardSm.css'
 
 class CryptoCard extends React.Component {
