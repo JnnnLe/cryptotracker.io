@@ -7,7 +7,6 @@ var Schema = mongoose.Schema;
 var CurrencySchema = new Schema({
 
     coin_name: String,
-
     quantity: String,
     price_bought: String
 });

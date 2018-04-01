@@ -2,7 +2,6 @@
   "name": "CRYTOTRACKER.IO",
   "version": "1.0.0",
   "private": true,
-  "homepage": "CRYPTOTRACKER.IO",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "4.0.0-beta",
