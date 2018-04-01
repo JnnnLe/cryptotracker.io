@@ -34,9 +34,7 @@ class UserSharesInput extends Component {
         <button type="submit" onClick={this.props.handleClick}>
         <img src={require('./edit.png')} height={16} width={16} />
         </button>
-        <h1>User Shares:</h1>
-        {this.renderShares()}
-      </div>
+        <h1>User Shares:</h1>{this.renderShares()}</div>
     )
   }
 }

@@ -9,6 +9,7 @@ div {
   border-radius: 5px;
   width: 1000px;
   height: 80px;
+  margin-bottom: 5px
 }
 
 .main-container .logo {
@@ -16,17 +17,30 @@ div {
 }
 
 #coinName {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold
 }
 
 #coinSymbol {
-
+  font-size: 16px
 }
 
 #currentPrice {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   color: green
+}
+
+.percentages {
+  font-size: 12px
+}
+
+.userHoldings {
+  display: inline-block
+}
+
+.netValue {
+  font-size: 24px;
+  font-weight: bold
 }
 

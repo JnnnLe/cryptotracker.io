@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class AddCoinModal extends React.Component {
 
@@ -10,11 +10,14 @@ class AddCoinModal extends React.Component {
         <Modal isOpen={this.props.show} toggle={this.props.toggleFn} className={this.props.className}>
           <ModalHeader toggle={this.props.toggleFn}>Add a Coin</ModalHeader>
           <ModalBody>
-            Here you will add:
-            <br/>
-            Coin Name:
-            <br/>
-            Holdings (Shares Held):
+          <Form>
+          <FormGroup>
+          <Label for="exampleEmail">Coin</Label>
+          <Input type="text" name="email" id="coin" placeholder="e.g. BTC" />
+          <Label for="exampleEmail">Holdings</Label>
+          <Input type="number" name="email" id="amount" placeholder="e.g. 5" />
+        </FormGroup>
+            </Form>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.props.toggleFn}>Do Something</Button>{' '}

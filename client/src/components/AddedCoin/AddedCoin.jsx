@@ -11,17 +11,17 @@ class AddedCoin extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'bitcoin',
-      symbol: props.symbol,
-      logo: props.logo,
-      price: 0,
-      nameLower: ('Bitcoin').toLowerCase(),
-      marketCap: 0,
-      dayChange: 0,
-      weekChange: 0,
-      shares: 0,
-      netValue: 0,
-      showInput: false
+      name: this.props.name,
+      // symbol: props.symbol,
+      // logo: props.logo,
+      // price: 0,
+      nameLower: this.props.name.toLowerCase(),
+      // marketCap: 0,
+      // dayChange: 0,
+      // weekChange: 0,
+      shares: this.props.shares,
+      // netValue: 0,
+      // showInput: false
     }
 
     this.getValues = this.getValues.bind(this)
@@ -45,10 +45,21 @@ class AddedCoin extends React.Component {
   handleClick() {
     const newState = {...this.state}
     newState.showInput = !newState.showInput
-    let shares = newState.shares ? parseInt(newState.shares) : 0
-    let price = parseFloat(newState.price)
-    newState.netValue = this.calcNetValue()
+    // let shares = newState.shares != undefined ? parseInt(newState.shares) : 0
+    if (newState.shares) {
+      console.log('truthy', newState.shares)
+    } else {
+      newState.shares = 0
+      console.log('falsy', newState.shares)
+    }
+    console.log('testing', newState.shares == true)
+    newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
+    newState.netValue = this.calcNetValue(newState.shares, newState.price)
     this.setState(newState)
+  }
+
+  formatNum(num) {
+    return this.numberWithCommas(parseFloat(num).toFixed(2)) 
   }
 
   getValues() {
@@ -58,17 +69,20 @@ class AddedCoin extends React.Component {
       .then (resp => resp.json())
       .then(json => {
         var fetchedResults = json;
-          this.setState({
-            name: fetchedResults[0].name,
-            symbol: fetchedResults[0].symbol,
-            price: fetchedResults[0].price_usd,
-            marketCap: fetchedResults[0].market_cap_usd,
-            hourChange: fetchedResults[0].percent_change_1h,
-            dayChange: fetchedResults[0].percent_change_24h,
-            weekChange: fetchedResults[0].percent_change_7d,
-            rank: fetchedResults[0].rank,
-            priceBTC: fetchedResults[0].price_btc,
-          })
+        let state = {...this.state}
+        
+          // name: fetchedResults[0].name,
+          state.symbol = fetchedResults[0].symbol,
+          state.price = this.formatNum(fetchedResults[0].price_usd),
+          state.marketCap = fetchedResults[0].market_cap_usd,
+          state.hourChange = fetchedResults[0].percent_change_1h,
+          state.dayChange = fetchedResults[0].percent_change_24h,
+          state.weekChange = fetchedResults[0].percent_change_7d,
+          state.rank = fetchedResults[0].rank,
+          state.priceBTC = fetchedResults[0].price_btc,
+          state.netValue = this.calcNetValue(this.state.share, this.formatNum(fetchedResults[0].price_usd))
+        
+          this.setState(state)
           // console.log(test[0])
           console.log(this.state.name)
           console.log(this.state.dayChange)
@@ -76,14 +90,23 @@ class AddedCoin extends React.Component {
         })
       }
       
-  calcNetValue() {
+  calcNetValue(shares, price) {
     return (
-      parseFloat(this.state.shares) * parseFloat(this.state.price)
+      parseFloat(shares) * parseFloat(price)
     )
   }
 
+
+  numberWithCommas(x) {
+    return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
-    const { name, symbol, price, marketCap, hourChange, dayChange, weekChange, rank, priceBTC, nameLower } = this.state
+    const { name, symbol, price, marketCap, hourChange, dayChange, weekChange, rank, priceBTC, nameLower, netValue, shares } = this.state
+
+    let calcValue = netValue ? netValue.toFixed(2) : '0'
+    calcValue = this.numberWithCommas(calcValue)
+    console.log('hi', calcValue)
 
     return (
       <div className='main-container'>
@@ -96,7 +119,7 @@ class AddedCoin extends React.Component {
         <Col md={2}>
           <Row>
             <Col md={12} id='coinName'>
-              {this.state.name}
+              {name}
             </Col>
           </Row>
           <Row>
@@ -106,35 +129,30 @@ class AddedCoin extends React.Component {
           </Row>
         </Col>
 
-        <Col md={3} id='currentPrice'>
-          ${this.state.price}
+        <Col md={4}>
+        <Row>
+        <div id='currentPrice'>
+          ${price}
+        </div>
+        </Row>
+        <Row>
+        <div className='percentages'>
+        HOUR: {hourChange}%
+        DAY: {dayChange}%
+        WEEK: {weekChange}%
+        </div>
+        </Row>
         </Col>
-
         <Col md={3}>
-          <Row>
-            <Col md={12}>
-            HOURLY: {this.state.hourChange}%
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12}>
-            DAILY: {this.state.dayChange}%
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12}>
-            WEEKLY: {this.state.weekChange}%
-            </Col>
-          </Row>
-        </Col>
+        <div className="userHoldings">
+        <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
+      </div>
 
-        <Col md={3.25}>
-          <div>
-          Holdings + Check box
-          </div>
-          <div>
-          Value: 10
-          </div>
+        </Col>
+        <Col md={2}>
+        <div className="netValue">
+        ${calcValue}
+        </div>
         </Col>
 
 
