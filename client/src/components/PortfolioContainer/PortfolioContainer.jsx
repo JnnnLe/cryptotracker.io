@@ -5,11 +5,9 @@ import {
   Card, CardHeader, CardBody, Row, Col
 } from 'reactstrap';
 
-import './PortfolioContainer.css'
+import './PortfolioContainer.css';
 
-
-
-import { PanelHeader, FormInputs, PortfolioItemResults, PortfolioHeader } from 'components';
+import { PanelHeader, FormInputs, PortfolioItemResults, PortfolioHeader, LookupCoin } from 'components';
 
 import TradingViewWidget from 'react-tradingview-widget';
 
@@ -17,8 +15,8 @@ import TradingViewWidget from 'react-tradingview-widget';
 
 const App = () => (
   <TradingViewWidget
-    width = "500"
-    height = "250"
+    width = "1000"
+    height = "300"
     symbol = "BTCUSD"
     theme = "Light"
     style = "3"    
@@ -31,21 +29,16 @@ class PortfolioContainer extends React.Component{
     return (
             <div className="content">
             <Row>
-                    <Col md={8}>
-                        <Card>
-                            <CardHeader>
-                                <h5 className="title">Your Portfolio</h5>
-                            </CardHeader>
-                            <CardBody>
-                                <PortfolioHeader />
-                                <PortfolioItemResults />
-                            </CardBody>
-                        </Card>
-                    </Col>
-                    <Col md={4}>
+                    <Col md={12}>
                     <App />
                     </Col>
-                    </Row>
+            </Row>
+
+            <Row>
+            <Col md={12}>
+              <LookupCoin />
+            </Col>
+            </Row>
         </div>
     );
 }

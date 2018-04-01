@@ -70,7 +70,7 @@ class CryptoCard extends React.Component {
 
         <div className='bottom'>
           <div className='logo'>
-          <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="32" width="32" />
+            <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="32" width="32" />
 
           </div>
 
