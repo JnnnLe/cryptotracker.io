@@ -10,4 +10,5 @@ var dashRoutes = [
     { path: "/converter", name: "Conversion Calculator", icon: "business_money-coins", component: Converter},
     { redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard" },
 ];
+
 export default dashRoutes;

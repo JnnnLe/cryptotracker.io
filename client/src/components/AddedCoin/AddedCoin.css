@@ -1,0 +1,46 @@
+div {
+  margin: auto;
+}
+
+.main-container {
+  margin: auto;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 1000px;
+  height: 80px;
+  margin-bottom: 5px
+}
+
+.main-container .logo {
+  padding-top: 5px
+}
+
+#coinName {
+  font-size: 20px;
+  font-weight: bold
+}
+
+#coinSymbol {
+  font-size: 16px
+}
+
+#currentPrice {
+  font-size: 24px;
+  font-weight: bold;
+  color: green
+}
+
+.percentages {
+  font-size: 12px
+}
+
+.userHoldings {
+  display: inline-block
+}
+
+.netValue {
+  font-size: 24px;
+  font-weight: bold
+}
+
