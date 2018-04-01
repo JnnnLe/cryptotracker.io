@@ -22,9 +22,7 @@ class LookupCoin extends React.Component {
       bitcoin_percentage_of_market_cap: 0,
       total_24h_volume_usd: 0,
       total_market_cap_usd: 0
-      // shares: this.props.shares,
-      // netValue: 0,
-      // showInput: false
+  
     }
 
     this.getValues = this.getValues.bind(this)
@@ -50,7 +48,6 @@ class LookupCoin extends React.Component {
   handleClick() {
     const newState = {...this.state}
     newState.showInput = !newState.showInput
-    // let shares = newState.shares != undefined ? parseInt(newState.shares) : 0
     
     console.log('testing', newState.shares == true)
     newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
@@ -69,7 +66,6 @@ class LookupCoin extends React.Component {
       .then(json => {
         var fetchedResults = json;
         let state = {...this.state}
-          // console.log('fetched res:', fetchedResults);
           state.name = fetchedResults[0].name,
           state.symbol = fetchedResults[0].symbol,
           state.price = this.formatNum(fetchedResults[0].price_usd),
@@ -81,10 +77,7 @@ class LookupCoin extends React.Component {
           state.priceBTC = fetchedResults[0].price_btc,
         
           this.setState(state)
-          // // console.log(test[0])
-          // console.log(this.state.name)
-          // console.log(this.state.dayChange)
-          // console.log(this.state.weekChange)
+
         })
   }
 
@@ -113,15 +106,13 @@ class LookupCoin extends React.Component {
 
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  bitcoin_percentage_of_market_cap, total_24h_volume_usd, total_market_cap_usd  } = this.state;
-    // console.log('WORKING NAME:', {name})
-    
 
     return (
       <div className='main-container'>
       <Row>
 
           <div className='logo'>
-            // <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
+            <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
           
         <Col md={2}>
@@ -161,22 +152,23 @@ class LookupCoin extends React.Component {
         <Col md={2}>
         <div className="netValue">
         {priceBTC}
-
-
-          
         </div>
         </Col>
       </Row>
 
+    <div className='globalInfo'>
      <Row>
-      <Col md={12}>
-     Bitcoin % of market cap: { bitcoin_percentage_of_market_cap}
-     Total 24hr Volume:  { total_24h_volume_usd}
-      Total Markey cap: {total_market_cap_usd}
+      <Col md={4}>
+        Bitcoin % of market cap: {bitcoin_percentage_of_market_cap}
+        </Col>
+        <Col md={4}>
+        Total 24hr Volume:  {total_24h_volume_usd}
+        </Col>
+        <Col md={4}>
+        Total Markey cap: {total_market_cap_usd}
       </Col>
-
      </Row>
-
+    </div>
 
      </div>
 
