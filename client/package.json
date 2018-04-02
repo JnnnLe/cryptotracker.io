@@ -1,7 +1,11 @@
+
 {
   "name": "CRYTOTRACKER.IO",
   "version": "1.0.0",
   "private": true,
+  "proxy":{
+    "/":{"target": "http://localhost:6001/"}
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "4.0.0-beta",

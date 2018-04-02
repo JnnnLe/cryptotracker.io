@@ -17,7 +17,7 @@ passport.use(
         (accessToken, refreshToken, profile, done) => {
             db.User.findOne({ social_id: profile.id }, (err, user) => {
                 // console.log(user)
-                if (user.social_id) {
+                if (user) {
                     done(null, user);
                 } else {
                     db.User.create({
@@ -42,7 +42,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
 
-    console.log('userId', id);
+    //console.log('userId', id);
     done(null, id);
 
 });
