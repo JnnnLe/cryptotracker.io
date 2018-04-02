@@ -11,7 +11,7 @@ import UserSharesInput from './UserSharesInput/UserSharesInput';
 import AddCoinModal from './AddCoinModal/AddCoinModal';
 import AddedCoin from './AddedCoin/AddedCoin';
 import LookupCoin from './LookupCoin/LookupCoin';  
-import CoinLookupLanding from './CoinLookupLanding/CoinLookupLanding';
+import LookupCoinLanding from './LookupCoinLanding/LookupCoinLanding';
 
 import Button from './CustomButton/CustomButton';
 
@@ -42,7 +42,7 @@ export {
     AddCoinModal,
     AddedCoin,
     LookupCoin,
-    CoinLookupLanding,
+    LookupCoinLanding,
 
     // CustomButton
     Button,

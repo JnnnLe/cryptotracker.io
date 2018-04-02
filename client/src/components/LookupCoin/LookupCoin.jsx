@@ -1,7 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 
-import reactstrap, { Row, Col } from 'reactstrap';
+import reactstrap, { Row, Col, FormGroup, Label, Input } from 'reactstrap';
 
 import UserSharesInput from '../UserSharesInput/UserSharesInput';
 
@@ -21,7 +21,10 @@ class LookupCoin extends React.Component {
       weekChange: 0,
       bitcoin_percentage_of_market_cap: 0,
       total_24h_volume_usd: 0,
-      total_market_cap_usd: 0
+      total_market_cap_usd: 0,
+
+      // userInput: '',
+      // userInputFinal: 'USD'
   
     }
 
@@ -29,6 +32,7 @@ class LookupCoin extends React.Component {
     this.getGlobalData = this.getGlobalData.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    // this.handleInput - this.handleInput.bind(this)
 
   }
 
@@ -53,6 +57,16 @@ class LookupCoin extends React.Component {
     newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
     this.setState(newState)
   }
+
+  //Jennier's Test for CoinLookupLanding component
+  // handleInput(event) {
+  //   event.preventDefault();
+  //   this.setState({
+  //     userInput: event.target.value,
+  //     userInputFinal: this.state.userInput + 'USD'
+  //   });
+  //   console.log('STATE:', this.state)
+  // }
 
   formatNum(num) {
     return this.numberWithCommas(parseFloat(num).toFixed(2)) 
@@ -92,10 +106,10 @@ class LookupCoin extends React.Component {
 
         this.setState({
           bitcoin_percentage_of_market_cap: dominance,
-         total_24h_volume_usd: volume,
-         total_market_cap_usd: totalCap
+          total_24h_volume_usd: volume,
+          total_market_cap_usd: totalCap
         })
-        console.log('SATTTAEEE:', this.state)
+        console.log('STTTATTEEE:', this.state)
       })
   }
       

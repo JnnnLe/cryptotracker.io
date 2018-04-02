@@ -7,21 +7,19 @@ import {
 
 import './PortfolioContainer.css';
 
-import { PanelHeader, FormInputs, PortfolioItemResults, PortfolioHeader, LookupCoin,CoinLookupLanding } from 'components';
+import { PanelHeader, FormInputs, PortfolioItemResults, PortfolioHeader, LookupCoin,LookupCoinLanding } from 'components';
 
-import TradingViewWidget from 'react-tradingview-widget';
+// import TradingViewWidget from 'react-tradingview-widget';
 
-
-
-const App = () => (
-  <TradingViewWidget
-    width = "1000"
-    height = "300"
-    symbol = "USD"
-    theme = "Light"
-    style = "3"    
-  />
-);
+// const App = () => (
+//   <TradingViewWidget
+//     width = "1000"
+//     height = "300"
+//     symbol = "BTCUSD"
+//     theme = "Light"
+//     style = "3"    
+//   />
+// );
 
 
 class PortfolioContainer extends React.Component{
@@ -30,7 +28,9 @@ class PortfolioContainer extends React.Component{
           <div className="content">
             <Row>
              <Col md={12}> 
-               <CoinLookupLanding />
+
+              <LookupCoinLanding />
+              <LookupCoin />
               </Col>
             </Row>
           </div>
