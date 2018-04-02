@@ -7,6 +7,8 @@ import UserSharesInput from '../UserSharesInput/UserSharesInput';
 
 import './LookupCoin.css'
 
+import LookupCoinLanding from '../LookupCoinLanding/LookupCoinLanding';
+
 class LookupCoin extends React.Component {
   constructor(props) {
     super(props)
@@ -19,9 +21,10 @@ class LookupCoin extends React.Component {
       marketCap: 0,
       dayChange: 0,
       weekChange: 0,
-      bitcoin_percentage_of_market_cap: 0,
-      total_24h_volume_usd: 0,
-      total_market_cap_usd: 0,
+      dominance: 0,
+      volume: 0,
+      totalCap: 0,
+      finalUserInput: LookupCoinLanding.finalUserInput
 
       // userInput: '',
       // userInputFinal: 'USD'
@@ -36,9 +39,16 @@ class LookupCoin extends React.Component {
 
   }
 
+  componentWillUpdate() {
+    console.log('BLAH BLAH BLAH', this.state.finalUserInput)
+  }
+
   componentDidMount() {
+    // console.log('BEFORE:', this.state)
     this.getValues()
     this.getGlobalData();
+    // console.log('After:', this.state)
+    
     // setInterval(this.getValues, 15000)
   }
 
@@ -59,14 +69,7 @@ class LookupCoin extends React.Component {
   }
 
   //Jennier's Test for CoinLookupLanding component
-  // handleInput(event) {
-  //   event.preventDefault();
-  //   this.setState({
-  //     userInput: event.target.value,
-  //     userInputFinal: this.state.userInput + 'USD'
-  //   });
-  //   console.log('STATE:', this.state)
-  // }
+  
 
   formatNum(num) {
     return this.numberWithCommas(parseFloat(num).toFixed(2)) 
@@ -105,9 +108,10 @@ class LookupCoin extends React.Component {
         const totalCap = fetchedResults.total_market_cap_usd
 
         this.setState({
-          bitcoin_percentage_of_market_cap: dominance,
-          total_24h_volume_usd: volume,
-          total_market_cap_usd: totalCap
+          dominance: dominance,
+          volume: volume,
+          totalCap: totalCap,
+          finalUserInput: this.props
         })
         console.log('STTTATTEEE:', this.state)
       })
@@ -119,7 +123,7 @@ class LookupCoin extends React.Component {
   }
 
   render() {
-    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  bitcoin_percentage_of_market_cap, total_24h_volume_usd, total_market_cap_usd  } = this.state;
+    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  dominance, volume, totalCap  } = this.state;
 
     return (
       <div className='main-container'>
@@ -173,13 +177,13 @@ class LookupCoin extends React.Component {
     <div className='globalInfo'>
      <Row>
       <Col md={4}>
-        Bitcoin % of market cap: {bitcoin_percentage_of_market_cap}
+        Bitcoin % of market cap: {dominance}
         </Col>
         <Col md={4}>
-        Total 24hr Volume:  {total_24h_volume_usd}
+        Total 24hr Volume:  {volume}
         </Col>
         <Col md={4}>
-        Total Markey cap: {total_market_cap_usd}
+        Total Markey cap: {totalCap}
       </Col>
      </Row>
     </div>
