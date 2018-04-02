@@ -26,7 +26,7 @@ class Losers extends Component {
       const PC7Dy = this.state.losers[coin].percent_change_7d;
       let nameLower = this.state.losers[coin].name.toLowerCase();
 
-      if (coinName == 'REQ') {
+      if (coinName == 'Request Network') {
         nameLower = 'request-network'
       }
 
@@ -99,12 +99,9 @@ class Losers extends Component {
 
       return (
         <div>
-          <div id='titleBar'>
-            <h1>Biggest Losers:</h1>
             <Row>
               {coins}
             </Row>
-          </div>
         </div>
       )
     }

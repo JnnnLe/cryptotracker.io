@@ -18,45 +18,82 @@ class Top5 extends Component {
     this.generateAllCoins = this.generateAllCoins.bind(this);
   }
 
-  generateCoin(i, coinName, price, PC24Hr, PC7Dy, marketCap) {
+  generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
     return (
-      <div className='Top5' key={i}>
-          <div>
-            <Row>
-              <Col md={2.4}>
-                {coinName} 
-              </Col>
-              <Col md={2.4}>
-                <NumberFormat value={price} 
-                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
-              </Col> 
-              <Col md={2.4}>
-              <NumberFormat value={PC24Hr} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
-              </Col>
-              <Col md={2.4}>
-              <NumberFormat value={PC7Dy} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
-              </Col>
-              <Col md={2.4}>
-              <NumberFormat value={marketCap} displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
-              </Col>
-            </Row>
+      <div className='main-container'>
+      <Row>
+
+          <div className='logo'>
+            <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="64" width="64" />
           </div>
+          
+        <Col md={2}>
+          <Row>
+            <Col md={12} id='coinName'>
+              {coinName}
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} id='coinSymbol'>
+              ({symbol})
+            </Col>
+          </Row>
+        </Col>
+
+        <Col md={4}>
+        <Row>
+        <div id='currentPrice'>
+          ${price}
         </div>
+        <div>
+          Market Cap: ${marketCap} 
+        </div>
+        </Row>
+        <Row>
+        <div className='percentages'>
+        HOUR: {PC1Hr}%
+        DAY: {PC24Hr}%
+        WEEK: {PC7Dy}%
+        Rank: {rank}
+        </div>
+        </Row>
+        </Col>
+        <Col md={3}>
+
+        </Col>
+        <Col md={2}>
+        <div className="netValue">
+        Hello!
+        </div>
+        </Col>
+      </Row>
+
+     </div>
     )
   }
 
   generateAllCoins() {
+    
     let coinjsx = [];
     Object.keys(this.state.topCryptos).map((coin, i) => {
       const coinName = this.state.topCryptos[coin].name;
+      const symbol = this.state.topCryptos[coin].symbol;
       const price = this.state.topCryptos[coin].price_usd;
+      const PC1Hr = this.state.topCryptos[coin].percent_change_1h;
       const PC24Hr = this.state.topCryptos[coin].percent_change_24h;
       const PC7Dy = this.state.topCryptos[coin].percent_change_7d;
       const marketCap = this.state.topCryptos[coin].market_cap_usd;
-      const jsx = this.generateCoin(i, coinName, price, PC24Hr, PC7Dy, marketCap);
+      const rank = this.state.topCryptos[coin].rank;
+      let nameLower = this.state.topCryptos[coin].name.toLowerCase();
+
+      if (coinName == 'Bitcoin Cash') {
+        nameLower = "bitcoin-cash"
+      }
+      const jsx = this.generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower);
 
       coinjsx.push(jsx);
     })
+
     return coinjsx;
   }
 
@@ -80,7 +117,6 @@ class Top5 extends Component {
 }
 
     render() {
-      //gather data
       const coins = this.generateAllCoins();
       return (
         <div>

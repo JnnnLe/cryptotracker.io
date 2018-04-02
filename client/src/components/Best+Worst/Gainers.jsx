@@ -39,7 +39,7 @@ class Gainers extends Component {
   generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower) {
     console.log(PC7Dy)
     return (
-      <div className="cryptoCard" key={i}>
+      <div className="cryptoCard">
           {coinName}
           <span>({symbol})</span>
 
@@ -102,12 +102,9 @@ class Gainers extends Component {
 
       return (
         <div>
-          <div id='titleBar'>
-            <h1>Biggest Gainers: </h1>
             <Row>
               {coins}
             </Row>
-          </div>
         </div>
       )
     }
