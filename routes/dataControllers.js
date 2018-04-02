@@ -28,18 +28,25 @@ module.exports = app => {
 
     });
 
-    app.get('/coinpost', function(req, res) {
-        db.User.find({})
+    app.get('/getUser', function(req, res) {
 
-            .populate("currency")
-            .then(function(dbUser) {
+        //console.log(req.user);
 
-                res.json(dbUser);
-            })
-            .catch(function(err) {
-
-                res.json(err);
-            });
+       db.User.find({social_id:req.user.social_id})
+    // Specify that we want to populate the retrieved users with any associated notes
+    .populate("currency")
+    .then(function (dbUser) {
+      // If able to successfully find and associate all Users and Notes, send them back to the client
+      res.json(dbUser);
     })
+    .catch(function (err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
+       
+    });
+
+
+    
 
 }
