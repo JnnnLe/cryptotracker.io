@@ -59,8 +59,7 @@ class AddedCoin extends React.Component {
   }
 
   formatNum(num) {
-    return this.numberWithCommas(parseFloat(num).toFixed(fixer))
-    if (num )
+    return this.numberWithCommas(parseFloat(num).toFixed(2))
   }
 
   getValues() {
