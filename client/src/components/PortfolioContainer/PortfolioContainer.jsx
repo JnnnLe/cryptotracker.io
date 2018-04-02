@@ -27,20 +27,20 @@ const App = () => (
 class PortfolioContainer extends React.Component{
   render(){
     return (
-            <div className="content">
+          <div className="content">
             <Row>
-                    <Col md={12}>
-                    <App />
-                    </Col>
+              <Col md={12}>
+                <App />
+              </Col>
             </Row>
 
             <Row>
-            <Col md={12}>
-              <LookupCoin />
-            </Col>
+              <Col md={12}>
+                <LookupCoin />
+              </Col>
             </Row>
-        </div>
-    );
+          </div>
+     );
 }
 }
 

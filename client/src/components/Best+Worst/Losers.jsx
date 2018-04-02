@@ -19,39 +19,42 @@ class Losers extends Component {
   grabLowestCoins() {
     let top5jsxFormat = [];
     Object.keys(this.state.losers).map((coin, i) => {
-      const coinName = this.state.losers[coin].name;
+      let coinName = this.state.losers[coin].name;
       const symbol = this.state.losers[coin].symbol;
+      const price = this.state.losers[coin].price_usd;
       const marketCap = this.state.losers[coin].market_cap_usd;
       const PC7Dy = this.state.losers[coin].percent_change_7d;
+      let nameLower = this.state.losers[coin].name.toLowerCase();
 
-      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, marketCap, PC7Dy));
+      if (coinName == 'REQ') {
+        nameLower = 'request-network'
+      }
+
+
+      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
       })
     return top5jsxFormat; 
   }
 
 
-  generateCoin(i, coinName, symbol, PC7Dy, marketCap) {
+  generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower) {
     return (
-      <div className='biggestLosers' key={i}>
+      <div className="cryptoCard" key={i}>
+          {coinName}
+          <span>({symbol})</span>
+
+        <div className='logo'>
+          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="32" width="32" />
+        </div>
+
         <div>
-          <Row>
-            <Col md={4}>
-              {coinName} ({symbol})
-            </Col> 
+        {PC7Dy}%
+        </div>
 
-            <Col md={4}>
-              <NumberFormat value={PC7Dy}
-              displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
-            </Col>
+        <div>
+        ${price}
+        </div>
 
-            <Col md={4}>
-              <div id='red'>
-                <NumberFormat value={marketCap} 
-                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
-              </div>
-            </Col>
-          </Row>
-       </div>
       </div>
     )
   }
@@ -99,9 +102,6 @@ class Losers extends Component {
           <div id='titleBar'>
             <h1>Biggest Losers:</h1>
             <Row>
-              <Col md={4}>Coin Name:</Col>
-              <Col md={4}>Net Marketcap:</Col>
-              <Col md={4}>Change over 7 days:</Col>
               {coins}
             </Row>
           </div>

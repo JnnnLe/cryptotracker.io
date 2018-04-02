@@ -18,43 +18,39 @@ class Gainers extends Component {
   grabTopGainersCoins() {
     let top5jsxFormat = [];
     Object.keys(this.state.gainers).map((coin, i) => {
-      let coinName = this.state.gainers[coin].name;
+      const coinName = this.state.gainers[coin].name;
       const symbol = this.state.gainers[coin].symbol;
-      const price = this.state.gainers[coin].price_usd;
       const marketCap = this.state.gainers[coin].market_cap_usd;
       const PC7Dy = this.state.gainers[coin].percent_change_7d;
-      let nameLower = (this.state.gainers[coin].name).toLowerCase();
 
-      if (coinName == 'XPA') {
-        nameLower = 'xplay'
-      }
-
-      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
+      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, marketCap, PC7Dy));
       })
-
     return top5jsxFormat; 
   }
 
 
-  generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower) {
-    console.log(PC7Dy)
+  generateCoin(i, coinName, symbol, PC7Dy, marketCap) {
     return (
-      <div className="cryptoCard" key={i}>
-          {coinName}
-          <span>({symbol})</span>
-
-        <div className='logo'>
-          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="32" width="32" />
-        </div>
-
+      <div className='biggestGainers' key={i}>
         <div>
-        {PC7Dy}%
-        </div>
+          <Row>
+            <Col md={4}>
+              {coinName} ({symbol})
+            </Col> 
 
-        <div>
-        ${price}
-        </div>
+            <Col md={4}>
+              <NumberFormat value={PC7Dy}
+              displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
+            </Col>
 
+            <Col md={4}>
+              <div id='green'>
+                <NumberFormat value={marketCap} 
+                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
+              </div>
+            </Col>
+          </Row>
+       </div>
       </div>
     )
   }
@@ -105,6 +101,9 @@ class Gainers extends Component {
           <div id='titleBar'>
             <h1>Biggest Gainers: </h1>
             <Row>
+              <Col md={4}>Coin Name:</Col>
+              <Col md={4}>Net Marketcap:</Col>
+              <Col className='left' md={4}>Change over 7 days:</Col>
               {coins}
             </Row>
           </div>
