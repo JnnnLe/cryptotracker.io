@@ -110,52 +110,54 @@ class AddedCoin extends React.Component {
 
     return (
       <div className='main-container'>
-      <Row>
+        <Row>
 
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
-          
-        <Col md={2}>
-          <Row>
-            <Col md={12} id='coinName'>
-              {name}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} id='coinSymbol'>
-              ({this.state.symbol})
-            </Col>
-          </Row>
-        </Col>
+            
+          <Col md={2}>
+            <Row>
+              <Col md={12} id='coinName'>
+                {name}
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12} id='coinSymbol'>
+                ({this.state.symbol})
+              </Col>
+            </Row>
+          </Col>
 
-        <Col md={4}>
-        <Row>
-        <div id='currentPrice'>
-          ${price}
-        </div>
+          <Col md={4}>
+            <Row>
+              <div id='currentPrice'>
+                ${price}
+              </div>
+            </Row>
+            <Row>
+              <div className='percentages'>
+                HOUR: {hourChange}%
+                DAY: {dayChange}%
+                WEEK: {weekChange}%
+              </div>
+            </Row>
+          </Col>
+
+          <Col md={3}>
+            <div className="userHoldings">
+              <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
+            </div>
+          </Col>
+
+          <Col md={2}>
+            <div className="netValue">
+              ${calcValue}
+            </div>
+          </Col>
+
         </Row>
-        <Row>
-        <div className='percentages'>
-        HOUR: {hourChange}%
-        DAY: {dayChange}%
-        WEEK: {weekChange}%
-        </div>
-        </Row>
-        </Col>
-        <Col md={3}>
-        <div className="userHoldings">
-        <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
       </div>
-
-        </Col>
-        <Col md={2}>
-        <div className="netValue">
-        ${calcValue}
-        </div>
-        </Col>
-        </Row>
-        </div>
 
 
     )
