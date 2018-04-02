@@ -8,6 +8,7 @@ import {
 
 import dashboardRoutes from 'routes/dashboard.jsx';
 
+
 class Header extends React.Component{
     constructor(props) {
         super(props);
@@ -19,6 +20,10 @@ class Header extends React.Component{
         this.toggle = this.toggle.bind(this);
         this.dropdownToggle = this.dropdownToggle.bind(this);
     }
+
+
+
+
     toggle() {
         if(this.state.isOpen){
             this.setState({
@@ -144,12 +149,11 @@ class Header extends React.Component{
                             </Dropdown>
                             <NavItem>
                                 <Link to="/login" className="nav-link" target = "_self">
-                                    <i className="now-ui-icons users_single-02"></i>
-                                    <p>
-                                        <span className="d-lg-none d-md-block" href="/login">Account</span>
-                                    </p>
+                                    <i className="now-ui-icons users_single-02"></i>                                    
                                 </Link>
                             </NavItem>
+                            
+
                         </Nav>
                     </Collapse>
                 </Container>
