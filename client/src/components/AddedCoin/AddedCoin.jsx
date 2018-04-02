@@ -59,7 +59,8 @@ class AddedCoin extends React.Component {
   }
 
   formatNum(num) {
-    return this.numberWithCommas(parseFloat(num).toFixed(2))
+    return this.numberWithCommas(parseFloat(num).toFixed(fixer))
+    if (num )
   }
 
   getValues() {
@@ -137,9 +138,9 @@ class AddedCoin extends React.Component {
             </Row>
             <Row>
               <div className='percentages'>
-                HOUR: {hourChange}%
-        DAY: {dayChange}%
-        WEEK: {weekChange}%
+                <b>HOUR:</b> <span>{hourChange}% </span>
+                <b>DAY:</b> <span>{dayChange}% </span>
+                <b>WEEK:</b> <span>{weekChange}% </span>
         </div>
             </Row>
           </Col>
