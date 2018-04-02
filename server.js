@@ -11,7 +11,8 @@ const key = require('./config/keys.js');
 const cors = require('cors');
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/cryptoDataTest")
+mongoose.connect(MONGODB_URI);
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/cryptoDataTest";
 
 const PORT = process.env.PORT || 6001;
 const app = express();
