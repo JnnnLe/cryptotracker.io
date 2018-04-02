@@ -13,11 +13,11 @@ class LookupCoin extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'bitcoin',
+      name: this.props.coinName,
       symbol: props.symbol,
       logo: props.logo,
       price: 0,
-      nameLower: 'bitcoin',
+      nameLower: this.props.coinName,
       marketCap: 0,
       dayChange: 0,
       weekChange: 0,
@@ -31,10 +31,10 @@ class LookupCoin extends React.Component {
   
     }
 
-    this.getValues = this.getValues.bind(this)
+    // this.getValues = this.getValues.bind(this)
     this.getGlobalData = this.getGlobalData.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
     // this.handleInput - this.handleInput.bind(this)
 
   }
@@ -45,58 +45,58 @@ class LookupCoin extends React.Component {
 
   componentDidMount() {
     // console.log('BEFORE:', this.state)
-    this.getValues()
+    // this.getValues()
     this.getGlobalData();
     // console.log('After:', this.state)
     
     // setInterval(this.getValues, 15000)
   }
 
-  handleChange(event) {
-    console.log(event.target)
-    const newState = {...this.state}
-    newState.shares = event.target.value
-    this.setState(newState)
-  }
+  // handleChange(event) {
+  //   console.log(event.target)
+  //   const newState = {...this.state}
+  //   newState.shares = event.target.value
+  //   this.setState(newState)
+  // }
 
-  handleClick() {
-    const newState = {...this.state}
-    newState.showInput = !newState.showInput
+  // handleClick() {
+  //   const newState = {...this.state}
+  //   newState.showInput = !newState.showInput
     
-    console.log('testing', newState.shares == true)
-    newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
-    this.setState(newState)
-  }
+  //   console.log('testing', newState.shares == true)
+  //   newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
+  //   this.setState(newState)
+  // }
 
   //Jennier's Test for CoinLookupLanding component
   
 
-  formatNum(num) {
-    return this.numberWithCommas(parseFloat(num).toFixed(2)) 
-  }
+  // formatNum(num) {
+  //   return this.numberWithCommas(parseFloat(num).toFixed(2)) 
+  // }
 
-  getValues() {
-    console.log('Polling for new values!')
-    const { name } = this.state
-    fetch(`https://api.coinmarketcap.com/v1/ticker/${name}/`)
-      .then (resp => resp.json())
-      .then(json => {
-        var fetchedResults = json;
-        let state = {...this.state}
-          state.name = fetchedResults[0].name,
-          state.symbol = fetchedResults[0].symbol,
-          state.price = this.formatNum(fetchedResults[0].price_usd),
-          state.marketCap = this.formatNum(fetchedResults[0].market_cap_usd),
-          state.hourChange = fetchedResults[0].percent_change_1h,
-          state.dayChange = fetchedResults[0].percent_change_24h,
-          state.weekChange = fetchedResults[0].percent_change_7d
-          state.rank = fetchedResults[0].rank,
-          state.priceBTC = fetchedResults[0].price_btc,
+  // getValues() {
+  //   console.log('Polling for new values!')
+  //   const { name } = this.state
+  //   fetch(`https://api.coinmarketcap.com/v1/ticker/${name}/`)
+  //     .then (resp => resp.json())
+  //     .then(json => {
+  //       var fetchedResults = json;
+  //       let state = {...this.state}
+  //         state.name = fetchedResults[0].name,
+  //         state.symbol = fetchedResults[0].symbol,
+  //         state.price = this.formatNum(fetchedResults[0].price_usd),
+  //         state.marketCap = this.formatNum(fetchedResults[0].market_cap_usd),
+  //         state.hourChange = fetchedResults[0].percent_change_1h,
+  //         state.dayChange = fetchedResults[0].percent_change_24h,
+  //         state.weekChange = fetchedResults[0].percent_change_7d
+  //         state.rank = fetchedResults[0].rank,
+  //         state.priceBTC = fetchedResults[0].price_btc,
         
-          this.setState(state)
+  //         this.setState(state)
 
-        })
-  }
+  //       })
+  // }
 
   getGlobalData() {
     fetch(`https://api.coinmarketcap.com/v1/global/`)
@@ -123,14 +123,15 @@ class LookupCoin extends React.Component {
   }
 
   render() {
-    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  dominance, volume, totalCap  } = this.state;
+    console.log('8888888', this.props)
+    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  dominance, volume, totalCap  } = this.props.coinData;
 
     return (
       <div className='main-container'>
       <Row>
 
           <div className='logo'>
-            <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
+            <img src={`https://coincheckup.com/images/coins/${name}.png`} height="64" width="64" />
           </div>
           
         <Col md={2}>
