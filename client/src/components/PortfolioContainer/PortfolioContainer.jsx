@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import fetch from 'isomorphic-fetch';
 // used for making the prop types of this component
 import PropTypes from 'prop-types';
 import {
@@ -89,10 +88,9 @@ class PortfolioContainer extends React.Component{
 
   getCoinDetails(coinName) {
     const { fullname } = this.state
-    return fetch(`https://api.coinmarketcap.com/v1/ticker/${coinName}/`)
-      .then (resp => resp.json())
-      .then(json => { 
-        var fetchedResults = json;
+    return axios.get(`https://api.coinmarketcap.com/v1/ticker/${coinName}/`)
+    .then(res => { 
+      var fetchedResults = res.data;
         let coinData = {};
           coinData.name = fetchedResults[0].name
           coinData.symbol = fetchedResults[0].symbol

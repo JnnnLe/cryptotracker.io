@@ -1,5 +1,5 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 
 import reactstrap, { Row, Col, FormGroup, Label, Input } from 'reactstrap';
 
@@ -38,10 +38,9 @@ class LookupCoin extends React.Component {
   }
 
   getGlobalData() {
-    fetch(`https://api.coinmarketcap.com/v1/global/`)
-      .then(resp => resp.json())
-      .then(json => {
-        let fetchedResults = json;
+    axios.get(`https://api.coinmarketcap.com/v1/global/`)
+      .then(res => {
+        let fetchedResults = res;
         const dominance = fetchedResults.bitcoin_percentage_of_market_cap
         const volume = fetchedResults.total_24h_volume_usd
         const totalCap = fetchedResults.total_market_cap_usd
@@ -56,9 +55,15 @@ class LookupCoin extends React.Component {
       })
   }
 
-  numberWithCommas(x) {
-    return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+
+//ToDo: format numbers
+  // numberWithCommas(x) {
+  //   return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // }
+
+    // formatNum(num) {
+  //   return this.numberWithCommas(parseFloat(num).toFixed(2)) 
+  // }
 
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  dominance, volume, totalCap, id  } = this.props.coinData;
@@ -104,7 +109,6 @@ class LookupCoin extends React.Component {
             </div>
           </Row>      
         </Col>
-
 
         <Col md={2}>
           <div className="netValue">
