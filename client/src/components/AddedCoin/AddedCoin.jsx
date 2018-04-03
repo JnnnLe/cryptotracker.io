@@ -128,29 +128,27 @@ class AddedCoin extends React.Component {
               </Col>
             </Row>
           </Col>
+          <Col md={1.25}>
+          <div className='percentages'>
+                <div><b>HOUR:</b> <span id="pcRight">{hourChange}% </span></div>
+                <div><b>DAY:</b> <span id="pcRight">{dayChange}% </span></div>
+                <div><b>WEEK:</b> <span id="pcRight">{weekChange}% </span></div>
+        </div>
+          </Col>
 
-          <Col md={4}>
+          <Col md={3.5}>
             <Row>
               <div id='currentPrice'>
                 ${price}
               </div>
             </Row>
-            <Row>
-              <div className='percentages'>
-                HOUR: {hourChange}%
-                DAY: {dayChange}%
-                WEEK: {weekChange}%
-              </div>
-            </Row>
           </Col>
-
-          <Col md={3}>
+          <Col md={2}>
             <div className="userHoldings">
               <UserSharesInput handleChange={this.handleChange} handleClick={this.handleClick} showInput={this.state.showInput} shares={shares} />
             </div>
           </Col>
-
-          <Col md={2}>
+          <Col md={3.25}>
             <div className="netValue">
               ${calcValue}
             </div>

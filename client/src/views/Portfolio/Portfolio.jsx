@@ -25,6 +25,10 @@ class Portfolio extends React.Component{
                     sharesHeld: 23
                     },
                     {
+                    name: 'Stellar',
+                    sharesHeld: 32
+                    },
+                    {
                     name: 'Substratum',
                     sharesHeld: 250
                     },
@@ -33,15 +37,19 @@ class Portfolio extends React.Component{
                     sharesHeld: 200
                     },
                     {
-                    name: 'VIBE',
+                    name: 'Storm',
                     sharesHeld: 150
                     },
                     {
-                    name: 'ICON',
+                    name: 'EOS',
                     sharesHeld: 20
                     },
                     {
-                    name: 'TenX',
+                    name: 'Dogecoin',
+                    sharesHeld: 534
+                    },
+                    {
+                    name: 'VIBE',
                     sharesHeld: 534
                     }
                 ],
