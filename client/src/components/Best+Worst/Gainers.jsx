@@ -110,15 +110,14 @@ class Gainers extends Component {
         <div className='gainers-percentages'>
           <span id="arrow-up"></span><div class='gainerPC'>{PC7Dy}%</div>
         </div>
-          <div id='gainers-currentPrice'>
-            ${price}
-          </div>
-          <div id='invisible'>
-            Secret!
-          </div>
-      </Col>
 
-      </Row>
+        <div>
+          {PC7Dy}%
+        </div>
+
+        <div>
+          ${price}
+        </div>
       </div>
     )
   }
@@ -147,6 +146,7 @@ class Gainers extends Component {
   
   
   componentWillMount() {
+    //grab top 100 performing coins
     axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=100')
       .then(res => {
         const allCoins = res.data;
