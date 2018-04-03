@@ -104,7 +104,7 @@ class PortfolioContainer extends React.Component{
         })
   }
 
-  render(){
+  render() {
 
     //line 23
     // {this.state.userInput && (<LookupCoinLanding 
@@ -116,19 +116,19 @@ class PortfolioContainer extends React.Component{
           <div className="content container">
             <Row>
               <Col md={12}> 
-                <LookupCoinLanding 
+               <LookupCoinLanding 
                   userInput={this.state.userInput} handleInput={this.handleInput}
                   handleSubmit={this.handleSubmit}
                   graphInput={this.state.graphInput}
-                  />
+                  /> 
               </Col>
             </Row>
 
             <Row>
-              <Col>
+              <Col md={12}>
                 {this.state.coin && ( <LookupCoin 
                   coinData={this.state.coin}
-                />)}
+                /> )}
               </Col>
             </Row>
           </div>

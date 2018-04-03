@@ -40,7 +40,8 @@ class LookupCoin extends React.Component {
   getGlobalData() {
     axios.get(`https://api.coinmarketcap.com/v1/global/`)
       .then(res => {
-        let fetchedResults = res;
+        let fetchedResults = res.data;
+        console.log('RES:', fetchedResults.bitcoin_percentage_of_market_cap)
         const dominance = fetchedResults.bitcoin_percentage_of_market_cap
         const volume = fetchedResults.total_24h_volume_usd
         const totalCap = fetchedResults.total_market_cap_usd
@@ -65,17 +66,20 @@ class LookupCoin extends React.Component {
   // }
 
   render() {
-    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC,  dominance, volume, totalCap, id  } = this.props.coinData;
+    const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
+    const { dominance, volume, totalCap } = this.state;
 
     return (
       <div className='main-container'>
       <Row>
 
-        <div className='logo'>
-          <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
-        </div>
-          
         <Col md={2}>
+          <div className='logo'>
+            <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
+          </div>
+        </Col>
+          
+        <Col md={4}>
           <Row>
             <Col md={12} id='coinName'>
               {name}
