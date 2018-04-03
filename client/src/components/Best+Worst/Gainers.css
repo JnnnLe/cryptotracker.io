@@ -10,11 +10,9 @@
 
 img#logoSm {
   margin-top: 10px
-  /* margin-right: 40px;
-  margin-top: 10px */
 }
 
-#currentPrice {
+#gainers-currentPrice {
   color: green;
   font-size: 1em
 }
@@ -31,7 +29,7 @@ div#symbol {
   padding: 0
 }
 
-.PC {
+.gainerPC {
   display: inline-flex;
   font-size: 1.5em;
   float: right

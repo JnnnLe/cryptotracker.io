@@ -1,16 +1,59 @@
-div.biggestLosers, #titleBar {
-  background: white;
-  width: 100%;
-  margin: 0 auto 4px auto;
-  padding: 1em;
-  box-shadow: 1px 1px 0 lightgrey;
-  /* color: red; */
+.cryptoCard {
+  width: 325px;
+  height: 80px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 4px;
+  margin: 5px;
+  display: inline-block
 }
 
-div#red {
+img#logoSm {
+  margin-top: 10px
+}
+
+#losers-currentPrice {
   color: red;
+  font-size: 1em
 }
 
-h1 {
+#invisible {
+  color: transparent
+}
+
+div#coinName {
+  padding: 0;
+}
+
+div#symbol {
+  padding: 0
+}
+
+.loserPC {
+  display: inline-flex;
+  font-size: 1.5em;
+  float: right;
+}
+
+span#arrow-down {
+  width: 0;
+  height: 0;
+  margin-top: 10px;
+  /* padding-top: 8px;
+  margin-right: 5px; */
+  border-style: solid;
+  float: left;
+  top: -17px;
+  left: 8px;
+  border-width: 12px 6px 0px 6px;
+  border-color: red transparent transparent transparent;
+}
+
+.losers-percentages {
+  color: red;
+  font-size: 1em;
   font-weight: bolder;
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 0
 }

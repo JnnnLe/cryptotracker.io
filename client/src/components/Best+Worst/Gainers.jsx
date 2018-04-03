@@ -92,7 +92,7 @@ class Gainers extends Component {
           <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} id="logoSm" height="50" width="50" />
 
 
-      <Col sm={4} class='coinInfo'>
+      <Col sm={4}>
         <Row>
           <Col sm={12} id='coinName'>
             {coinName}
@@ -108,9 +108,9 @@ class Gainers extends Component {
 
       <Col sm={4}>
         <div className='gainers-percentages'>
-          <span id="arrow-up"></span><div class='PC'>{PC7Dy}%</div>
+          <span id="arrow-up"></span><div class='gainerPC'>{PC7Dy}%</div>
         </div>
-          <div id='currentPrice'>
+          <div id='gainers-currentPrice'>
             ${price}
           </div>
           <div id='invisible'>
@@ -122,7 +122,6 @@ class Gainers extends Component {
       </div>
     )
   }
-
 
   quick_SortTop() {
     const coins = this.state.allCoins;
