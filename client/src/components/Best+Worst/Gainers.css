@@ -1,29 +1,56 @@
-div.biggestGainers {
-  background: white;
-  width: 100%;
-  margin: 0 auto 4px auto;
-  padding: 1em;
-  box-shadow: 1px 1px 0 lightgrey;
-  /* color: green; */
+.cryptoCard {
+  width: 325px;
+  height: 80px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 4px;
+  margin: 5px;
+  display: inline-block
 }
 
-div#titleBar {
-  background: lightgrey;
-  width: 100%;
-  margin: 0 auto 4px auto;
-  padding: 1em;
-  box-shadow: 1px 1px 0 lightgrey;
-  /* color: green; */
+img#logoSm {
+  margin-top: 10px
 }
 
-div#green {
+#gainers-currentPrice {
   color: green;
+  font-size: 1em
 }
 
-/* .left {
-  text-align: right;
-} */
+#invisible {
+  color: transparent
+}
 
-h1 {
+div#coinName {
+  padding: 0
+}
+
+div#symbol {
+  padding: 0
+}
+
+.gainerPC {
+  display: inline-flex;
+  font-size: 1.5em;
+  float: right
+}
+
+span#arrow-up {
+  width: 0;
+  height: 0;
+  padding-top: 8px;
+  margin-right: 5px;
+  border-style: solid;
+  float: left;
+  top: -17px;
+  left: 8px;
+  border-width: 0 6px 12px 6px;
+  border-color: transparent transparent green transparent;
+}
+
+.gainers-percentages {
+  color: green;
+  font-size: 1em;
   font-weight: bolder;
+  display: inline-flex;
 }

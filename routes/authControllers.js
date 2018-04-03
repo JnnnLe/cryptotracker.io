@@ -11,20 +11,24 @@ module.exports = app => {
 
   app.get('/auth/google/callback', passport.authenticate('google'), function(req,res) 
     {
-      prompt: 'select_account'
-    res.send('hello');
+    res.redirect('/');
 
     
   });
 
   app.get('/api/currentUser', function(req, res) {
-    console.log('res======',req.user);
-    res.send(req.user.first_name);
+    console.log('res======',req.user.social_id);
+    res.json(req.user.first_name);
   });
 
   app.get('/auth/logout', function(req, res) {
     req.logout();
     res.send('loggedout')
+  });
+
+  app.get('/status', function(req, res) {
+    console.log('res======',req);
+    res.send('OK')
   });
 };
 

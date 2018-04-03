@@ -4,6 +4,8 @@ div.News  {
   margin: 0 auto 4px auto;
   padding: 1em;
   box-shadow: 1px 1px 0 lightgrey;
+  font-size: .875em;
+  font-weight: bold
   /* background: lightcoral; */
   /* display: flex; */
   /* overflow: scroll; */
@@ -12,6 +14,6 @@ div.News  {
 .newsAPI {
   /* overflow: auto; */
   height: 400px;
-  width: 327px;
-  overflow: auto;
+  width: 350px;
+  overflow: scroll
 }

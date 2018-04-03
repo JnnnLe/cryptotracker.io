@@ -19,39 +19,106 @@ class Losers extends Component {
   grabLowestCoins() {
     let top5jsxFormat = [];
     Object.keys(this.state.losers).map((coin, i) => {
-      const coinName = this.state.losers[coin].name;
+      let coinName = this.state.losers[coin].name;
       const symbol = this.state.losers[coin].symbol;
+      const price = this.state.losers[coin].price_usd;
       const marketCap = this.state.losers[coin].market_cap_usd;
       const PC7Dy = this.state.losers[coin].percent_change_7d;
+      let nameLower = this.state.losers[coin].name.toLowerCase();
 
-      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, marketCap, PC7Dy));
+      if (coinName == 'Bitcoin Cash') {
+        nameLower = "bitcoin-cash"
+    }
+    if (coinName == 'Binance Coin') {
+        nameLower = "binance-coin"
+    }
+    if (coinName == 'Ethereum Classic') {
+        nameLower = "ethereum-classic"
+    }
+    if (coinName == 'Bitcoin Gold') {
+        nameLower = "bitcoin-gold"
+    }
+    if (coinName == 'Bitcoin Diamond') {
+        nameLower = "bitcoin-diamond"
+    }
+    if (coinName == 'KuCoin Shares') {
+        nameLower = "kucoin-shares"
+    }
+    if (coinName == 'Basic Attention Token') {
+        nameLower = "basic-attention-token"
+    }
+    if (coinName == 'Kyber Network') {
+        nameLower = "kyber-network"
+    }
+    if (coinName == 'Infinity Economics') {
+        nameLower = "infinity-economics"
+    }
+    if (coinName == 'Byteball Bytes') {
+        nameLower = "byteball-bytes"
+    }
+    if (coinName == 'Power Ledger') {
+        nameLower = "power-ledger"
+    }
+    if (coinName == 'Nucleus Vision') {
+        nameLower = "nucleus-vision"
+    }
+    if (coinName == 'Request Network') {
+        nameLower = "request-network"
+    }
+    if (coinName == 'Genaro Network') {
+        nameLower = "genaro-network"
+    }
+    if (coinName == 'Matrix AI Network') {
+        nameLower = "matrix-ai-network"
+    }
+    if (coinName == 'Genesis Vision') {
+        nameLower = "genesis-vision"
+    }
+    if (coinName == 'Enjin Coin') {
+        nameLower = "enjin-coin"
+    };
+
+
+      top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
       })
     return top5jsxFormat; 
   }
 
 
-  generateCoin(i, coinName, symbol, PC7Dy, marketCap) {
+  generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower) {
     return (
-      <div className='biggestLosers' key={i}>
-        <div>
-          <Row>
-            <Col md={4}>
-              {coinName} ({symbol})
-            </Col> 
+      <div className="cryptoCard">
+      <Row>
+          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} id="logoSm" height="50" width="50" />
 
-            <Col md={4}>
-              <NumberFormat value={PC7Dy}
-              displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} prefix={'$'}/>
-            </Col>
 
-            <Col md={4}>
-              <div id='red'>
-                <NumberFormat value={marketCap} 
-                displayType={'text'} fixedDecimalScale={true} decimalPrecision={2} thousandSeparator={true} suffix={'%'}/>
-              </div>
-            </Col>
-          </Row>
-       </div>
+      <Col sm={4}>
+        <Row>
+          <Col sm={12} id='coinName'>
+            {coinName}
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={12} id='symbol'>
+            ({symbol})
+          </Col>
+        </Row>
+      </Col>
+
+      <Col sm={4}>
+        <div className='losers-percentages'>
+          <span id="arrow-down"></span><div class='loserPC'>{PC7Dy}%</div>
+        </div>
+          <div id='losers-currentPrice'>
+            ${price}
+          </div>
+          <div id='invisible'>
+            Secret!
+          </div>
+      </Col>
+
+      </Row>
       </div>
     )
   }
@@ -96,15 +163,9 @@ class Losers extends Component {
 
       return (
         <div>
-          <div id='titleBar'>
-            <h1>Biggest Losers:</h1>
             <Row>
-              <Col md={4}>Coin Name:</Col>
-              <Col md={4}>Net Marketcap:</Col>
-              <Col md={4}>Change over 7 days:</Col>
               {coins}
             </Row>
-          </div>
         </div>
       )
     }

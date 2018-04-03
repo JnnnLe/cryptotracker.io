@@ -9,20 +9,21 @@ class AddCoinModal extends React.Component {
         <Button color="danger" onClick={this.props.toggleFn}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.props.show} toggle={this.props.toggleFn} className={this.props.className}>
           <ModalHeader toggle={this.props.toggleFn}>Add a Coin</ModalHeader>
-          <ModalBody>
-          <Form>
+          
+          <Form action="/coinpost" method ="post">
           <FormGroup>
-          <Label for="exampleEmail">Coin</Label>
-          <Input type="text" name="email" id="coin" placeholder="e.g. BTC" />
-          <Label for="exampleEmail">Holdings</Label>
-          <Input type="number" name="email" id="amount" placeholder="e.g. 5" />
-        </FormGroup>
-            </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.props.toggleFn}>Do Something</Button>{' '}
+          <Label for="coin-name">Coin</Label>
+          <Input type="text" name="coinName" id="coin-name" placeholder="e.g. BTC" />
+          <Label for="quantity">Holdings</Label>
+          <Input type="number" name="quantity" id="holdings" placeholder="e.g. 5" />
+          <Label for="price-bought">Price Bought</Label>
+          <Input type="number" name="priceBought" id="price-bought" placeholder="e.g. 100$" />
+           
+            <Button  type = "submit" color="primary">Do Something</Button>{' '}
             <Button color="secondary" onClick={this.props.toggleFn}>Cancel</Button>
-          </ModalFooter>
+            </FormGroup>
+            </Form>
+          
         </Modal>
       </div>
     )

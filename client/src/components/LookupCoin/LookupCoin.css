@@ -1,0 +1,9 @@
+.globalInfo {
+  margin: auto;
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 1000px;
+  height: 80px;
+  margin-bottom: 5px
+}
