@@ -113,20 +113,22 @@ class PortfolioContainer extends React.Component{
     //   graphInput={this.state.graphInput}
     //   />)}
     return (
-          <div className="content">
+          <div className="content container">
             <Row>
-             <Col md={12}> 
+              <Col md={12}> 
+                <LookupCoinLanding 
+                  userInput={this.state.userInput} handleInput={this.handleInput}
+                  handleSubmit={this.handleSubmit}
+                  graphInput={this.state.graphInput}
+                  />
+              </Col>
+            </Row>
 
-              <LookupCoinLanding 
-                userInput={this.state.userInput} handleInput={this.handleInput}
-                handleSubmit={this.handleSubmit}
-                graphInput={this.state.graphInput}
-                />
-
-              {this.state.coin && ( <LookupCoin 
-                coinData={this.state.coin}
-              />)}
- 
+            <Row>
+              <Col>
+                {this.state.coin && ( <LookupCoin 
+                  coinData={this.state.coin}
+                />)}
               </Col>
             </Row>
           </div>

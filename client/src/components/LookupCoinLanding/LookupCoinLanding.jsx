@@ -13,16 +13,14 @@ const LookupCoinLanding =  props => {
   return (
     <div className='userInputForGraph'>
       
-        <form onSubmit={props.handleSubmit}>
-        <label>
-          <input type="text" value={userInput} onChange={props.handleInput} />
-        </label>
-        <label>
-          <button type='submit' value='Search'>
-            Search
-          </button>
-        </label>
-      </form>
+        <form className='rf-search-bar js-search-bar' onSubmit={props.handleSubmit}>
+          <label>
+            <input className='rf-search-bar__input js-search-bar__input' autocomplete='off' type="text" name='search' value placeholder='Search coin here...' value={userInput} onChange={props.handleInput}/>
+          </label>
+          <label>
+            
+          </label>
+        </form>
 
       
       {userInput && (<TradingViewWidget symbol={props.graphInput} style='3'/> )}
