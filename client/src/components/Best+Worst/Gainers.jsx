@@ -40,21 +40,36 @@ class Gainers extends Component {
     console.log(PC7Dy)
     return (
       <div className="cryptoCard">
-          {coinName}
-          <span>({symbol})</span>
-
+      <Row>
         <div className='logo'>
           <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="32" width="32" />
         </div>
+        <Col md={3}>
+          <Row>
+            <Col md={12} id='coinName'>
+              {coinName}
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} id='symbol'>
+              ({symbol})
+            </Col>
+          </Row>
+        </Col>
+        <Col md={2}>
+        <div className='percentages'>
+              <div><b>WEEK:</b> <span id="pcRight">{PC7Dy}% </span></div>
+      </div>
+        </Col>
 
-        <div>
-        {PC7Dy}%
-        </div>
-
-        <div>
-        ${price}
-        </div>
-
+        <Col md={3}>
+          <Row>
+            <div id='currentPrice'>
+              ${price}
+            </div>
+          </Row>
+        </Col>
+      </Row>
       </div>
     )
   }
