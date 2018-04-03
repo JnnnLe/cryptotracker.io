@@ -68,6 +68,9 @@ class Losers extends Component {
     if (coinName == 'Genaro Network') {
         nameLower = "genaro-network"
     }
+    if (coinName == 'Waltonchain') {
+      nameLower = "walton"
+  }
     if (coinName == 'Matrix AI Network') {
         nameLower = "matrix-ai-network"
     }
