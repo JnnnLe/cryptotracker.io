@@ -21,7 +21,7 @@ class Top5 extends Component {
   generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
     return (
       <div className='main-container'>
-      <Row>
+        <Row>
 
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="64" width="64" />
@@ -41,33 +41,36 @@ class Top5 extends Component {
         </Col>
 
         <Col md={4}>
-        <Row>
-        <div id='currentPrice'>
-          ${price}
-        </div>
-        <div>
-          Market Cap: ${marketCap} 
-        </div>
-        </Row>
-        <Row>
-        <div className='percentages'>
-        HOUR: {PC1Hr}%
-        DAY: {PC24Hr}%
-        WEEK: {PC7Dy}%
-        Rank: {rank}
-        </div>
-        </Row>
+          <Row>
+            <div id='currentPrice'>
+              ${price}
+            </div>
+
+            <div>
+              Market Cap: ${marketCap} 
+            </div>
+           </Row>
+
+          <Row>
+            <div className='percentages'>
+              HOUR: {PC1Hr}%
+              DAY: {PC24Hr}%
+              WEEK: {PC7Dy}%
+              Rank: {rank}
+            </div>
+          </Row>
         </Col>
+
         <Col md={3}>
-
         </Col>
+
         <Col md={2}>
-        <div className="netValue">
-        Hello!
-        </div>
+          <div className="netValue">
+            Hello!
+          </div>
         </Col>
-      </Row>
 
+      </Row>
      </div>
     )
   }
