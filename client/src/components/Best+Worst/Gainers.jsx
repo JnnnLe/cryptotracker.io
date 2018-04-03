@@ -25,9 +25,57 @@ class Gainers extends Component {
       const PC7Dy = this.state.gainers[coin].percent_change_7d;
       let nameLower = (this.state.gainers[coin].name).toLowerCase();
 
-      if (coinName == 'XPA') {
-        nameLower = 'xplay'
-      }
+      if (coinName == 'Bitcoin Cash') {
+        nameLower = "bitcoin-cash"
+    }
+    if (coinName == 'Binance Coin') {
+        nameLower = "binance-coin"
+    }
+    if (coinName == 'Ethereum Classic') {
+        nameLower = "ethereum-classic"
+    }
+    if (coinName == 'Bitcoin Gold') {
+        nameLower = "bitcoin-gold"
+    }
+    if (coinName == 'Bitcoin Diamond') {
+        nameLower = "bitcoin-diamond"
+    }
+    if (coinName == 'KuCoin Shares') {
+        nameLower = "kucoin-shares"
+    }
+    if (coinName == 'Basic Attention Token') {
+        nameLower = "basic-attention-token"
+    }
+    if (coinName == 'Kyber Network') {
+        nameLower = "kyber-network"
+    }
+    if (coinName == 'Infinity Economics') {
+        nameLower = "infinity-economics"
+    }
+    if (coinName == 'Byteball Bytes') {
+        nameLower = "byteball-bytes"
+    }
+    if (coinName == 'Power Ledger') {
+        nameLower = "power-ledger"
+    }
+    if (coinName == 'Nucleus Vision') {
+        nameLower = "nucleus-vision"
+    }
+    if (coinName == 'Request Network') {
+        nameLower = "request-network"
+    }
+    if (coinName == 'Genaro Network') {
+        nameLower = "genaro-network"
+    }
+    if (coinName == 'Matrix AI Network') {
+        nameLower = "matrix-ai-network"
+    }
+    if (coinName == 'Genesis Vision') {
+        nameLower = "genesis-vision"
+    }
+    if (coinName == 'Enjin Coin') {
+        nameLower = "enjin-coin"
+    }
 
       top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
       })
@@ -41,34 +89,35 @@ class Gainers extends Component {
     return (
       <div className="cryptoCard">
       <Row>
-        <div className='logo'>
-          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="32" width="32" />
-        </div>
-        <Col md={3}>
-          <Row>
-            <Col md={12} id='coinName'>
-              {coinName}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} id='symbol'>
-              ({symbol})
-            </Col>
-          </Row>
-        </Col>
-        <Col md={2}>
-        <div className='percentages'>
-              <div><b>WEEK:</b> <span id="pcRight">{PC7Dy}% </span></div>
-      </div>
-        </Col>
+          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} id="logoSm" height="50" width="50" />
 
-        <Col md={3}>
-          <Row>
-            <div id='currentPrice'>
-              ${price}
-            </div>
-          </Row>
-        </Col>
+
+      <Col sm={4} class='coinInfo'>
+        <Row>
+          <Col sm={12} id='coinName'>
+            {coinName}
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={12} id='symbol'>
+            ({symbol})
+          </Col>
+        </Row>
+      </Col>
+
+      <Col sm={4}>
+        <div className='gainers-percentages'>
+          <span id="arrow-up"></span><div class='PC'>{PC7Dy}%</div>
+        </div>
+          <div id='currentPrice'>
+            ${price}
+          </div>
+          <div id='invisible'>
+            Secret!
+          </div>
+      </Col>
+
       </Row>
       </div>
     )
