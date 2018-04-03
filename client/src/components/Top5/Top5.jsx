@@ -57,11 +57,13 @@ class Top5 extends Component {
           </Row>
         </Col>
         <Col md={2}>
+          <div id='marketCap'>
           {marketCap}
+          </div>
         </Col>
-        <Col md={3.25}>
-          <div className="netValue">
-            Yay!
+        <Col md={1}>
+          <div id='rank'>
+            #{rank}
           </div>
         </Col>
 

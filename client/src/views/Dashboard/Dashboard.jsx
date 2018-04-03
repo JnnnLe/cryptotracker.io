@@ -25,36 +25,26 @@ class Dashboard extends React.Component {
               <PanelHeader size='sm'/>
                 <div className='content'>
                   <Row>
-                    <Col md={8}>
+                    <Col md={12}>
                       <Top5 />
-                    </Col>
-                    <Col md={4}>
-                      <Twitter />
                     </Col>
                   </Row>
                   <Row>
-                    <Col md={8}>
+                    <Col md={12} id='gainers-losers'>
                       <Row>
-                        <Col md={12}>
+                        <Col md={6}>
                           <Gainers />
                         </Col>
                         
                         <div>
                         </div>
                     
-                        <Col md={12}>
+                        <Col md={6}>
                           <Losers />
                         </Col>
                       </Row>
                     </Col>
 
-                    <Col md={4}>
-                      <News />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md={12}>
-                    </Col>
                   </Row>
                 </div>
             </div>
