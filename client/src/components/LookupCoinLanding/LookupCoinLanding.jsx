@@ -17,9 +17,6 @@ const LookupCoinLanding =  props => {
           <label>
             <input className='rf-search-bar__input js-search-bar__input' autoComplete='off' type="text" name='search' value placeholder='Search coin here...' value={userInput} onChange={props.handleInput}/>
           </label>
-          <label>
-            
-          </label>
         </form>
 
       

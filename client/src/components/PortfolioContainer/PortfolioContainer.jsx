@@ -37,7 +37,7 @@ class PortfolioContainer extends React.Component{
     event.preventDefault();
     const state = {...this.state}
     let targetField;
-    if (state.userInput.length < 4) {
+    if (state.userInput.length < 5) {
       //get Full name 
       targetField = 'name'
     } else {
@@ -126,7 +126,7 @@ class PortfolioContainer extends React.Component{
 
             <Row>
               <Col md={12}>
-                {this.state.coin && ( <LookupCoin 
+                {this.state.coin && this.state.userInput && ( <LookupCoin 
                   coinData={this.state.coin}
                 /> )}
               </Col>

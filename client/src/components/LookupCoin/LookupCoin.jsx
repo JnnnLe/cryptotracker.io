@@ -67,79 +67,85 @@ class LookupCoin extends React.Component {
 
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
-    const { dominance, volume, totalCap } = this.state;
+    const { dominance, volume, totalCap} = this.state;
+  
+    // console.log('finalUser Input:', {finalUserInput})
 
     return (
       <div className='main-container'>
-      <Row>
 
-        <Col md={2}>
-          <div className='logo'>
-            <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
-          </div>
-        </Col>
-          
-        <Col md={4}>
-          <Row>
-            <Col md={12} id='coinName'>
-              {name}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} id='coinSymbol'>
-              ({symbol})
-            </Col>
-          </Row>
-        </Col>
-
-        <Col md={4}>
-          <Row>
-            <div id='currentPrice'>
-              ${price}
+      
+        <div className='container'>
+        
+        <Row>
+          <Col md={1.5}>
+            <div className='logo'>
+              <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
             </div>
+          </Col>
+            
+          <Col md={4}>
+            <Row>
+              <Col md={12} id='coinName'>
+                {name}
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12} id='coinSymbol'>
+                ({symbol})
+              </Col>
+            </Row>
+          </Col>
 
-            <div>
-              Market Cap: ${marketCap} 
+          <Col md={4}>
+            <Row>
+              <div id='currentPrice'>
+                ${price}
+              </div>
+
+              <div>
+                Market Cap: ${marketCap} 
+              </div>
+            </Row>
+
+            <Row>
+              <div className='percentages'>
+                HOUR: {hourChange}%
+                DAY: {dayChange}%
+                WEEK: {weekChange}%
+                Rank: {rank}
+              </div>
+            </Row>      
+          </Col>
+
+          <Col md={2}>
+            <div className="netValue">
+              {priceBTC}
             </div>
-          </Row>
-
-          <Row>
-            <div className='percentages'>
-              HOUR: {hourChange}%
-              DAY: {dayChange}%
-              WEEK: {weekChange}%
-              Rank: {rank}
-            </div>
-          </Row>      
-        </Col>
-
-        <Col md={2}>
-          <div className="netValue">
-            {priceBTC}
-          </div>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </div>
 
       <div className='globalInfo'>
         <Row>
           <Col md={4}>
             Bitcoin % of market cap: {dominance}
-           </Col>
+          </Col>
 
-          <Col md={4}>
-            Total 24hr Volume:  {volume}
+            <Col md={4}>
+              Total 24hr Volume:  {volume}
+            </Col>
+            
+            <Col md={4}>
+              Total Market cap: {totalCap}
           </Col>
-          
-          <Col md={4}>
-            Total Markey cap: {totalCap}
-          </Col>
-         </Row>
+        </Row>
       </div>
 
-    </div>
+    </div> 
 
     )
   }
 }
 
-export default LookupCoin
+export default LookupCoin;
