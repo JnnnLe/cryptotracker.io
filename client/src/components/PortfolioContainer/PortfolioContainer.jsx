@@ -18,12 +18,11 @@ class PortfolioContainer extends React.Component{
     this.state = {
       userInput : '', //BTC
       graphInput: '', //BTCUSD
-      coinAbrv: '',
+      coinAbrv: '', //btc
       fullname: '' //bitcoin
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.fullname = this.fullname.bind(this);
   }
 
   // formatNum(num) {
@@ -34,25 +33,14 @@ class PortfolioContainer extends React.Component{
     event.preventDefault();
     const newState = {...this.state};
     newState.userInput = event.target.value
-    // newState.graphInput = newState.userInput.toUpperCase() + 'USD'
-
-        // const upperCase = val.toUpperCase();
-        // const graphInput = upperCase + 'USD'
-        // this.setState({
-        //   userInput: upperCase,
-        //   graphInput: graphInput
-        // })
-        this.setState(newState)
-      // }
-
-      console.log('Inside of handleInput:', this.state)
+      this.setState(newState);
+      // console.log('Inside of handleInput:', this.state)
     }
 
       
   handleSubmit(event) {
     event.preventDefault();
     const state = {...this.state}
-    // this.fullname();
     console.log('Inside of handleSubmit:', this.state)
     let targetField;
     if (state.userInput.length < 4) {
@@ -60,7 +48,6 @@ class PortfolioContainer extends React.Component{
       targetField = 'name'
     } else {
       //get Abrv
-      // state.coinAbrv = this.findCoin(state.userInput)
       targetField = 'abrv'
     }
     
@@ -84,7 +71,6 @@ class PortfolioContainer extends React.Component{
     //targetVal = userInput 
    return axios.get('https://api.coinmarketcap.com/v1/ticker/')
     .then(res => {
-      // console.log('this is res', res)
       switch(targetField) {
         case 'name':
           return res.data.filter(coin => coin.symbol === targetVal.toUpperCase())
@@ -94,28 +80,12 @@ class PortfolioContainer extends React.Component{
       }
     })
     .then(coin => {
-      console.log('THis is Coin:', coin) //
+      console.log('THis is Coin:', coin) 
       return {
         abrv: coin[0].symbol,
         fullname: coin[0].id
       }
     })
-  }
-
-
-  getFullname() {
-    axios.get('https://api.coinmarketcap.com/v1/ticker/')
-      .then(res => {
-        const findingSym = res.data;
-
-        //this doesn't work
-        const result = findingSym.filter(coin => 
-          this.state.userInput == coin.id);
-
-        
-        console.log('Hoping for a string with coins fullname  to be here:', result)
-      }
-    )
   }
 
   getCoinDetails(coinName) {
@@ -136,16 +106,13 @@ class PortfolioContainer extends React.Component{
           coinData.weekChange = fetchedResults[0].percent_change_7d
           coinData.rank = fetchedResults[0].rank
           coinData.priceBTC = fetchedResults[0].price_btc
-        
-          return coinData;
+          coinData.id = fetchedResults[0].id
 
+          return coinData;
         })
   }
 
-
-
   render(){
-    console.log('THis sate:', this.state)
     return (
           <div className="content">
             <Row>
@@ -160,8 +127,7 @@ class PortfolioContainer extends React.Component{
               {this.state.coin && ( <LookupCoin 
                 coinData={this.state.coin}
               />)}
-
-             
+ 
               </Col>
             </Row>
           </div>
