@@ -1,6 +1,6 @@
 // Exporting an object containing all of our models
 
 module.exports = {
-  Currency: require("./currency"),
+  Currency: require("./coin"),
   User: require("./user")
 };
