@@ -118,7 +118,9 @@ class Gainers extends Component {
         <div>
           ${price}
         </div>
-      </div>
+        </Col>
+      </Row>
+    </div>
     )
   }
 

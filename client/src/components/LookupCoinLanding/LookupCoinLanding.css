@@ -2,51 +2,43 @@
   text-align: center;
 }
 
-/* @media (max-width: 603px) { */
-
 .rf-search-bar__input {
     font-size: 42px;
     text-align: center;
-
 }
 
 .rf-search-bar__input {
   display: inline-block;
   line-height: 100px;
-  /* margin: 55px 0; */
   -webkit-appearance: none;
   border: none;
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;
-  /* margin-top: 50px; */
-
 }
-/* } */
 
-input, button, textarea, form {
+input#coinInput {
   writing-mode: horizontal-tb !important;
   min-width: 1000px;
   background-color: transparent;
 }
 
-form {
+form#coinInput {
   margin-top: 65px;
-
+  writing-mode: horizontal-tb !important;
+  min-width: 1000px;
+  background-color: transparent;
 }
 
 .rf-search-bar {
-  /* padding-top: 50px; */
   border: 4px solid black;
   border-radius: 20px;
-  /* border-color: black; */
   background-color: transparent;
-  /* height: 100%; */
   width: 100%;
   text-align: center;
 }
 
-div {
+div.userInputForGraph {
   border: 0;
   font-size: 100%;
   margin: 0;
@@ -59,7 +51,6 @@ div {
 body {
   background-color: transparent;
   color: rgb(43, 43, 43);
-  /* font-family: acumin-pro, "Helvetica Neue", Helvetica, Arial, メイリオ, Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
   font-size: 12px;
   line-height: 1.3;
 }
