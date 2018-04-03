@@ -119,12 +119,7 @@ class Header extends React.Component{
                         <span className="navbar-toggler-bar navbar-kebab"></span>
                     </NavbarToggler>
                     <Collapse isOpen={this.state.isOpen} navbar className="justify-content-end">
-                        <form>
-                            <InputGroup className="no-border">
-                                <Input placeholder="Search..." />
-                                <InputGroupAddon><i className="now-ui-icons ui-1_zoom-bold"></i></InputGroupAddon>
-                            </InputGroup>
-                        </form>
+
                         <Nav navbar>
                             <NavItem>
                                 <Link to="/login" className="nav-link" target = "_self">
