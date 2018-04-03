@@ -8,10 +8,9 @@ import reactstrap, { Row, Col, FormGroup, Input, Label } from 'reactstrap';
 import TradingViewWidget from 'react-tradingview-widget';
 
 const LookupCoinLanding =  props => {
-
-    const userInput = props.userInput;
-    return (
-      <div className='userInputForGraph'>
+  const userInput = props.userInput;
+  return (
+    <div className='userInputForGraph'>
         <div>{userInput}</div>
       
       <form onSubmit={props.handleSubmit}>

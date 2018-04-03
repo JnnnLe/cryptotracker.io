@@ -17,17 +17,13 @@ class PortfolioContainer extends React.Component{
     super(props)
     this.state = {
       userInput : '', //BTC
-      graphInput: '', //BTCUSD
+      graphInput: 'BTCUSD', //BTCUSD
       coinAbrv: '', //btc
       fullname: '' //bitcoin
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // formatNum(num) {
-  //   return this.numberWithCommas(parseFloat(num).toFixed(2)) 
-  // }
 
   handleInput(event) {
     event.preventDefault();
@@ -77,6 +73,9 @@ class PortfolioContainer extends React.Component{
           break;
         case 'abrv': 
           return res.data.filter(coin => coin.id === targetVal.toLowerCase())
+          break;
+        // case undefined:
+        //   return console.log('Please enter a valid coin name or ticker')
       }
     })
     .then(coin => {
@@ -89,12 +88,10 @@ class PortfolioContainer extends React.Component{
   }
 
   getCoinDetails(coinName) {
-    console.log('Polling for new values!')
     const { fullname } = this.state
-    console.log('fetching coin detail', coinName);
     return fetch(`https://api.coinmarketcap.com/v1/ticker/${coinName}/`)
       .then (resp => resp.json())
-      .then(json => {
+      .then(json => { 
         var fetchedResults = json;
         let coinData = {};
           coinData.name = fetchedResults[0].name

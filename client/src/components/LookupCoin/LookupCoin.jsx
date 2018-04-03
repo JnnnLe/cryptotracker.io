@@ -105,8 +105,6 @@ class LookupCoin extends React.Component {
           </Row>      
         </Col>
 
-        // <Col md={3}>
-        //   </Col>
 
         <Col md={2}>
           <div className="netValue">
