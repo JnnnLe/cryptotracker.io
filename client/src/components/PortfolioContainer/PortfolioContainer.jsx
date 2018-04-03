@@ -36,7 +36,6 @@ class PortfolioContainer extends React.Component{
   handleSubmit(event) {
     event.preventDefault();
     const state = {...this.state}
-    console.log('Inside of handleSubmit:', this.state)
     let targetField;
     if (state.userInput.length < 4) {
       //get Full name 
@@ -54,7 +53,6 @@ class PortfolioContainer extends React.Component{
       this.getCoinDetails(data.fullname)
 
      .then(res => {
-       console.log('then then', res)
        state.coin = res
        this.setState(state)
      })
@@ -78,7 +76,6 @@ class PortfolioContainer extends React.Component{
       }
     })
     .then(coin => {
-      console.log('THis is Coin:', coin) 
       return {
         abrv: coin[0].symbol,
         fullname: coin[0].id
@@ -108,6 +105,13 @@ class PortfolioContainer extends React.Component{
   }
 
   render(){
+
+    //line 23
+    // {this.state.userInput && (<LookupCoinLanding 
+    //   userInput={this.state.userInput} handleInput={this.handleInput}
+    //   handleSubmit={this.handleSubmit}
+    //   graphInput={this.state.graphInput}
+    //   />)}
     return (
           <div className="content">
             <Row>

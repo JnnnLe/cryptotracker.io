@@ -9,11 +9,11 @@ import TradingViewWidget from 'react-tradingview-widget';
 
 const LookupCoinLanding =  props => {
   const userInput = props.userInput;
+  console.log('UI', userInput)
   return (
     <div className='userInputForGraph'>
-        <div>{userInput}</div>
       
-      <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
         <label>
           <input type="text" value={userInput} onChange={props.handleInput} />
         </label>
@@ -23,8 +23,9 @@ const LookupCoinLanding =  props => {
           </button>
         </label>
       </form>
+
       
-      <TradingViewWidget symbol={props.graphInput} style='3'/>     
+      {userInput && (<TradingViewWidget symbol={props.graphInput} style='3'/> )}
       
     </div>
     )

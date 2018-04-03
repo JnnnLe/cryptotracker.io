@@ -51,7 +51,6 @@ class LookupCoin extends React.Component {
           totalCap: totalCap,
           finalUserInput: this.props
         })
-        console.log('STTTATTEEE:', this.state)
       })
   }
 
