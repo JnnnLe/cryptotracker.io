@@ -15,7 +15,8 @@ class Header extends React.Component{
         this.state = {
             isOpen: false,
             dropdownOpen: false,
-            color: "transparent"
+            color: "transparent",
+            isLoggedIn: false
         };
         this.toggle = this.toggle.bind(this);
         this.dropdownToggle = this.dropdownToggle.bind(this);
@@ -126,8 +127,6 @@ class Header extends React.Component{
                                     <i className="now-ui-icons users_single-02"></i>                                    
                                 </Link>
                             </NavItem>
-                            
-
                         </Nav>
                     </Collapse>
                 </Container>

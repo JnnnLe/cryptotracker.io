@@ -8,7 +8,7 @@ var dashRoutes = [
     { path: "/lookup", name: "Coin Lookup", icon: "business_bulb-63", component: CoinSearch },
     { path: "/portfolio", name: "Portfolio", icon: "business_chart-bar-32", component: Portfolio },
     { path: "/converter", name: "Conversion Calculator", icon: "business_money-coins", component: Converter},
-    { redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard" },
+    { redirect: true, path: "/", pathTo: "/dashboard" }
 ];
 
 export default dashRoutes;
