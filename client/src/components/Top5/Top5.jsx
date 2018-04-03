@@ -12,6 +12,7 @@ class Top5 extends Component {
     this.state = {
       topCryptos: [],
       queryParams: '',
+      // nameLower: this.props.coinName.toLowerCase()
     }, 
 
     this.generateCoin = this.generateCoin.bind(this);
@@ -20,12 +21,13 @@ class Top5 extends Component {
 
   generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
     return (
+
       <div className='main-container'>
         <Row>
 
-          <div className='logo'>
-            <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="64" width="64" />
-          </div>
+        <div className='logo'>
+          <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="64" width="64" />
+        </div>
           
         <Col md={2}>
           <Row>
@@ -34,50 +36,51 @@ class Top5 extends Component {
             </Col>
           </Row>
           <Row>
-            <Col md={12} id='coinSymbol'>
+            <Col md={12} id='symbol'>
               ({symbol})
             </Col>
           </Row>
         </Col>
 
-        <Col md={4}>
+        <Col md={1.25}>
+        <div className='percentages'>
+              <div><b>HOUR:</b> <span id="pcRight">{PC1Hr}% </span></div>
+              <div><b>DAY:</b> <span id="pcRight">{PC24Hr}% </span></div>
+              <div><b>WEEK:</b> <span id="pcRight">{PC7Dy}% </span></div>
+      </div>
+        </Col>
+
+        <Col md={3.5}>
           <Row>
             <div id='currentPrice'>
               ${price}
             </div>
-
-            <div>
-              Market Cap: ${marketCap} 
-            </div>
-           </Row>
-
-          <Row>
-            <div className='percentages'>
-              HOUR: {PC1Hr}%
-              DAY: {PC24Hr}%
-              WEEK: {PC7Dy}%
-              Rank: {rank}
-            </div>
           </Row>
         </Col>
 
-        <Col md={3}>
-        </Col>
-
         <Col md={2}>
-          <div className="netValue">
-            Hello!
+          <div id='marketCap'>
+          {marketCap}
+          </div>
+        </Col>
+        <Col md={1}>
+          <div id='rank'>
+            #{rank}
           </div>
         </Col>
 
       </Row>
-     </div>
+    </div>
     )
   }
+
+
 
   generateAllCoins() {
     
     let coinjsx = [];
+
+
     Object.keys(this.state.topCryptos).map((coin, i) => {
       const coinName = this.state.topCryptos[coin].name;
       const symbol = this.state.topCryptos[coin].symbol;
@@ -92,6 +95,8 @@ class Top5 extends Component {
       if (coinName == 'Bitcoin Cash') {
         nameLower = "bitcoin-cash"
       }
+
+      console.log(nameLower)
       const jsx = this.generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower);
 
       coinjsx.push(jsx);
