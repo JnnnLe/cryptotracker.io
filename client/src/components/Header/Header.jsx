@@ -16,6 +16,7 @@ class Header extends React.Component{
             isOpen: false,
             dropdownOpen: false,
             color: "transparent",
+            userName: "j",
             isLoggedIn: false
         };
         this.toggle = this.toggle.bind(this);
@@ -86,15 +87,25 @@ class Header extends React.Component{
         }
 
     }
+
+    getUserStuff() {
+        fetch('/api/currentUser',{credentials:'include'})
+        .then((resp) => resp.text().then(gimme => this.setState({userName: gimme})
+    ))
+    }
+
     componentDidMount(){
         window.addEventListener("resize", this.updateColor.bind(this));
+        this.getUserStuff()
     }
+
     componentDidUpdate(e){
         if(window.innerWidth < 993 && e.history.location.pathname !== e.location.pathname && document.documentElement.className.indexOf('nav-open') !== -1){
             document.documentElement.classList.toggle('nav-open');
             this.refs.sidebarToggle.classList.toggle('toggled');
         }
     }
+
     render(){
         return (
             // add or remove classes depending if we are on full-screen-maps page or not
@@ -124,7 +135,7 @@ class Header extends React.Component{
                         <Nav navbar>
                             <NavItem>
                                 <Link to="/login" className="nav-link" target = "_self">
-                                    <i className="now-ui-icons users_single-02"></i>                                    
+                                    {this.state.userName}<i className="now-ui-icons users_single-02"></i>                                    
                                 </Link>
                             </NavItem>
                         </Nav>
