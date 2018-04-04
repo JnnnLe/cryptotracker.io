@@ -10,11 +10,11 @@ import TradingViewWidget from 'react-tradingview-widget';
 
 
 const LookupCoinLanding =  props => {
-  const userInput = props.userInput;
+  const {userInput, displayGraph} = props;
 
   //ToDo: reset form
   return (
-    <div className='userInputForGraph'>
+    <div className='userInputForGraph form-group'>
       
         <form id='coinInput' className='rf-search-bar js-search-bar' onSubmit={props.handleSubmit}>
           <label>
@@ -24,8 +24,7 @@ const LookupCoinLanding =  props => {
 
         <br/>
 
-        {userInput && (<LookupCoin userInput={userInput} />) && (<TradingViewWidget symbol={props.graphInput} style='3' height='400' width='1080' /> )}
-
+        {displayGraph && (<LookupCoin userInput={userInput} />) && (<TradingViewWidget symbol={props.graphInput} style='3' height='400' width='1080' /> )}
 
     </div>
     )

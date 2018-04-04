@@ -34,7 +34,7 @@ class LookupCoin extends React.Component {
   componentDidMount() {
     this.getGlobalData();
     
-    // setInterval(this.getValues, 15000)
+    setInterval(this.getValues, 15000)
 
   }
 

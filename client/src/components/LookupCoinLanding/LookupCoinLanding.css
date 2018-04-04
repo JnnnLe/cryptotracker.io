@@ -10,9 +10,11 @@
 .rf-search-bar__input {
   display: inline-block;
   line-height: 100px;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   border: none;
+  border-radius: 20px;
   overflow: hidden;
+  background-color: transparent;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -20,13 +22,22 @@
 input#coinInput {
   writing-mode: horizontal-tb !important;
   min-width: 1000px;
-  background-color: transparent;
+  min-height: 100px;
+  outline: none;
 }
 
 form#coinInput {
   margin-top: 65px;
   writing-mode: horizontal-tb !important;
   min-width: 1000px;
+  border-radius: 20px;
+
+  background-color: transparent;
+}
+
+.rf-search-bar__input .js-search-bar__input {
+  border: 4px solid black;
+  border-radius: 20px;
   background-color: transparent;
 }
 
