@@ -1,5 +1,13 @@
 const passport = require("../services/passport.js");
 
+function loggedIn(req, res, next) {
+  if (req.user) {
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+ }
+
 module.exports = app => {
   app.get(
     '/login',
@@ -16,7 +24,7 @@ module.exports = app => {
     
   });
 
-  app.get('/api/currentUser', function(req, res) {
+  app.get('/api/currentUser', loggedIn, function(req, res) {
     console.log('res======',req.user.social_id);
     res.json(req.user.first_name);
   });

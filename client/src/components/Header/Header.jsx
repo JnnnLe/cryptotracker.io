@@ -16,7 +16,7 @@ class Header extends React.Component{
             isOpen: false,
             dropdownOpen: false,
             color: "transparent",
-            userName: "j",
+            userName: "",
             isLoggedIn: false
         };
         this.toggle = this.toggle.bind(this);

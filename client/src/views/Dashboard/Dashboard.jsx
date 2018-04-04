@@ -35,9 +35,6 @@ class Dashboard extends React.Component {
                         <Col md={6}>
                           <Gainers />
                         </Col>
-                        
-                        <div>
-                        </div>
                     
                         <Col md={6}>
                           <Losers />
