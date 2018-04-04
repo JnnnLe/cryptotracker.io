@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//import css pg
+
+import "./Converter.css"
+
 
 class ConverterApp extends Component {
   constructor(props) {
@@ -63,7 +65,6 @@ class ConverterApp extends Component {
           const newState = Object.assign({}, this.state);
           const fromVal = parseFloat(firstCall.data[0].price_usd);
           const toVal = parseFloat(secCall.data[0].price_usd);
-
           newState.userAmount = userAmount;
           newState.convertFromPrice = fromVal;
           newState.convertToPrice = toVal;
@@ -72,7 +73,7 @@ class ConverterApp extends Component {
             newState.userAmount, 
             newState.convertFromPrice, 
             newState.convertToPrice
-          ).toFixed(2)
+            ).toFixed(2)
 
           this.setState(newState)
 
@@ -87,36 +88,45 @@ class ConverterApp extends Component {
   render() {
     return (
       <div>
-      <br/>
         <br/>
-        <br/>
-        <form onSubmit={this.handleSubmit}>
-        <label>
-          Amount 
-          <input type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
-        </label> 
+          <br/>
+          <br/>
+          
+          <div id="convertForm">
+          <h1>Currency Converter</h1>
+          <form onSubmit={this.handleSubmit}>
+          <label>
+            Amount 
+            <br/>
+            <input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
+          </label> 
 
-        <br/>
-        <br/>
-        <label>
-          Convert this Coin: 
-          <input type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
-        </label>
+          <br/>
+          <br/>
+          <label>
+            Convert this Coin: 
+            <br/>
+            <input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
+            
+          </label>
+  
+          <label>
+            To this Coin: 
+            <br/>
+            <input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} />
+          </label>
+          <br/>
+            <input id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
 
- 
-        <label>
-          To this Coin: 
-          <input type="text" value={this.state.convertTo} onChange={this.handleTo} />
-        </label>
-          <input type="submit" value="Convert Coin" onClick={this.runConverter} />
+          <br/>
+          <br/>
+            <label> Converted Value =   
+            <br/>
+              <input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} />
+          </label>
 
-        <br/>
-        <br/>
-          <label> Converted Value =
-            <input type="number" value={this.state.conversionValue} />
-        </label>
-
-        </form>
+          </form>
+        </div>
       </div>
     )
   }
