@@ -11,3 +11,9 @@ label {
   text-align: center;
   display: inherit
 }
+
+#addCoinBtn,
+#submitCoinBtn {
+  font-size: 1.125em;
+  font-weight: bold
+}
