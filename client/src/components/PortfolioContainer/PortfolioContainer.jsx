@@ -16,9 +16,11 @@ class PortfolioContainer extends React.Component{
     super(props)
     this.state = {
       userInput : '', //BTC
-      graphInput: 'BTCUSD', //BTCUSD
+      graphInput: '', //BTCUSD
       coinAbrv: '', //btc
-      fullname: '' //bitcoin
+      fullname: '', //bitcoin
+      displayGraph: false,
+      coin: {}
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,38 +28,41 @@ class PortfolioContainer extends React.Component{
 
   handleInput(event) {
     event.preventDefault();
+    const { value } = event.target
     const newState = {...this.state};
-    newState.userInput = event.target.value
-      this.setState(newState);
-      // console.log('Inside of handleInput:', this.state)
-    }
+    newState.userInput = value
+    newState.displayGraph = value.length > 15 ? true : false
+    newState.coin = newState.coin.name ? {} : {}
+    this.setState(newState);
 
+  }
       
   handleSubmit(event) {
     event.preventDefault();
+    console.log("got triggered")
     const state = {...this.state}
     let targetField;
     if (state.userInput.length < 5) {
       //get Full name 
-      targetField = 'name'
+      targetField = 'name';
+
     } else {
       //get Abrv
       targetField = 'abrv'
     }
     
     this.findCoin(targetField, state.userInput)
-    .then(data => {
-      state.coinAbrv = data.abrv
-      state.graphInput = data.abrv + 'USD'
-      state.fullname = data.fullname
-      this.getCoinDetails(data.fullname)
-
-     .then(res => {
-       state.coin = res
-       this.setState(state)
-     })
-
-    })
+      .then(data => {
+        state.coinAbrv = data.abrv
+        state.graphInput = data.abrv + 'USD'
+        state.fullname = data.fullname
+        this.getCoinDetails(data.fullname)
+        .then(res => {
+          state.coin = res
+          state.displayGraph = true
+          this.setState(state)
+        })
+      })
   }
 
   findCoin(targetField, targetVal) {
@@ -105,33 +110,35 @@ class PortfolioContainer extends React.Component{
   }
 
   render() {
-
-    //line 23
-    // {this.state.userInput && (<LookupCoinLanding 
-    //   userInput={this.state.userInput} handleInput={this.handleInput}
-    //   handleSubmit={this.handleSubmit}
-    //   graphInput={this.state.graphInput}
-    //   />)}
     return (
-          <div className="content container">
-            <Row>
-              <Col md={12}> 
-               <LookupCoinLanding 
-                  userInput={this.state.userInput} handleInput={this.handleInput}
-                  handleSubmit={this.handleSubmit}
-                  graphInput={this.state.graphInput}
-                  /> 
-              </Col>
-            </Row>
+      <div className="content-container">
 
-            <Row>
-              <Col md={12}>
-                {this.state.coin && this.state.userInput && ( <LookupCoin 
-                  coinData={this.state.coin}
-                /> )}
-              </Col>
-            </Row>
-          </div>
+      <br/>
+      <br/>
+      
+        <Row>
+          <Col md={12}> 
+            <LookupCoinLanding 
+              userInput={this.state.userInput} 
+              handleInput={this.handleInput}
+              handleSubmit={this.handleSubmit}
+              graphInput={this.state.graphInput}
+              displayGraph={this.state.displayGraph}
+              /> 
+          </Col>
+        </Row>
+
+        <br/>
+  
+        <Row>
+          <Col md={12}>
+            {this.state.coin.name && this.state.userInput && ( <LookupCoin 
+              coinData={this.state.coin}
+            /> )}
+            
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

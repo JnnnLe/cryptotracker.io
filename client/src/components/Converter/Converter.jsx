@@ -54,9 +54,7 @@ class ConverterApp extends Component {
   runConverter() {
 
     // TODO: plan for .toLowerCase(), .trim() for User Input
-
     const { userAmount, convertFrom, convertTo  } = this.state;
-
 
     axios.all([
       axios.get(`https://api.coinmarketcap.com/v1/ticker/${convertFrom}/`),
@@ -67,8 +65,6 @@ class ConverterApp extends Component {
           const newState = Object.assign({}, this.state);
           const fromVal = parseFloat(firstCall.data[0].price_usd);
           const toVal = parseFloat(secCall.data[0].price_usd);
-
-
           newState.userAmount = userAmount;
           newState.convertFromPrice = fromVal;
           newState.convertToPrice = toVal;
@@ -77,7 +73,6 @@ class ConverterApp extends Component {
             newState.userAmount, 
             newState.convertFromPrice, 
             newState.convertToPrice
-
           ).toFixed(2)
 
           this.setState(newState)
@@ -86,14 +81,13 @@ class ConverterApp extends Component {
   }
 
   calculateFinalVal(u1, u2, u3) {
-      const formula = ((u1 * u2) / u3)
-      return formula
+    const formula = ((u1 * u2) / u3)
+    return formula
   }
   
   render() {
     return (
       <div>
-        <br/>
           <br/>
           <br/>
           
@@ -114,7 +108,6 @@ class ConverterApp extends Component {
             <input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
             
           </label>
-          <img src="http://www.yim778.com/data/out/26/717527.png" height="200" width="200"/>
   
           <label>
             To this Coin: 
