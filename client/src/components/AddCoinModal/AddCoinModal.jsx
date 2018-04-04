@@ -21,13 +21,13 @@ class AddCoinModal extends React.Component {
     return (
       <div>
         <Modal isOpen={this.props.show} toggle={this.props.toggleFn} className={this.props.className}>
-          <ModalHeader toggle={this.props.toggleFn}>Add a Coin</ModalHeader>
+          <ModalHeader toggle={this.props.toggleFn}>Add a Cryptocurrency</ModalHeader>
           
           <Form action="/coinpost" method ="post">
           <FormGroup>
-          <Label for="coin-name">Coin</Label>
+          <Label for="coin-name">Cryptocurrency</Label>
           <Input type="text" name="coinName" id="coin-name" placeholder="e.g. BTC" />
-          <Label for="quantity">Holdings</Label>
+          <Label for="quantity">Shares Held</Label>
           <Input type="number" name="quantity" id="holdings" placeholder="e.g. 5" />
            
             <div id="modalBtns">
