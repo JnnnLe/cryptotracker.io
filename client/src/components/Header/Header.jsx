@@ -90,7 +90,8 @@ class Header extends React.Component{
 
     getUserStuff() {
         fetch('/api/currentUser',{credentials:'include'})
-        .then((resp) => resp.text().then(gimme => this.setState({userName: gimme})
+        .then((resp) => resp.text().then(gimme => this.setState({userName: JSON.parse(gimme)})
+ 
     ))
     }
 
@@ -132,13 +133,21 @@ class Header extends React.Component{
                     </NavbarToggler>
                     <Collapse isOpen={this.state.isOpen} navbar className="justify-content-end">
 
-                        <Nav navbar>
-                            <NavItem>
-                                <Link to="/login" className="nav-link" target = "_self">
-                                    {this.state.userName}<i className="now-ui-icons users_single-02"></i>                                    
-                                </Link>
-                            </NavItem>
-                        </Nav>
+                    <Nav navbar>
+                    <NavItem>
+                    {this.state.userName.social_id ?
+                        <Link to="/logout" className="nav-link" target = "_self">
+                        {this.state.userName.first_name} {this.state.userName.last_name}<img src ={this.state.userName.photo} height ="50px" width ="50px" />
+                                                                
+                        </Link>
+                        :
+                        <Link to="/login" className="nav-link" target = "_self">
+                        <i className="now-ui-icons users_single-02"></i>
+                                                              
+                        </Link>
+                    }
+                    </NavItem>
+                </Nav>
                     </Collapse>
                 </Container>
             </Navbar>
