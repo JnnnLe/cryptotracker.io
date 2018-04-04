@@ -23,7 +23,7 @@ class Top5 extends Component {
     return (
 
       <div className='main-container'>
-      <Row>
+        <Row>
 
         <div className='logo'>
           <img src={`https://coincheckup.com/images/coins/${nameLower}.png`} height="64" width="64" />
@@ -41,6 +41,7 @@ class Top5 extends Component {
             </Col>
           </Row>
         </Col>
+
         <Col md={1.25}>
         <div className='percentages'>
               <div><b>HOUR:</b> <span id="pcRight">{PC1Hr}% </span></div>
@@ -56,6 +57,7 @@ class Top5 extends Component {
             </div>
           </Row>
         </Col>
+
         <Col md={2}>
           <div id='marketCap'>
           {marketCap}
