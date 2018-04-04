@@ -2,6 +2,18 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class AddCoinModal extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+    this.closeModalRefresh = this.closeModalRefresh.bind(this)
+  }
+
+  closeModalRefresh() {
+    this.props.toggleFn()
+    this.props.refreshData()
+  }
 
   renderModal() {
     return (
@@ -19,8 +31,9 @@ class AddCoinModal extends React.Component {
           <Label for="price-bought">Price Bought</Label>
           <Input type="number" name="priceBought" id="price-bought" placeholder="e.g. 100$" />
            
-            <Button  type = "submit" color="primary">Do Something</Button>{' '}
+            <Button type="submit" color="primary">Submit!</Button>{' '}
             <Button color="secondary" onClick={this.props.toggleFn}>Cancel</Button>
+            <Button color="primary" onClick={this.closeModalRefresh}>DONE!</Button>{' '}
             </FormGroup>
             </Form>
           

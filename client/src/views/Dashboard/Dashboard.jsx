@@ -17,6 +17,8 @@ import News from '../../components/News/News';
 import Gainers from '../../components/Best+Worst/Gainers';
 import Losers from '../../components/Best+Worst/Losers';
 
+import './Dashboard.css';
+
 
 class Dashboard extends React.Component {
     render() {
@@ -27,20 +29,27 @@ class Dashboard extends React.Component {
                   <Row>
                     <Col md={12}>
                       <Top5 />
+                      <br/>
+                      <br/>
+                      <br/>
                     </Col>
                   </Row>
+
                   <Row>
                     <Col md={12} id='gainers-losers'>
                       <Row>
-                        <Col md={6}>
+                      <Col md={2}>
+                      </Col>
+                        <Col md={4}>
+                        <h2>Biggest Gainers</h2>
                           <Gainers />
                         </Col>
-                        
-                        <div>
-                        </div>
                     
-                        <Col md={6}>
+                        <Col md={4}>
+                        <h2>Biggest Losers</h2>
                           <Losers />
+                        </Col>
+                        <Col md={2}>
                         </Col>
                       </Row>
                     </Col>

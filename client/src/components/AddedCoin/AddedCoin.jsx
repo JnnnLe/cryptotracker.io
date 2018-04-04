@@ -52,8 +52,15 @@ class AddedCoin extends React.Component {
       newState.shares = 0
       console.log('falsy', newState.shares)
     }
+    console.log('fsdfsdfsdfsdf', newState.price)
+    console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
+    console.log('fsdfsdfsdfsdf', parseFloat(newState.price).toFixed(2))
+    console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
+    console.log('fhdjskfsdfsfsdf', this.numberWithCommas(parseFloat(newState.price).toFixed(2)))
+
+
     console.log('testing', newState.shares == true)
-    newState.price = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
+    newState.priceDisplay = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
     newState.netValue = this.calcNetValue(newState.shares, newState.price)
     this.setState(newState)
   }
@@ -73,14 +80,15 @@ class AddedCoin extends React.Component {
         
           // name: fetchedResults[0].name,
           state.symbol = fetchedResults[0].symbol,
-          state.price = this.formatNum(fetchedResults[0].price_usd),
+          state.price = fetchedResults[0].price_usd,
+          state.priceDisplay = this.formatNum(fetchedResults[0].price_usd),
           state.marketCap = fetchedResults[0].market_cap_usd,
           state.hourChange = fetchedResults[0].percent_change_1h,
           state.dayChange = fetchedResults[0].percent_change_24h,
           state.weekChange = fetchedResults[0].percent_change_7d,
           state.rank = fetchedResults[0].rank,
           state.priceBTC = fetchedResults[0].price_btc,
-          state.netValue = this.calcNetValue(this.state.share, this.formatNum(fetchedResults[0].price_usd))
+          state.netValue = this.calcNetValue(this.state.shares, this.formatNum(fetchedResults[0].price_usd))
         
           this.setState(state)
           // console.log(test[0])
@@ -102,7 +110,7 @@ class AddedCoin extends React.Component {
   }
 
   render() {
-    const { name, symbol, price, marketCap, hourChange, dayChange, weekChange, rank, priceBTC, nameLower, netValue, shares } = this.state
+    const { name, symbol, priceDisplay, marketCap, hourChange, dayChange, weekChange, rank, priceBTC, nameLower, netValue, shares } = this.state
 
     let calcValue = netValue ? netValue.toFixed(2) : '0'
     calcValue = this.numberWithCommas(calcValue)
@@ -139,7 +147,7 @@ class AddedCoin extends React.Component {
           <Col md={3.5}>
             <Row>
               <div id='currentPrice'>
-                ${price}
+                ${priceDisplay}
               </div>
             </Row>
           </Col>

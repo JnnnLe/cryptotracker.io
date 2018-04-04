@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createBrowserHistory } from 'history';
 import {
     Router,
+    IndexRoute,
     Route,
     Switch
 } from 'react-router-dom';
@@ -20,7 +21,7 @@ ReactDOM.render(
         <Switch>
             {
                 indexRoutes.map((prop,key) => {
-                    return (
+                    return (                               
                         <Route
                             path={prop.path}
                             key={key}

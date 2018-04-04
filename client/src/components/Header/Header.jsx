@@ -15,7 +15,9 @@ class Header extends React.Component{
         this.state = {
             isOpen: false,
             dropdownOpen: false,
-            color: "transparent"
+            color: "transparent",
+            userName: "",
+            isLoggedIn: false
         };
         this.toggle = this.toggle.bind(this);
         this.dropdownToggle = this.dropdownToggle.bind(this);
@@ -85,15 +87,25 @@ class Header extends React.Component{
         }
 
     }
+
+    getUserStuff() {
+        fetch('/api/currentUser',{credentials:'include'})
+        .then((resp) => resp.text().then(gimme => this.setState({userName: gimme})
+    ))
+    }
+
     componentDidMount(){
         window.addEventListener("resize", this.updateColor.bind(this));
+        this.getUserStuff()
     }
+
     componentDidUpdate(e){
         if(window.innerWidth < 993 && e.history.location.pathname !== e.location.pathname && document.documentElement.className.indexOf('nav-open') !== -1){
             document.documentElement.classList.toggle('nav-open');
             this.refs.sidebarToggle.classList.toggle('toggled');
         }
     }
+
     render(){
         return (
             // add or remove classes depending if we are on full-screen-maps page or not
@@ -119,41 +131,13 @@ class Header extends React.Component{
                         <span className="navbar-toggler-bar navbar-kebab"></span>
                     </NavbarToggler>
                     <Collapse isOpen={this.state.isOpen} navbar className="justify-content-end">
-                        <form>
-                            <InputGroup className="no-border">
-                                <Input placeholder="Search..." />
-                                <InputGroupAddon><i className="now-ui-icons ui-1_zoom-bold"></i></InputGroupAddon>
-                            </InputGroup>
-                        </form>
+
                         <Nav navbar>
                             <NavItem>
-                                <Link to="#pablo" className="nav-link">
-                                    <i className="now-ui-icons media-2_sound-wave"></i>
-            						<p>
-                                        <span className="d-lg-none d-md-block">Stats</span>
-                                    </p>
-                                </Link>
-                            </NavItem>
-                            <Dropdown nav isOpen={this.state.dropdownOpen} toggle={(e) => this.dropdownToggle(e)}>
-                                <DropdownToggle caret nav>
-                                    <i className="now-ui-icons location_world"></i>
-                                    <p>
-            							<span className="d-lg-none d-md-block">Some Actions</span>
-            						</p>
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem tag="a">Action</DropdownItem>
-                                    <DropdownItem tag="a">Another Action</DropdownItem>
-                                    <DropdownItem tag="a">Something else here</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
-                            <NavItem>
                                 <Link to="/login" className="nav-link" target = "_self">
-                                    <i className="now-ui-icons users_single-02"></i>                                    
+                                    {this.state.userName}<i className="now-ui-icons users_single-02"></i>                                    
                                 </Link>
                             </NavItem>
-                            
-
                         </Nav>
                     </Collapse>
                 </Container>

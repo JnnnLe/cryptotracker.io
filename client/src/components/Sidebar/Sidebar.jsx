@@ -36,7 +36,7 @@ class Sidebar extends React.Component{
                             <img src={logo} alt="react-logo" />
                         </div>
                 	</a>
-                	<a href="" className="simple-text logo-normal">
+                	<a href="/" className="simple-text logo-normal">
                 		CRYPTOTRACKER.IO
                 	</a>
                 </div>
