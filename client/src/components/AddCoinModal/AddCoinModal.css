@@ -1,0 +1,11 @@
+input#coin-name,
+input#holdings {
+  width: 75%;
+  margin: auto
+}
+
+label {
+  float: inherit;
+  text-align: center;
+  display: inherit
+}
