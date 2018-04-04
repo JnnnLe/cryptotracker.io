@@ -20,62 +20,74 @@ class Gainers extends Component {
     Object.keys(this.state.gainers).map((coin, i) => {
       let coinName = this.state.gainers[coin].name;
       const symbol = this.state.gainers[coin].symbol;
-      const price = this.state.gainers[coin].price_usd;
+      let price = this.state.gainers[coin].price_usd;
       const marketCap = this.state.gainers[coin].market_cap_usd;
       const PC7Dy = this.state.gainers[coin].percent_change_7d;
       let nameLower = (this.state.gainers[coin].name).toLowerCase();
 
+      if (price[0] != '0') {
+        var backToNum = Number(price)
+        // console.log('Back to num:', backToNum, typeof backToNum)
+        price = backToNum.toFixed(2)
+        // console.log('2deci,', price)
+      }
+       if (price[0] == '0') {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(3)
+        // console.log('3deci,', price)
+        }
+
       if (coinName == 'Bitcoin Cash') {
         nameLower = "bitcoin-cash"
-    }
-    if (coinName == 'Binance Coin') {
-        nameLower = "binance-coin"
-    }
-    if (coinName == 'Ethereum Classic') {
-        nameLower = "ethereum-classic"
-    }
-    if (coinName == 'Bitcoin Gold') {
-        nameLower = "bitcoin-gold"
-    }
-    if (coinName == 'Bitcoin Diamond') {
-        nameLower = "bitcoin-diamond"
-    }
-    if (coinName == 'KuCoin Shares') {
-        nameLower = "kucoin-shares"
-    }
-    if (coinName == 'Basic Attention Token') {
-        nameLower = "basic-attention-token"
-    }
-    if (coinName == 'Kyber Network') {
-        nameLower = "kyber-network"
-    }
-    if (coinName == 'Infinity Economics') {
-        nameLower = "infinity-economics"
-    }
-    if (coinName == 'Byteball Bytes') {
-        nameLower = "byteball-bytes"
-    }
-    if (coinName == 'Power Ledger') {
-        nameLower = "power-ledger"
-    }
-    if (coinName == 'Nucleus Vision') {
-        nameLower = "nucleus-vision"
-    }
-    if (coinName == 'Request Network') {
-        nameLower = "request-network"
-    }
-    if (coinName == 'Genaro Network') {
-        nameLower = "genaro-network"
-    }
-    if (coinName == 'Matrix AI Network') {
-        nameLower = "matrix-ai-network"
-    }
-    if (coinName == 'Genesis Vision') {
-        nameLower = "genesis-vision"
-    }
-    if (coinName == 'Enjin Coin') {
-        nameLower = "enjin-coin"
-    }
+      }
+      if (coinName == 'Binance Coin') {
+          nameLower = "binance-coin"
+      }
+      if (coinName == 'Ethereum Classic') {
+          nameLower = "ethereum-classic"
+      }
+      if (coinName == 'Bitcoin Gold') {
+          nameLower = "bitcoin-gold"
+      }
+      if (coinName == 'Bitcoin Diamond') {
+          nameLower = "bitcoin-diamond"
+      }
+      if (coinName == 'KuCoin Shares') {
+          nameLower = "kucoin-shares"
+      }
+      if (coinName == 'Basic Attention Token') {
+          nameLower = "basic-attention-token"
+      }
+      if (coinName == 'Kyber Network') {
+          nameLower = "kyber-network"
+      }
+      if (coinName == 'Infinity Economics') {
+          nameLower = "infinity-economics"
+      }
+      if (coinName == 'Byteball Bytes') {
+          nameLower = "byteball-bytes"
+      }
+      if (coinName == 'Power Ledger') {
+          nameLower = "power-ledger"
+      }
+      if (coinName == 'Nucleus Vision') {
+          nameLower = "nucleus-vision"
+      }
+      if (coinName == 'Request Network') {
+          nameLower = "request-network"
+      }
+      if (coinName == 'Genaro Network') {
+          nameLower = "genaro-network"
+      }
+      if (coinName == 'Matrix AI Network') {
+          nameLower = "matrix-ai-network"
+      }
+      if (coinName == 'Genesis Vision') {
+          nameLower = "genesis-vision"
+      }
+      if (coinName == 'Enjin Coin') {
+          nameLower = "enjin-coin"
+      }
 
       top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
       })

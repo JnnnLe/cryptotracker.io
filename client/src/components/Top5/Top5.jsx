@@ -20,8 +20,8 @@ class Top5 extends Component {
   }
 
   generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
-    return (
-
+    return (  
+    
       <div className='main-container'>
         <Row>
 
@@ -53,7 +53,7 @@ class Top5 extends Component {
         <Col md={3.5}>
           <Row>
             <div id='currentPrice'>
-              ${price}
+            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
             </div>
           </Row>
         </Col>
@@ -84,13 +84,25 @@ class Top5 extends Component {
     Object.keys(this.state.topCryptos).map((coin, i) => {
       const coinName = this.state.topCryptos[coin].name;
       const symbol = this.state.topCryptos[coin].symbol;
-      const price = this.state.topCryptos[coin].price_usd;
+      let price = this.state.topCryptos[coin].price_usd;
       const PC1Hr = this.state.topCryptos[coin].percent_change_1h;
       const PC24Hr = this.state.topCryptos[coin].percent_change_24h;
       const PC7Dy = this.state.topCryptos[coin].percent_change_7d;
       const marketCap = this.state.topCryptos[coin].market_cap_usd;
       const rank = this.state.topCryptos[coin].rank;
       let nameLower = this.state.topCryptos[coin].name.toLowerCase();
+
+      if (price[0] != '0') {
+        var backToNum = Number(price)
+        // console.log('Back to num:', backToNum, typeof backToNum)
+        price = backToNum.toFixed(2)
+        // console.log('2deci,', price)
+      }
+       if (price[0] == '0') {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(3)
+        // console.log('3deci,', price)
+        }
 
       if (coinName == 'Bitcoin Cash') {
         nameLower = "bitcoin-cash"
