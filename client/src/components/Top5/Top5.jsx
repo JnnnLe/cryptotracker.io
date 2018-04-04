@@ -60,7 +60,7 @@ class Top5 extends Component {
 
         <Col md={2}>
           <div id='marketCap'>
-          {marketCap}
+          <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} />
           </div>
         </Col>
         <Col md={1}>
