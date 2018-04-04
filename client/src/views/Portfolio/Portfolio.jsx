@@ -57,10 +57,18 @@ class Portfolio extends React.Component{
         }
 
         this.toggleModal = this.toggleModal.bind(this)
+        this.triggerDataReload = this.triggerDataReload.bind(this)
     }
 
     componentDidMount() {
         this.getUserData()
+    }
+
+    triggerDataReload() {
+        let state = {...this.state}
+        state.modal = false
+        Promise.resolve(this.setState(state))
+        .then(() => this.getUserData())
     }
 
     getUserData() {
@@ -102,13 +110,11 @@ class Portfolio extends React.Component{
             <div>
                 <PanelHeader size='sm'
                 />
-                
-
                 <div className='content'>
                     <Row>
                     <Col md={12}>
                     <br />
-                    <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} />
+                    <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} refreshData={this.triggerDataReload}/>
                     <button onClick={this.toggleModal}>Add a Coin</button>
                     <button onClick={this.getUserStuff}>GETMEUSERS</button>
                     <button onClick={this.getUserCoins}>GETCoins</button>
