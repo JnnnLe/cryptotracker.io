@@ -77,6 +77,9 @@ class Losers extends Component {
     if (coinName == 'Genesis Vision') {
         nameLower = "genesis-vision"
     }
+    if (coinName == 'Nebulas') {
+      nameLower = "nebulas-token"
+  }
     if (coinName == 'Enjin Coin') {
         nameLower = "enjin-coin"
     };

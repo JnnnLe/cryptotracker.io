@@ -25,7 +25,7 @@ module.exports = app => {
   });
 
   app.get('/api/currentUser', loggedIn, function(req, res) {
-    console.log('res======',req.user.social_id);
+    console.log('res======',req.user);
     res.json(req.user.first_name);
   });
 

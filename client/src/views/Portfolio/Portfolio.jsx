@@ -9,7 +9,7 @@ import {
 
 import BackGround from 'components/BackGround/BackGround'
 
-
+import { getUserStuff } from '../../utils/api.jsx'
 
 
 class Portfolio extends React.Component{
@@ -18,45 +18,58 @@ class Portfolio extends React.Component{
         super(props)
         this.state = {
             modal: false,
-            user: {
-                coins: [
-                    {
-                    name: 'Ethereum',
-                    sharesHeld: 23
-                    },
-                    {
-                    name: 'Stellar',
-                    sharesHeld: 32
-                    },
-                    {
-                    name: 'Substratum',
-                    sharesHeld: 250
-                    },
-                    {
-                    name: 'Dragonchain',
-                    sharesHeld: 200
-                    },
-                    {
-                    name: 'Storm',
-                    sharesHeld: 150
-                    },
-                    {
-                    name: 'EOS',
-                    sharesHeld: 20
-                    },
-                    {
-                    name: 'Dogecoin',
-                    sharesHeld: 534
-                    },
-                    {
-                    name: 'VIBE',
-                    sharesHeld: 534
-                    }
-                ],
-            }
+            // user: {
+            //     coins: [
+            //         {
+            //         name: 'Ethereum',
+            //         sharesHeld: 23
+            //         },
+            //         {
+            //         name: 'Stellar',
+            //         sharesHeld: 32
+            //         },
+            //         {
+            //         name: 'Substratum',
+            //         sharesHeld: 250
+            //         },
+            //         {
+            //         name: 'Dragonchain',
+            //         sharesHeld: 200
+            //         },
+            //         {
+            //         name: 'Storm',
+            //         sharesHeld: 150
+            //         },
+            //         {
+            //         name: 'EOS',
+            //         sharesHeld: 20
+            //         },
+            //         {
+            //         name: 'Dogecoin',
+            //         sharesHeld: 534
+            //         },
+            //         {
+            //         name: 'VIBE',
+            //         sharesHeld: 534
+            //         }
+            //     ],
+            // }
         }
 
         this.toggleModal = this.toggleModal.bind(this)
+    }
+
+    componentDidMount() {
+        this.getUserData()
+    }
+
+    getUserData() {
+        let state = {...this.state}
+        getUserStuff()
+        .then(resp => {
+            state.user = resp[0]
+            this.setState(state)
+        })
     }
 
     addCoin() {
@@ -83,6 +96,8 @@ class Portfolio extends React.Component{
     }
     render() {
         const user = this.state.user
+        console.log(this.state)
+        console.log(user)
         return (
             <div>
                 <PanelHeader size='sm'
@@ -101,7 +116,10 @@ class Portfolio extends React.Component{
                   </Row>
                   <Row>
                   <Col md={12}>
-                  {user.coins.map(coin => <AddedCoin name={coin.name} shares={coin.shares} />)}
+                    {user
+                        ? user.currency.map(coin => <AddedCoin name={coin.coin_name} shares={coin.quantity} />)
+                        : null
+                    }
                   </Col>
                   </Row>
                 </div>
