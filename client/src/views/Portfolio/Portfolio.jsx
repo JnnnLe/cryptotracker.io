@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Card, CardHeader, CardBody, CardFooter, CardTitle, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Table, Container
+    Button, Card, CardHeader, CardBody, CardFooter, CardTitle, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Table, Container
 } from 'reactstrap';
 
 import {
@@ -8,6 +8,8 @@ import {
 } from 'components';
 
 import BackGround from 'components/BackGround/BackGround'
+
+import './Portfolio.css'
 
 import { getUserStuff } from '../../utils/api.jsx'
 
@@ -18,42 +20,7 @@ class Portfolio extends React.Component{
         super(props)
         this.state = {
             modal: false,
-            // user: {
-            //     coins: [
-            //         {
-            //         name: 'Ethereum',
-            //         sharesHeld: 23
-            //         },
-            //         {
-            //         name: 'Stellar',
-            //         sharesHeld: 32
-            //         },
-            //         {
-            //         name: 'Substratum',
-            //         sharesHeld: 250
-            //         },
-            //         {
-            //         name: 'Dragonchain',
-            //         sharesHeld: 200
-            //         },
-            //         {
-            //         name: 'Storm',
-            //         sharesHeld: 150
-            //         },
-            //         {
-            //         name: 'EOS',
-            //         sharesHeld: 20
-            //         },
-            //         {
-            //         name: 'Dogecoin',
-            //         sharesHeld: 534
-            //         },
-            //         {
-            //         name: 'VIBE',
-            //         sharesHeld: 534
-            //         }
-            //     ],
-            // }
+            userWorth: 0
         }
 
         this.toggleModal = this.toggleModal.bind(this)
@@ -115,9 +82,9 @@ class Portfolio extends React.Component{
                     <Col md={12}>
                     <br />
                     <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} refreshData={this.triggerDataReload}/>
-                    <button onClick={this.toggleModal}>Add a Coin</button>
-                    <button onClick={this.getUserStuff}>GETMEUSERS</button>
-                    <button onClick={this.getUserCoins}>GETCoins</button>
+                    <Button color="primary" id="addACoin" onClick={this.toggleModal}>Add a Coin</Button>
+                    {/*<button onClick={this.getUserStuff}>GETMEUSERS</button>
+                        <button onClick={this.getUserCoins}>GETCoins</button>*/}
                     </Col>
                   </Row>
                   <Row>
