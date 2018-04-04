@@ -30,8 +30,10 @@ class AddCoinModal extends React.Component {
           <Label for="quantity">Holdings</Label>
           <Input type="number" name="quantity" id="holdings" placeholder="e.g. 5" />
            
+            <div id="modalBtns">
             <Button type="submit" color="primary" id="addCoinBtn" >ADD COIN</Button>{' '}
             <Button color="primary" id="submitCoinBtn" onClick={this.closeModalRefresh}>DONE</Button>{' '}
+            </div>
             </FormGroup>
             </Form>
           
