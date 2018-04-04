@@ -157,18 +157,19 @@ class Losers extends Component {
       })
   }
 
-    render() {
+  render() {
       // //gather data
-      const coins = this.grabLowestCoins();
+    const coins = this.grabLowestCoins();
 
-      return (
-        <div>
-            <Row>
-              {coins}
-            </Row>
-        </div>
-      )
-    }
+    return (
+      <div>
+          <Row>
+            {coins}
+          </Row>
+      </div>
+    )
+  }
+  
  }
 
 export default Losers;

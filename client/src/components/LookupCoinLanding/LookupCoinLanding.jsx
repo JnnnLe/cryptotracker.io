@@ -8,24 +8,19 @@ import reactstrap, { Row, Col, FormGroup, Input, Label } from 'reactstrap';
 import TradingViewWidget from 'react-tradingview-widget';
 
 const LookupCoinLanding =  props => {
+  const userInput = props.userInput;
+  // console.log('UI', userInput)
+  return (
+    <div className='userInputForGraph'>
+      
+        <form id='coinInput' className='rf-search-bar js-search-bar' onSubmit={props.handleSubmit}>
+          <label>
+            <input id='coinInput' className='rf-search-bar__input js-search-bar__input' autoComplete='off' type="text" name='search' value placeholder='Search coin here...' value={userInput} onChange={props.handleInput}/>
+          </label>
+        </form>
 
-    const userInput = props.userInput;
-    return (
-      <div className='userInputForGraph'>
-        <div>{userInput}</div>
       
-      <form onSubmit={props.handleSubmit}>
-        <label>
-          <input type="text" value={userInput} onChange={props.handleInput} />
-        </label>
-        <label>
-          <button type='submit' value='Search'>
-            Search
-          </button>
-        </label>
-      </form>
-      
-      <TradingViewWidget symbol={props.graphInput} style='3'/>     
+      {userInput && (<LookupCoin userInput={userInput}/>) && (<TradingViewWidget symbol={props.graphInput} style='3'/> )}
       
     </div>
     )
