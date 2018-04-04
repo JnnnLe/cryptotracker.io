@@ -73,7 +73,7 @@ class ConverterApp extends Component {
             newState.userAmount, 
             newState.convertFromPrice, 
             newState.convertToPrice
-            ).toFixed(2)
+          ).toFixed(2)
 
           this.setState(newState)
 
@@ -88,7 +88,6 @@ class ConverterApp extends Component {
   render() {
     return (
       <div>
-        <br/>
           <br/>
           <br/>
           
