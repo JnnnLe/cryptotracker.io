@@ -74,8 +74,6 @@ class LookupCoin extends React.Component {
     return (
       
       <div className='main-container'>
-      
-        
         <Row>
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />

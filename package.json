@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
+    "dev": "concurrently  --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "client": "cd client && npm start",
     "build": "node scripts/build.js",
     "seed": "node scripts/seedDB.js",
