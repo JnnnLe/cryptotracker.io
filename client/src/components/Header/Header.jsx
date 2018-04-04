@@ -8,6 +8,8 @@ import {
 
 import dashboardRoutes from 'routes/dashboard.jsx';
 
+import './Header.css'
+
 
 class Header extends React.Component{
     constructor(props) {
@@ -137,7 +139,7 @@ class Header extends React.Component{
                     <NavItem>
                     {this.state.userName.social_id ?
                         <Link to="/logout" className="nav-link" target = "_self">
-                        {this.state.userName.first_name} {this.state.userName.last_name}<img src ={this.state.userName.photo} height ="50px" width ="50px" />
+                        {this.state.userName.first_name} {this.state.userName.last_name}   <img id="needMargin" src={this.state.userName.photo} height="32px" width="32px" />
                                                                 
                         </Link>
                         :
