@@ -5,6 +5,8 @@ input#holdings {
 }
 
 label {
+  font-size: 2em;
+  font-weight: bold;
   float: inherit;
   text-align: center;
   display: inherit
