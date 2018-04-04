@@ -27,17 +27,15 @@ class Losers extends Component {
       let nameLower = this.state.losers[coin].name.toLowerCase();
 
       console.log('xdcfjvygkbuhlnj;sdjbs00000', typeof price)
-      if (price[0] != '0') {
-        var backToNum = Number(price)
-        // console.log('Back to num:', backToNum, typeof backToNum)
-        price = backToNum.toFixed(2)
-        // console.log('2deci,', price)
-      }
-       if (price[0] == '0') {
+      if (price[2] == '0' && price[3] == '0') {
         var backToNum = Number(price)
         price = backToNum.toFixed(3)
-        // console.log('3deci,', price)
-        }
+      }
+
+      if (price[0] != '0' || price[0] == '0') {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(2)
+      }
 
       if (coinName == 'Bitcoin Cash') {
           nameLower = "bitcoin-cash"
@@ -92,14 +90,11 @@ class Losers extends Component {
       }
       if (coinName == 'Nebulas') {
         nameLower = "nebulas-token"
-    }
+      }
       if (coinName == 'Enjin Coin') {
           nameLower = "enjin-coin"
       };
 
-
-    // console.log('This price before pushing,' this.state.losers[coin].price_usd)
-    
       top5jsxFormat.push(this.generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower));
       })
     return top5jsxFormat; 

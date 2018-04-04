@@ -25,17 +25,15 @@ class Gainers extends Component {
       const PC7Dy = this.state.gainers[coin].percent_change_7d;
       let nameLower = (this.state.gainers[coin].name).toLowerCase();
 
-      if (price[0] != '0') {
-        var backToNum = Number(price)
-        // console.log('Back to num:', backToNum, typeof backToNum)
-        price = backToNum.toFixed(2)
-        // console.log('2deci,', price)
-      }
-       if (price[0] == '0') {
+      if (price[0] === '0' && price[2] === '0' && price[3]) {
         var backToNum = Number(price)
         price = backToNum.toFixed(3)
-        // console.log('3deci,', price)
-        }
+      }
+
+      if (price[0] != '0' || price[0] == '0') {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(2)
+      }
 
       if (coinName == 'Bitcoin Cash') {
         nameLower = "bitcoin-cash"
@@ -97,7 +95,6 @@ class Gainers extends Component {
 
 
   generateCoin(i, coinName, symbol, price, marketCap, PC7Dy, nameLower) {
-    console.log(PC7Dy)
     return (
       <div className="cryptoCard">
       <Row>
