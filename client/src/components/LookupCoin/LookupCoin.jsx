@@ -28,14 +28,16 @@ class LookupCoin extends React.Component {
       finalUserInput: LookupCoinLanding.finalUserInput
 
     }
-    this.getGlobalData = this.getGlobalData.bind(this)
+    this.getGlobalData = this.getGlobalData.bind(this);
   }
 
   componentDidMount() {
     this.getGlobalData();
     
     // setInterval(this.getValues, 15000)
+
   }
+
 
   getGlobalData() {
     axios.get(`https://api.coinmarketcap.com/v1/global/`)
@@ -69,22 +71,17 @@ class LookupCoin extends React.Component {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
     const { dominance, volume, totalCap} = this.state;
   
-    // console.log('finalUser Input:', {finalUserInput})
-
     return (
-      <div className='main-container'>
-
       
-        <div className='container'>
+      <div className='main-container'>
+      
         
         <Row>
-          <Col md={1.5}>
-            <div className='logo'>
-              <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
-            </div>
-          </Col>
-            
-          <Col md={4}>
+          <div className='logo'>
+            <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
+          </div>
+         
+          <Col md={2}>
             <Row>
               <Col md={12} id='coinName'>
                 {name}
@@ -97,34 +94,42 @@ class LookupCoin extends React.Component {
             </Row>
           </Col>
 
-          <Col md={4}>
+          <Col md={1}>
             <Row>
               <div id='currentPrice'>
                 ${price}
               </div>
-
-              <div>
-                Market Cap: ${marketCap} 
-              </div>
             </Row>
-
+          </Col>
+              
+          <Col md={3}>
             <Row>
               <div className='percentages'>
-                HOUR: {hourChange}%
-                DAY: {dayChange}%
-                WEEK: {weekChange}%
-                Rank: {rank}
+              <b>Market Cap: ${marketCap} </b>
+                <br/>
+                <b>HOUR: {hourChange}% </b>
+                <b>DAY: {dayChange}% </b>
+                <b>WEEK: {weekChange}% </b>
               </div>
             </Row>      
           </Col>
 
-          <Col md={2}>
+          <Col md={3}>
             <div className="netValue">
               {priceBTC}
             </div>
           </Col>
+
+          <Col md={1}>
+            <div id='rank'>
+              <b>#{rank} </b> 
+            </div>
+          </Col>
+
         </Row>
-      </div>
+
+      <br/>
+      <br/>
 
       <div className='globalInfo'>
         <Row>

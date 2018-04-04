@@ -22,6 +22,7 @@ class PortfolioContainer extends React.Component{
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetVal = this.resetVal.bind(this);
   }
 
   handleInput(event) {
@@ -29,8 +30,19 @@ class PortfolioContainer extends React.Component{
     const newState = {...this.state};
     newState.userInput = event.target.value
       this.setState(newState);
+
       // console.log('Inside of handleInput:', this.state)
     }
+
+  
+  resetVal () {
+    this.setState({
+    userInput : '', //BTC
+    graphInput: 'USD', //BTCUSD
+    coinAbrv: '', //btc
+    fullname: '' //bitcoin
+    })
+  }
 
       
   handleSubmit(event) {
@@ -39,13 +51,14 @@ class PortfolioContainer extends React.Component{
     let targetField;
     if (state.userInput.length < 5) {
       //get Full name 
-      targetField = 'name'
+      targetField = 'name';
+
     } else {
       //get Abrv
       targetField = 'abrv'
     }
     
-    this.findCoin(targetField, state.userInput)
+  this.findCoin(targetField, state.userInput)
     .then(data => {
       state.coinAbrv = data.abrv
       state.graphInput = data.abrv + 'USD'
@@ -105,33 +118,33 @@ class PortfolioContainer extends React.Component{
   }
 
   render() {
-
-    //line 23
-    // {this.state.userInput && (<LookupCoinLanding 
-    //   userInput={this.state.userInput} handleInput={this.handleInput}
-    //   handleSubmit={this.handleSubmit}
-    //   graphInput={this.state.graphInput}
-    //   />)}
     return (
-          <div className="content container">
-            <Row>
-              <Col md={12}> 
-               <LookupCoinLanding 
-                  userInput={this.state.userInput} handleInput={this.handleInput}
-                  handleSubmit={this.handleSubmit}
-                  graphInput={this.state.graphInput}
-                  /> 
-              </Col>
-            </Row>
+      <div className="content-container">
 
-            <Row>
-              <Col md={12}>
-                {this.state.coin && this.state.userInput && ( <LookupCoin 
-                  coinData={this.state.coin}
-                /> )}
-              </Col>
-            </Row>
-          </div>
+      <br/>
+      <br/>
+      
+        <Row>
+          <Col md={12}> 
+            <LookupCoinLanding 
+              userInput={this.state.userInput} handleInput={this.handleInput}
+              handleSubmit={this.handleSubmit}
+              graphInput={this.state.graphInput}
+              /> 
+          </Col>
+        </Row>
+
+        <br/>
+  
+        <Row>
+          <Col md={12}>
+            {this.state.coin && this.state.userInput && ( <LookupCoin 
+              coinData={this.state.coin}
+            /> )}
+            
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
