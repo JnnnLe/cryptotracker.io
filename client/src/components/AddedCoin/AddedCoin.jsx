@@ -80,6 +80,7 @@ class AddedCoin extends React.Component {
         var fetchedResults = json;
         let state = { ...this.state }
         
+          // name: fetchedResults[0].name,
           state.symbol = fetchedResults[0].symbol,
           state.price = fetchedResults[0].price_usd,
           state.priceDisplay = this.formatNum(fetchedResults[0].price_usd),
@@ -92,6 +93,10 @@ class AddedCoin extends React.Component {
           state.netValue = this.calcNetValue(this.state.shares, this.formatNum(fetchedResults[0].price_usd).replace(/,\s?/g, ""))
         
           this.setState(state)
+          // console.log(test[0])
+          console.log(this.state.name)
+          // console.log(this.state.dayChange)
+          // console.log(this.state.weekChange)
         })
       }
       
@@ -100,6 +105,10 @@ class AddedCoin extends React.Component {
       parseFloat(shares) * parseFloat(price)
     )
   }
+
+  getUserWorth(netValue) {
+  }
+
 
   numberWithCommas(x) {
     return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -110,13 +119,17 @@ class AddedCoin extends React.Component {
 
     let calcValue = netValue ? netValue.toFixed(2) : '0'
     calcValue = this.numberWithCommas(calcValue)
+    console.log('hi', calcValue)
+    console.log(this.state)
 
     return (
       <div className='main-container'>
         <Row>
+
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
+            
           <Col md={2}>
             <Row>
               <Col md={12} id='coinName'>
@@ -136,6 +149,7 @@ class AddedCoin extends React.Component {
                 <div><b>WEEK:</b> <span id="pcRight">{weekChange}% </span></div>
         </div>
           </Col>
+
           <Col md={3.5}>
             <Row>
               <div id='currentPrice'>
@@ -153,8 +167,11 @@ class AddedCoin extends React.Component {
               ${calcValue}
             </div>
           </Col>
+
         </Row>
       </div>
+
+
     )
   }
 }
