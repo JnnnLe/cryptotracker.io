@@ -1,13 +1,14 @@
 div.modal-content {
-  width: 500px;
+  width: 400px;
   height: 350px
 }
 
 input#coin-name,
 input#holdings {
-  width: 75%;
+  width: 50%;
   margin: auto;
-  font-size: 1em
+  font-size: 1em;
+  font-weight: 500
 }
 
 label {
@@ -27,7 +28,7 @@ label {
 
 #modalBtns {
   margin: 0 auto;
-  padding: 20px 20px 0 130px
+  padding: 20px 20px 0 100px
 }
 
 h4.modal-title {
