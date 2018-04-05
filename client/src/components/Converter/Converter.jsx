@@ -95,10 +95,23 @@ class ConverterApp extends Component {
           <Col md={5} id="converter-container">
             <Row>
               <Col md={12}>
-              <Row><h1>Amount</h1><Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} /></Row>
-              <Row><h1>From</h1><Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} /></Row>
-              <Row><h1>To</h1><Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} /></Row>
+              <Row>
+              <Col md={6}><h1>Amount</h1></Col>
+              <Col md={6}><Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} /></Col></Row>
+
+
+              <Row>
+              <Col md={6}><h1>From</h1></Col>
+              <Col md={6}><Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} /></Col></Row>
+
+
+              <Row><Col md={6}><h1>To</h1></Col><Col md={6}><Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} /></Col></Row>
               </Col>
+
+
+              <Button color="primary" id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
+
+              <Row><Col md={6}><h1>To</h1></Col><Col md={6}><Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} /></Col></Row>
 
 
             </Row>

@@ -13,9 +13,9 @@
 .fromCoin,
 .toCoin,
 .convertedCoinAmount {
-  width: 250px;
-  margin: none;
-  float: right
+  width: 150px;
+  /* margin: 0 auto; */
+  /* float: right */
 }
 
 h1 {
