@@ -11,7 +11,7 @@ span#pcRight {
   background-color: white;
   border: solid 2px black;
   border-radius: 5px;
-  width: 900px;
+  width: 1000px;
   height: 80px;
   margin-bottom: 5px
 }
@@ -28,14 +28,26 @@ span#pcRight {
   font-size: 16px
 }
 
+
+
 #currentPrice {
-  font-size: 24px;
+  font-size: 2.25em;
   font-weight: bold;
   color: green
 }
 
 .percentages {
-  font-size: 12px
+  font-size: 1em;
+  font-weight: 600
+}
+
+#marketCapHeader {
+  font-size: 1.125em;
+  font-weight: 500
+}
+
+#currentMarketCap {
+  font-size: 1.25em
 }
 
 .userHoldings {

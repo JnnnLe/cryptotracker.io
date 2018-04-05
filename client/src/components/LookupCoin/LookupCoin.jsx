@@ -178,9 +178,12 @@ class LookupCoin extends React.Component {
     </Col>
 
     <Col md={2}>
-      <div id='marketCap'>
-      <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
-      </div>
+    <div id='marketCap'>
+    <a id='marketCapHeader'>Market Cap:</a>
+    <br/>
+    <NumberFormat id="currentMarketCap" value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
+    </div>
+
     </Col>
     <Col md={1}>
       <div id='rank'>

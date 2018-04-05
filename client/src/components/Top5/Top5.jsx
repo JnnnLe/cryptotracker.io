@@ -52,14 +52,16 @@ class Top5 extends Component {
         <Col md={3.5}>
           <Row>
             <div id='currentPrice'>
-            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={2} prefix={'$'} />
             </div>
           </Row>
         </Col>
 
         <Col md={2}>
           <div id='marketCap'>
-          <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+          <a id='marketCapHeader'>Market Cap:</a>
+          <br/>
+          <NumberFormat id="currentMarketCap" value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
           </div>
         </Col>
         <Col md={1}>
