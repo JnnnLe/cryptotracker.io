@@ -1,12 +1,18 @@
+div.modal-content {
+  width: 500px;
+  height: 350px
+}
+
 input#coin-name,
 input#holdings {
   width: 75%;
-  margin: auto
+  margin: auto;
+  font-size: 1em
 }
 
 label {
   padding-top: 10px;
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-weight: bold;
   float: inherit;
   text-align: center;
@@ -15,7 +21,7 @@ label {
 
 #addCoinBtn,
 #submitCoinBtn {
-  font-size: 1.125em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -25,7 +31,7 @@ label {
 }
 
 h4.modal-title {
-  font-size: 2.25em;
+  font-size: 2em;
   font-weight: bolder;
   margin-bottom: 10px
 }
