@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import reactstrap, { Row, Col, FormGroup, Label, Input } from 'reactstrap';
+
+
 import "./Converter.css"
 
 
@@ -97,7 +100,7 @@ class ConverterApp extends Component {
           <label>
             Amount 
             <br/>
-            <input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
+            <Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
           </label> 
 
           <br/>
@@ -105,23 +108,23 @@ class ConverterApp extends Component {
           <label>
             Convert this Coin: 
             <br/>
-            <input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
+            <Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
             
           </label>
   
           <label>
             To this Coin: 
             <br/>
-            <input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} />
+            <Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} />
           </label>
           <br/>
-            <input id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
+            <Input id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
 
           <br/>
           <br/>
             <label> Converted Value =   
             <br/>
-              <input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} />
+              <Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} />
           </label>
 
           </form>
