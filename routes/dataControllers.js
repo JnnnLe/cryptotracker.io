@@ -1,29 +1,78 @@
 const passport = require("../services/passport.js");
 const db = require("../models");
 
+function coinUpdater(coinData, coinNameFromUser) {
+    console.log("function coin Data", coinData);
+    console.log("function usercoin data", coinNameFromUser)
+    for (var i = 0; i < coinData.length; i++) {
+        if (coinData[i].coin_name === coinNameFromUser) {
+            console.log("coin exists")
+            var funcObj = {
+                "bool": true,
+                "quant": coinData[i].quantity
+            }
+
+            return funcObj;
+
+        }
+
+    }
+    console.log("coin name not exists")
+    return false
+}
+
 module.exports = app => {
 
 
-    app.post('/coinpost', function(req, res) {
+    app.post('/coinpost', function (req, res) {
         console.log("hgjfhjhgjhjhjhgjhjhjhj", req.user.social_id);
         console.log("usercoin detaild", req.body)
+        //const userCoin = req.user.body.toLowerCase();
+        //findOne for user using socialID
+        //
         if (req.user.social_id) {
-            db.Currency.create({ "coin_name": req.body.coinName, "quantity": req.body.quantity, "price_bought": req.body.priceBought })
-                .then(function(dbCurrency) {
-                    console.log("dbcurrency", dbCurrency)
+            db.User.findOne({ "social_id": req.user.social_id }).then(function (data) {
+                console.log("data.........", data);
+                db.Currency.find({ "_id": { "$in": data.currency } }).then(function (coins) {
+                    console.log("coin data.....", coins)
+                    const functionObject = coinUpdater(coins, req.body.coinName)
+                    console.log("function working????????????????", functionObject)
 
-                    return db.User.findOneAndUpdate({ "social_id": req.user.social_id }, { $push: { currency: dbCurrency._id } }, { new: true })
+
+                    if (functionObject.bool) {
+                        const updatedQuantity = parseInt(functionObject.quant) + parseInt(req.body.quantity);
+                        console.log("updatedQuantity", updatedQuantity)
+                        db.Currency.update({ "coin_name": req.body.coinName }, { $set: { "quantity": updatedQuantity } }, { multi: true })
+                            .then(function (dbCurrency) {
+                                console.log("dbcurrency", dbCurrency)
+                                return res.redirect("/")
+                                // return db.User.findOneAndUpdate({ "social_id": req.user.social_id }, { $set: { currency: dbCurrency._id } }, { new: true })
+                            })
+
+                            .catch(function (err) {
+                                console.log(err)
+                            })
+
+                    }
+
+                    else {
+
+                        db.Currency.create({ "coin_name": req.body.coinName, "quantity": req.body.quantity })
+                            .then(function (dbCurrency) {
+                                console.log("dbcurrency", dbCurrency)
+
+                                return db.User.findOneAndUpdate({ "social_id": req.user.social_id }, { $push: { currency: dbCurrency._id } }, { new: true })
+                            })
+                            .then(function (dbUser) {
+                                console.log("data created")
+                            })
+                            .catch(function (err) {
+                                console.log(err)
+                            });
+                    }
+
                 })
-                .then(function(dbUser) {
-                    console.log("data created")
-                })
-                .catch(function(err) {
-                    console.log(err)
-                });
-
-        } else {
-            console.log("login plz");
-
+            });
         }
 
     });
