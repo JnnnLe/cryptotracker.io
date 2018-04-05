@@ -58,16 +58,6 @@ class LookupCoin extends React.Component {
       })
   }
 
-
-//ToDo: format numbers
-  // numberWithCommas(x) {
-  //   return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
-    // formatNum(num) {
-  //   return this.numberWithCommas(parseFloat(num).toFixed(2)) 
-  // }
-
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
     const { dominance, volume, totalCap} = this.state;
