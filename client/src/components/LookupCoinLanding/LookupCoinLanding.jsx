@@ -22,7 +22,7 @@ const LookupCoinLanding =  props => {
 
         <br/>
 
-        {displayGraph && (<LookupCoin userInput={userInput} />) && (<TradingViewWidget symbol={props.graphInput} style='3' height='400' width='1080' /> )}
+        {displayGraph && (<LookupCoin userInput={userInput} />) && (<TradingViewWidget symbol={props.graphInput} style='3' height='375' width='1000' /> )}
 
     </div>
     )
