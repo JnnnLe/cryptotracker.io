@@ -125,6 +125,8 @@ class AddedCoin extends React.Component {
 
     let totalWorth = [];
 
+    totalWorth.push(calcValue)
+
     console.log('this is it!', totalWorth)
 
     return (

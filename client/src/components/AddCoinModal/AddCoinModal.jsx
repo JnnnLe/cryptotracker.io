@@ -26,7 +26,7 @@ class AddCoinModal extends React.Component {
           <Form action="/coinpost" method ="post">
           <FormGroup>
           <Label for="coin-name">Cryptocurrency</Label>
-          <Input type="text" name="coinName" id="coin-name" placeholder="e.g. BTC" />
+          <Input type="text" name="coinName" id="coin-name" placeholder="e.g. Bitcoin or Ethereum" />
           <Label for="quantity">Shares Held</Label>
           <Input type="number" name="quantity" id="holdings" placeholder="e.g. 5" />
            
