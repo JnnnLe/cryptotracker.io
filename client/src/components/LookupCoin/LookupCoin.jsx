@@ -185,7 +185,7 @@ class LookupCoin extends React.Component {
     </div>
 
     </Col>
-    <Col md={1}>
+    <Col md={1} style={divStyle}>
       <div id='rank'>
         #{rank}
       </div>

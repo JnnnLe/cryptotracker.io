@@ -18,7 +18,12 @@ class Top5 extends Component {
     this.generateAllCoins = this.generateAllCoins.bind(this);
   }
 
+
+
   generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
+    var divStyle = {
+      padding: "inherit"
+    };
     return (  
     
       <div className='main-container'>
@@ -64,7 +69,7 @@ class Top5 extends Component {
           <NumberFormat id="currentMarketCap" value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
           </div>
         </Col>
-        <Col md={1}>
+        <Col md={1} style={divStyle}>
           <div id='rank'>
             #{rank}
           </div>
