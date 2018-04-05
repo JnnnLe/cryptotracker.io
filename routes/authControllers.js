@@ -25,13 +25,21 @@ module.exports = app => {
   });
 
   app.get('/api/currentUser', loggedIn, function(req, res) {
+
+    console.log("re.user##########",req.user)
+    var userDetails ={
+      social_id:req.user.social_id,
+      first_name :req.user.first_name,
+      last_name : req.user.last_name,
+      photo:req.user.photo
+    }
     console.log('res======',req.user);
-    res.json(req.user.first_name);
+    res.json(userDetails);
   });
 
-  app.get('/auth/logout', function(req, res) {
+  app.get('/logout', function(req, res) {
     req.logout();
-    res.send('loggedout')
+    res.redirect('/')
   });
 
   app.get('/status', function(req, res) {

@@ -21,6 +21,9 @@ var UserSchema = new Schema({
       type:String,
       unique:true
     },
+    photo:{
+      type:String,
+  },
 
     currency: [{
         // Store ObjectIds in the array

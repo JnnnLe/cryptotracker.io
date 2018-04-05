@@ -23,6 +23,7 @@ class AddedCoin extends React.Component {
       shares: this.props.shares, 
       // netValue: 0,
       // showInput: false
+
     }
 
     this.getValues = this.getValues.bind(this)
@@ -37,7 +38,7 @@ class AddedCoin extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target)
+    // console.log(event.target)
     const newState = { ...this.state }
     newState.shares = event.target.value
     this.setState(newState)
@@ -48,19 +49,19 @@ class AddedCoin extends React.Component {
     newState.showInput = !newState.showInput
     // let shares = newState.shares != undefined ? parseInt(newState.shares) : 0
     if (newState.shares) {
-      console.log('truthy', newState.shares)
+      // console.log('truthy', newState.shares)
     } else {
       newState.shares = 0
-      console.log('falsy', newState.shares)
+      // console.log('falsy', newState.shares)
     }
-    console.log('fsdfsdfsdfsdf', newState.price)
-    console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
-    console.log('fsdfsdfsdfsdf', parseFloat(newState.price).toFixed(2))
-    console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
-    console.log('fhdjskfsdfsfsdf', this.numberWithCommas(parseFloat(newState.price).toFixed(2)))
+    // console.log('fsdfsdfsdfsdf', newState.price)
+    // console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
+    // console.log('fsdfsdfsdfsdf', parseFloat(newState.price).toFixed(2))
+    // console.log('fsdfsdfsdfsdf', parseFloat(newState.price))
+    // console.log('fhdjskfsdfsfsdf', this.numberWithCommas(parseFloat(newState.price).toFixed(2)))
 
 
-    console.log('testing', newState.shares == true)
+    // console.log('testing', newState.shares == true)
     newState.priceDisplay = this.numberWithCommas(parseFloat(newState.price).toFixed(2))
     newState.netValue = this.calcNetValue(newState.shares, newState.price)
     this.setState(newState)
@@ -93,9 +94,9 @@ class AddedCoin extends React.Component {
         
           this.setState(state)
           // console.log(test[0])
-          console.log(this.state.name)
-          console.log(this.state.dayChange)
-          console.log(this.state.weekChange)
+          // console.log(this.state.name)
+          // console.log(this.state.dayChange)
+          // console.log(this.state.weekChange)
         })
       }
       
@@ -103,6 +104,9 @@ class AddedCoin extends React.Component {
     return (
       parseFloat(shares) * parseFloat(price)
     )
+  }
+
+  getUserWorth(netValue) {
   }
 
 
@@ -116,6 +120,7 @@ class AddedCoin extends React.Component {
     let calcValue = netValue ? netValue.toFixed(2) : '0'
     calcValue = this.numberWithCommas(calcValue)
     console.log('hi', calcValue)
+    console.log(this.state)
 
     return (
       <div className='main-container'>

@@ -1,0 +1,38 @@
+div.modal-content {
+  width: 400px;
+  height: 350px
+}
+
+input#coin-name,
+input#holdings {
+  width: 50%;
+  margin: auto;
+  font-size: 1em;
+  font-weight: 500
+}
+
+label {
+  padding-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  float: inherit;
+  text-align: center;
+  display: inherit
+}
+
+#addCoinBtn,
+#submitCoinBtn {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#modalBtns {
+  margin: 0 auto;
+  padding: 20px 20px 0 100px
+}
+
+h4.modal-title {
+  font-size: 2em;
+  font-weight: bolder;
+  margin-bottom: 10px
+}

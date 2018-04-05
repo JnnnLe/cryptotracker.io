@@ -24,7 +24,8 @@ passport.use(
                             "social_id": profile.id,
                             "first_name": profile.name.givenName,
                             "last_name": profile.name.familyName,
-                            "email": profile.emails[0].value
+                            "email": profile.emails[0].value,
+                            "photo": profile.photos[0].value
                         },
                         (err, user) => {
                             console.log(user)
