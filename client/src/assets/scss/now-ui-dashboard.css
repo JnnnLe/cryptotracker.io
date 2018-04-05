@@ -2979,7 +2979,7 @@ Created using IcoMoon - icomoon.io
     z-index: 3; }
   .sidebar[data-color="blue"]:after,
   .off-canvas-sidebar[data-color="blue"]:after {
-    background: #2CA8FF; }
+    background: #f96332; }
   .sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]),
   .off-canvas-sidebar[data-color="blue"] .nav li.active > a:not([data-toggle="collapse"]) {
     color: #2CA8FF; }
