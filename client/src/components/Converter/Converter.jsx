@@ -92,22 +92,15 @@ class ConverterApp extends Component {
     return (
       <div>
         <Row>
-          <Col md={6} id="converter-container">
+          <Col md={5} id="converter-container">
             <Row>
-              <Col md={6}>
-              HI
+              <Col md={12}>
+              <Row><h1>Amount</h1><Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} /></Row>
+              <Row><h1>From</h1><Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} /></Row>
+              <Row><h1>To</h1><Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} /></Row>
               </Col>
-              <Col md={6}>
-              HI
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              HI
-              </Col>
+
+
             </Row>
           </Col>
         </Row>
