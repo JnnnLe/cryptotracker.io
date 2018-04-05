@@ -126,6 +126,8 @@ class Losers extends Component {
         <div className='losers-percentages'>
           <span id="arrow-down"></span><div class='loserPC'>{PC7Dy}%</div>
         </div>
+        <br/>
+        <br/>
           <div id='losers-currentPrice'>
             ${price}
           </div>
