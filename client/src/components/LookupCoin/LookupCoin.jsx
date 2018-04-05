@@ -61,6 +61,10 @@ class LookupCoin extends React.Component {
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
     const { dominance, volume, totalCap} = this.state;
+
+    var divStyle = {
+      padding: "inherit"
+    };
   
     return (
       
