@@ -64,7 +64,7 @@ class LookupCoin extends React.Component {
   
     return (
       
-      <div className='main-container'>
+     {/*} <div className='main-container'>
         <Row>
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
@@ -139,7 +139,57 @@ class LookupCoin extends React.Component {
         </Row>
       </div>
 
-    </div> 
+    </div>*/},
+
+    <div className='main-container'>
+    <Row>
+
+    <div className='logo'>
+      <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
+    </div>
+      
+    <Col md={2}>
+      <Row>
+        <Col md={12} id='coinName'>
+          {name}
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12} id='symbol'>
+          ({symbol})
+        </Col>
+      </Row>
+    </Col>
+
+    <Col md={1.25}>
+    <div className='percentages'>
+          <div><b>HOUR:</b> <span id="pcRight">{hourChange}% </span></div>
+          <div><b>DAY:</b> <span id="pcRight">{dayChange}% </span></div>
+          <div><b>WEEK:</b> <span id="pcRight">{weekChange}% </span></div>
+  </div>
+    </Col>
+
+    <Col md={3.5}>
+      <Row>
+        <div id='currentPrice'>
+        <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={2} prefix={'$'} />
+        </div>
+      </Row>
+    </Col>
+
+    <Col md={2}>
+      <div id='marketCap'>
+      <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
+      </div>
+    </Col>
+    <Col md={1}>
+      <div id='rank'>
+        #{rank}
+      </div>
+    </Col>
+
+  </Row>
+</div>
 
     )
   }
