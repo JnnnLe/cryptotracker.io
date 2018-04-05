@@ -1,5 +1,6 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
+import NumberFormat from 'react-number-format';
 
 import reactstrap, { Row, Col } from 'reactstrap';
 
@@ -88,7 +89,7 @@ class AddedCoin extends React.Component {
           state.weekChange = fetchedResults[0].percent_change_7d,
           state.rank = fetchedResults[0].rank,
           state.priceBTC = fetchedResults[0].price_btc,
-          state.netValue = this.calcNetValue(this.state.shares, this.formatNum(fetchedResults[0].price_usd))
+          state.netValue = this.calcNetValue(this.state.shares, this.formatNum(fetchedResults[0].price_usd).replace(/,\s?/g, ""))
         
           this.setState(state)
           // console.log(test[0])

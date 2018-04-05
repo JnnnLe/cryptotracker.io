@@ -11,8 +11,7 @@ class Top5 extends Component {
     super();
     this.state = {
       topCryptos: [],
-      queryParams: '',
-      // nameLower: this.props.coinName.toLowerCase()
+      queryParams: ''
     }, 
 
     this.generateCoin = this.generateCoin.bind(this);
@@ -20,8 +19,8 @@ class Top5 extends Component {
   }
 
   generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower) {
-    return (
-
+    return (  
+    
       <div className='main-container'>
         <Row>
 
@@ -53,14 +52,14 @@ class Top5 extends Component {
         <Col md={3.5}>
           <Row>
             <div id='currentPrice'>
-              ${price}
+            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
             </div>
           </Row>
         </Col>
 
         <Col md={2}>
           <div id='marketCap'>
-          {marketCap}
+          <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} />
           </div>
         </Col>
         <Col md={1}>
@@ -84,7 +83,7 @@ class Top5 extends Component {
     Object.keys(this.state.topCryptos).map((coin, i) => {
       const coinName = this.state.topCryptos[coin].name;
       const symbol = this.state.topCryptos[coin].symbol;
-      const price = this.state.topCryptos[coin].price_usd;
+      let price = this.state.topCryptos[coin].price_usd;
       const PC1Hr = this.state.topCryptos[coin].percent_change_1h;
       const PC24Hr = this.state.topCryptos[coin].percent_change_24h;
       const PC7Dy = this.state.topCryptos[coin].percent_change_7d;
@@ -92,11 +91,20 @@ class Top5 extends Component {
       const rank = this.state.topCryptos[coin].rank;
       let nameLower = this.state.topCryptos[coin].name.toLowerCase();
 
+      if (price[0] === '0' && price[2] === '0' && price[3]) {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(3)
+      }
+
+      if (price[0] != '0' || price[0] == '0') {
+        var backToNum = Number(price)
+        price = backToNum.toFixed(2)
+      }
+ 
       if (coinName == 'Bitcoin Cash') {
         nameLower = "bitcoin-cash"
       }
 
-      console.log(nameLower)
       const jsx = this.generateCoin(i, coinName, symbol, price, PC1Hr, PC24Hr, PC7Dy, marketCap, rank, nameLower);
 
       coinjsx.push(jsx);
