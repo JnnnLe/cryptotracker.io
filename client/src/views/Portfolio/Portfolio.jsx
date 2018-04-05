@@ -46,10 +46,6 @@ class Portfolio extends React.Component{
             this.setState(state)
         })
     }
-
-    addCoin() {
-
-    }
     
 
     getUserStuff() {

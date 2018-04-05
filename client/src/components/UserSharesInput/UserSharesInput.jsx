@@ -29,7 +29,6 @@ class UserSharesInput extends Component {
 
   render() {
     return (
-      // <div onClick={this.handleClick}>
         <div id="renderShares">
         <button type="submit" onClick={this.props.handleClick}>
         <img src={require('./edit.png')} height={16} width={14} />
