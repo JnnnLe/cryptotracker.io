@@ -80,8 +80,6 @@ class Top5 extends Component {
     )
   }
 
-
-
   generateAllCoins() {
     
     let coinjsx = [];

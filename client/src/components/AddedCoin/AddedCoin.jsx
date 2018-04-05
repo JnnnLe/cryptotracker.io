@@ -101,10 +101,6 @@ class AddedCoin extends React.Component {
     )
   }
 
-  getUserWorth(netValue) {
-  }
-
-
   numberWithCommas(x) {
     return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -114,17 +110,13 @@ class AddedCoin extends React.Component {
 
     let calcValue = netValue ? netValue.toFixed(2) : '0'
     calcValue = this.numberWithCommas(calcValue)
-    console.log('hi', calcValue)
-    console.log(this.state)
 
     return (
       <div className='main-container'>
         <Row>
-
           <div className='logo'>
             <img src={`https://coincheckup.com/images/coins/${this.state.nameLower}.png`} height="64" width="64" />
           </div>
-            
           <Col md={2}>
             <Row>
               <Col md={12} id='coinName'>
@@ -144,7 +136,6 @@ class AddedCoin extends React.Component {
                 <div><b>WEEK:</b> <span id="pcRight">{weekChange}% </span></div>
         </div>
           </Col>
-
           <Col md={3.5}>
             <Row>
               <div id='currentPrice'>
@@ -162,11 +153,8 @@ class AddedCoin extends React.Component {
               ${calcValue}
             </div>
           </Col>
-
         </Row>
       </div>
-
-
     )
   }
 }
