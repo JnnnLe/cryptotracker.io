@@ -8,17 +8,12 @@
   margin-bottom: 5px;
 }
 
-.stats-container {
-  /* margin-top: 100px; */
+input#coinInput {
+  writing-mode: horizontal-tb !important;
+  min-width: 1000px;
+  min-height: 100px;
+  outline: none;
 }
-
-/* div.main-container, .stats-container, .globalInfo  {
-  background: white;
-  width: 100%;
-  margin: 0 auto 4px auto;
-  padding: 1em;
-  box-shadow: 1px 1px 0 lightgrey;
-} */
 
 #marketCap {
   font-size: 1em;
@@ -28,9 +23,4 @@
 #rank {
   font-size: 2.5em;
   font-weight: bolder
-}
-
-#gainers-losers {
-  
-  
 }

@@ -17,9 +17,7 @@ const LookupCoinLanding =  props => {
     <div className='userInputForGraph form-group'>
       
         <form id='coinInput' className='rf-search-bar js-search-bar' onSubmit={props.handleSubmit}>
-          <label>
             <input id='coinInput' className='rf-search-bar__input js-search-bar__input' autoComplete='off' type="text" name='search' value placeholder='Search coin here...' value={userInput} onChange={props.handleInput} /> 
-          </label>
         </form>
 
         <br/>
