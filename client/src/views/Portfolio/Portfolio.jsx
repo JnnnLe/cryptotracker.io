@@ -46,10 +46,6 @@ class Portfolio extends React.Component{
             this.setState(state)
         })
     }
-
-    addCoin() {
-
-    }
     
 
     getUserStuff() {
@@ -83,10 +79,9 @@ class Portfolio extends React.Component{
                     <br />
                     <AddCoinModal show={this.state.modal} toggleFn={this.toggleModal} refreshData={this.triggerDataReload}/>
                     <Button color="primary" id="addACoin" onClick={this.toggleModal}>Add a Coin</Button>
-                    {/*<button onClick={this.getUserStuff}>GETMEUSERS</button>
-                        <button onClick={this.getUserCoins}>GETCoins</button>*/}
                     </Col>
                   </Row>
+                  <br/>
                   <Row>
                   <Col md={12}>
                     {user

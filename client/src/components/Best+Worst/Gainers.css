@@ -14,7 +14,8 @@ img#logoSm {
 
 #gainers-currentPrice {
   color: green;
-  font-size: 1em
+  font-size: 1.25em;
+  font-weight: bold
 }
 
 #invisible {
@@ -31,7 +32,7 @@ div#symbol {
 
 .gainerPC {
   display: inline-flex;
-  font-size: 1.5em;
+  font-size: 1.75em;
   float: right
 }
 

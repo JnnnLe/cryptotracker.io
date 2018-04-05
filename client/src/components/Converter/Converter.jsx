@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import reactstrap, { Button, Row, Col, FormGroup, Label, Input } from 'reactstrap';
+
+
 import "./Converter.css"
 
 
@@ -88,45 +91,77 @@ class ConverterApp extends Component {
   render() {
     return (
       <div>
-          <br/>
-          <br/>
-          
-          <div id="convertForm">
+        <Row>
+          <Col md={5} id="converter-container">
+            <Row>
+              <Col md={12}>
+              <Row>
+              <Col md={6}><h1>Amount</h1></Col>
+              <Col md={6}><Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} /></Col></Row>
+              <br/>
+
+
+              <Row>
+              <Col md={6}><h1>From</h1></Col>
+              <Col md={6}><Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} /></Col></Row>
+              <br/>
+
+
+
+              <Row><Col md={6}><h1>To</h1></Col><Col md={6}><Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} /></Col></Row>
+              <br/>
+
+
+              <Row><Button color="primary" id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter}>CONVERT</Button></Row>
+              <br/>
+
+
+              <Row><Col md={6}><h1>Conversion</h1></Col><Col md={6}><Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} /></Col></Row>
+
+              </Col>
+
+
+            </Row>
+          </Col>
+        </Row>
+
+
+
+          {/*<div id="convertForm">
           <h1>Currency Converter</h1>
           <form onSubmit={this.handleSubmit}>
-          <label>
-            Amount 
-            <br/>
-            <input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
-          </label> 
+          <div className="formField">
+          Amount 
+          <Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} />
+          </div>
 
           <br/>
           <br/>
-          <label>
-            Convert this Coin: 
-            <br/>
-            <input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
-            
-          </label>
+          <div className="formField">
+          <Label>
+          Convert this Coin: 
+          <Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} />
+          </Label>
+          </div>
   
-          <label>
-            To this Coin: 
-            <br/>
-            <input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} />
-          </label>
-          <br/>
-            <input id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
-
-          <br/>
-          <br/>
-            <label> Converted Value =   
-            <br/>
-              <input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} />
-          </label>
-
+          <div className="formField">
+          <Label>
+          To this Coin: 
+          <Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} />
+          </Label>
+          </div>  
+          
+          <div className="formField">
+          <Button color="primary" id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
+          <Label> Converted Value =   
+          <Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} />
+          </Label>
+          </div>
           </form>
-        </div>
-      </div>
+    </div>*/}
+    </div>
+
+
     )
   }
 }

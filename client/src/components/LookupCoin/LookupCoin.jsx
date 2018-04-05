@@ -58,98 +58,67 @@ class LookupCoin extends React.Component {
       })
   }
 
-
-//ToDo: format numbers
-  // numberWithCommas(x) {
-  //   return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
-
-    // formatNum(num) {
-  //   return this.numberWithCommas(parseFloat(num).toFixed(2)) 
-  // }
-
   render() {
     const { name, symbol, price, marketCap, dayChange, weekChange, hourChange, rank, priceBTC, id  } = this.props.coinData;
     const { dominance, volume, totalCap} = this.state;
+
+    var divStyle = {
+      padding: "inherit"
+    };
   
     return (
+    <div className='main-container'>
+    <Row>
+
+    <div className='logo'>
+      <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
+    </div>
       
-      <div className='main-container'>
-        <Row>
-          <div className='logo'>
-            <img src={`https://coincheckup.com/images/coins/${id}.png`} height="64" width="64" />
-          </div>
-         
-          <Col md={2}>
-            <Row>
-              <Col md={12} id='coinName'>
-                {name}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={12} id='coinSymbol'>
-                ({symbol})
-              </Col>
-            </Row>
-          </Col>
+    <Col md={2}>
+      <Row>
+        <Col md={12} id='coinName'>
+          {name}
+        </Col>
+      </Row>
+      <Row>
+        <Col md={12} id='symbol'>
+          ({symbol})
+        </Col>
+      </Row>
+    </Col>
 
-          <Col md={1}>
-            <Row>
-              <div id='currentPrice'>
-                <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
-              </div>
-            </Row>
-          </Col>
-              
-          <Col md={3}>
-            <Row>
-              <div className='percentages'>
-              <b>Market Cap: <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </b>
-                <br/>
-                <b>HOUR: {hourChange}% </b>
-                <b>DAY: {dayChange}% </b>
-                <b>WEEK: {weekChange}% </b>
-              </div>
-            </Row>      
-          </Col>
+    <Col md={1.25}>
+    <div className='percentages'>
+          <div><b>HOUR:</b> <span id="pcRight">{hourChange}% </span></div>
+          <div><b>DAY:</b> <span id="pcRight">{dayChange}% </span></div>
+          <div><b>WEEK:</b> <span id="pcRight">{weekChange}% </span></div>
+  </div>
+    </Col>
 
-          <Col md={3}>
-            <div className="netValue">
-              {priceBTC}
-            </div>
-          </Col>
+    <Col md={3.5}>
+      <Row>
+        <div id='currentPrice'>
+        <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={2} prefix={'$'} />
+        </div>
+      </Row>
+    </Col>
 
-          <Col md={1}>
-            <div id='rank'>
-              <b>#{rank} </b> 
-            </div>
-          </Col>
+    <Col md={2}>
+    <div id='marketCap'>
+    <a id='marketCapHeader'>Market Cap:</a>
+    <br/>
+    <NumberFormat id="currentMarketCap" value={marketCap} displayType={'text'} thousandSeparator={true} decimalScale={0} prefix={'$'} />
+    </div>
 
-        </Row>
-
-      <br/>
-      <br/>
-
-      <div className='globalInfo'>
-        <Row>
-          <Col md={4}>
-            Bitcoin % of market cap: 
-              <NumberFormat value={dominance} displayType={'text'} thousandSeparator={true} suffix={'%'} /> 
-          </Col>
-
-            <Col md={4}>
-              Total 24hr Volume:  
-                <NumberFormat value={volume} displayType={'text'} thousandSeparator={true} prefix={'$'} /> 
-            </Col>
-            
-            <Col md={4}>
-              Total Market cap: 
-              <NumberFormat value={totalCap} displayType={'text'} thousandSeparator={true} prefix={'$'} /> 
-          </Col>
-        </Row>
+    </Col>
+    <Col md={1} style={divStyle}>
+      <div id='rank'>
+        #{rank}
       </div>
+    </Col>
 
-    </div> 
+  </Row>
+</div>
 
     )
   }

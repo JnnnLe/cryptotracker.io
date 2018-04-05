@@ -119,13 +119,10 @@ class Gainers extends Component {
         <div className='gainers-percentages'>
           <span id="arrow-up"></span><div class='gainerPC'>{PC7Dy}%</div>
         </div>
-
-        <div>
-          {PC7Dy}%
-        </div>
-
-        <div>
-          ${price}
+        <br/>
+        <br/>
+        <div id='gainers-currentPrice'>
+        ${price}
         </div>
         </Col>
       </Row>

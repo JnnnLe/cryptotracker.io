@@ -29,12 +29,12 @@ class UserSharesInput extends Component {
 
   render() {
     return (
-      // <div onClick={this.handleClick}>
-        <div>
+        <div id="renderShares">
         <button type="submit" onClick={this.props.handleClick}>
-        <img src={require('./edit.png')} height={16} width={16} />
+        <img src={require('./edit.png')} height={16} width={14} />
         </button>
-        <h1>User Shares:</h1>{this.renderShares()}</div>
+        <br/>
+        User Shares:{this.renderShares()}</div>
     )
   }
 }

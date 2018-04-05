@@ -22,7 +22,9 @@ class AddedCoin extends React.Component {
       // weekChange: 0,
       shares: this.props.shares, 
       // netValue: 0,
-      // showInput: false
+      // showInput: false,
+      totalWorth: []
+
 
     }
 
@@ -106,8 +108,7 @@ class AddedCoin extends React.Component {
     )
   }
 
-  getUserWorth(netValue) {
-  }
+
 
 
   numberWithCommas(x) {
@@ -117,10 +118,14 @@ class AddedCoin extends React.Component {
   render() {
     const { name, symbol, priceDisplay, marketCap, hourChange, dayChange, weekChange, rank, priceBTC, nameLower, netValue, shares } = this.state
 
+
     let calcValue = netValue ? netValue.toFixed(2) : '0'
     calcValue = this.numberWithCommas(calcValue)
     console.log('hi', calcValue)
-    console.log(this.state)
+
+    let totalWorth = [];
+
+    console.log('this is it!', totalWorth)
 
     return (
       <div className='main-container'>
