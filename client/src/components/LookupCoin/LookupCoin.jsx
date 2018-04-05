@@ -8,6 +8,7 @@ import UserSharesInput from '../UserSharesInput/UserSharesInput';
 import './LookupCoin.css'
 
 import LookupCoinLanding from '../LookupCoinLanding/LookupCoinLanding';
+const NumberFormat = require('react-number-format');
 
 class LookupCoin extends React.Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class LookupCoin extends React.Component {
           <Col md={1}>
             <Row>
               <div id='currentPrice'>
-                ${price}
+                <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'$'}/>
               </div>
             </Row>
           </Col>
@@ -103,7 +104,7 @@ class LookupCoin extends React.Component {
           <Col md={3}>
             <Row>
               <div className='percentages'>
-              <b>Market Cap: ${marketCap} </b>
+              <b>Market Cap: <NumberFormat value={marketCap} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </b>
                 <br/>
                 <b>HOUR: {hourChange}% </b>
                 <b>DAY: {dayChange}% </b>
@@ -132,15 +133,18 @@ class LookupCoin extends React.Component {
       <div className='globalInfo'>
         <Row>
           <Col md={4}>
-            Bitcoin % of market cap: {dominance}
+            Bitcoin % of market cap: 
+              <NumberFormat value={dominance} displayType={'text'} thousandSeparator={true} suffix={'%'} /> 
           </Col>
 
             <Col md={4}>
-              Total 24hr Volume:  {volume}
+              Total 24hr Volume:  
+                <NumberFormat value={volume} displayType={'text'} thousandSeparator={true} prefix={'$'} /> 
             </Col>
             
             <Col md={4}>
-              Total Market cap: {totalCap}
+              Total Market cap: 
+              <NumberFormat value={totalCap} displayType={'text'} thousandSeparator={true} prefix={'$'} /> 
           </Col>
         </Row>
       </div>

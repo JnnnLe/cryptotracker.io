@@ -1,5 +1,6 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
+import NumberFormat from 'react-number-format';
 
 import reactstrap, { Row, Col } from 'reactstrap';
 
