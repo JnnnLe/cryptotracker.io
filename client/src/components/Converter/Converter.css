@@ -9,18 +9,30 @@
   display: inline-block
 }
 
+input#converterInput {
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: 600
+}
+
 .convertCoinAmount,
 .fromCoin,
 .toCoin,
 .convertedCoinAmount {
   width: 150px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   /* float: right */
+}
+
+#converterSubmit {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 auto
 }
 
 h1 {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: bolder;
   margin: 0 auto;
   padding: none
 }

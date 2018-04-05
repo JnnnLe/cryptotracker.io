@@ -98,20 +98,27 @@ class ConverterApp extends Component {
               <Row>
               <Col md={6}><h1>Amount</h1></Col>
               <Col md={6}><Input className="convertCoinAmount" id="converterInput" type="number" value={this.state.userAmount} onChange={this.handleSubmit} /></Col></Row>
+              <br/>
 
 
               <Row>
               <Col md={6}><h1>From</h1></Col>
               <Col md={6}><Input className="fromCoin" id="converterInput" type="text" value={this.state.convertFrom} onChange={this.handleFrom} /></Col></Row>
+              <br/>
+
 
 
               <Row><Col md={6}><h1>To</h1></Col><Col md={6}><Input className="toCoin" id="converterInput" type="text" value={this.state.convertTo} onChange={this.handleTo} /></Col></Row>
+              <br/>
+
+
+              <Row><Button color="primary" id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter}>CONVERT</Button></Row>
+              <br/>
+
+
+              <Row><Col md={6}><h1>Conversion</h1></Col><Col md={6}><Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} /></Col></Row>
+
               </Col>
-
-
-              <Button color="primary" id="converterSubmit" type="submit" value="Convert Coin" onClick={this.runConverter} />
-
-              <Row><Col md={6}><h1>To</h1></Col><Col md={6}><Input className="convertedCoinAmount" id="converterInput" type="number" value={this.state.conversionValue} /></Col></Row>
 
 
             </Row>
