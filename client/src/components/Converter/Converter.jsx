@@ -91,8 +91,11 @@ class ConverterApp extends Component {
   render() {
     return (
       <div>
+      <br/>
+      <br/>
+      <br/>
         <Row>
-          <Col md={5} id="converter-container">
+          <Col md={8} id="converter-container">
             <Row>
               <Col md={12}>
               <Row>

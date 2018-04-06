@@ -20,8 +20,6 @@ class BackGround extends React.Component {
                 }
 
                 
-
-
             render() {
                 return ( 
                     <div>
@@ -32,8 +30,6 @@ class BackGround extends React.Component {
             }
 
  }
-
-
 
 
         export default BackGround;
