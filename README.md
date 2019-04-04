@@ -113,13 +113,3 @@ Deployed with Heroku: **INSERT LINK HERE**
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-## Acknowledgments
-
-* Jerome Chennette (https://github.com/jeromechenette)
-* Dani Roxberry (https://github.com/droxey) 
-* Amber Burroughs (https://www.linkedin.com/in/amber-burroughs-29a69467)
-* Abraham Ferguson (https://github.com/abrahamfergie)
-
-Thank you for all of your help with debugging and directing our thought process!
